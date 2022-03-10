@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 0.0) {
-            Text("Dylan")
+            Text("Dylan Cto")
                 .padding()
             Color.blue.edgesIgnoringSafeArea(.top)
             Color.blue.edgesIgnoringSafeArea(.bottom)
