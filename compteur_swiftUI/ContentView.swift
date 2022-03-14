@@ -9,8 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Spacer()
+            HeaderView()
+            Spacer()
+            HStack {
+                Spacer()
+                ParametersView()
+                    .padding(20)
+            }
+            Spacer()
+            ButtonsView()
+            Spacer()
+            Button(action: {
+                
+            }) {
+                Text("Sauvegarder")
+            }
+            .buttonStyle(.borderedProminent)
+            Spacer()
+        }
+        .background(.blue)
     }
 }
 
