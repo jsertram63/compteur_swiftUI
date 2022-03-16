@@ -20,6 +20,7 @@ struct CompteurView: View {
                 NavigationBarView()
                 
                 Divider()
+                    .padding()
                 
                 HeaderView()
                 
@@ -40,6 +41,7 @@ struct CompteurView: View {
                 }) {
                     Text("Sauvegarder")
                         .fontWeight(.bold)
+                        .foregroundColor(Color("Color5"))
                 }
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 .background(Color("Color2"))

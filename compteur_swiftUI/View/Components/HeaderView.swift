@@ -12,7 +12,7 @@ struct HeaderView: View {
         HStack{
             Text("0000")
                 .font(.system(size: 75.0, weight: .bold))
-                .foregroundColor(.accentColor)
+                .foregroundColor(Color("Color5"))
                 // ultraThinMaterial : effet de transparence
                 //.background(.ultraThinMaterial)
         }

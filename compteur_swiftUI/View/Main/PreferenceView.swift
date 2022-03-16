@@ -16,7 +16,7 @@ struct PreferenceView: View {
             VStack {
                 Text("Préférences")
             }
-            .foregroundColor(.accentColor)
+            .foregroundColor(Color("Color5"))
         }
     }
 }

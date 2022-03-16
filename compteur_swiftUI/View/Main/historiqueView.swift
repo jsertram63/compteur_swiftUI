@@ -16,7 +16,7 @@ struct historiqueView: View {
             VStack {
                 Text("Historique")
             }
-            .foregroundColor(.accentColor)
+            .foregroundColor(Color("Color5"))
         }
     }
 }

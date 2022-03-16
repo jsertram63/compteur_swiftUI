@@ -12,7 +12,7 @@ struct NavigationBarView: View {
         HStack {
             Text("Compteur")
                 .font(.system(size: 50, weight: .bold, design: .rounded))
-                .foregroundColor(.accentColor)
+                .foregroundColor(Color("Color3"))
             
             Spacer()
         }

@@ -20,7 +20,7 @@ struct ParametersView: View {
             }
             .padding(.trailing)
         }
-        .foregroundColor(.accentColor)
+        .foregroundColor(Color("Color5"))
     }
 }
 
