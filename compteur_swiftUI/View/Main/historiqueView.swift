@@ -11,7 +11,7 @@ struct historiqueView: View {
     var body: some View {
         
         ZStack {
-            Color.blue.ignoresSafeArea()
+            Color("Color1").ignoresSafeArea()
             
             VStack {
                 Text("Historique")

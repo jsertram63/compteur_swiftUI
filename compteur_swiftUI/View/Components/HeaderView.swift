@@ -11,8 +11,8 @@ struct HeaderView: View {
     var body: some View {
         HStack{
             Text("0000")
-                .font(.system(size: 70.0,weight: .bold))
-                .foregroundColor(.white)
+                .font(.system(size: 75.0, weight: .bold))
+                .foregroundColor(.accentColor)
                 // ultraThinMaterial : effet de transparence
                 //.background(.ultraThinMaterial)
         }
@@ -22,6 +22,5 @@ struct HeaderView: View {
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView()
-            .background(.blue)
     }
 }

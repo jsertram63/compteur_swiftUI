@@ -19,7 +19,7 @@ struct ButtonsView: View {
                 Image(systemName:"minus.square")
                     .resizable()
                     // change la couleur de l'image
-                    .foregroundColor(.white)
+                    .foregroundColor(.accentColor)
                     .frame(width: 75, height: 75)
                     .padding()
             }
@@ -33,7 +33,7 @@ struct ButtonsView: View {
                 Image(systemName: "arrow.counterclockwise.circle")
                     .resizable()
                     // change la couleur de l'image
-                    .foregroundColor(.white)
+                    .foregroundColor(.accentColor)
                     .frame(width: 75, height: 75)
                     .padding()
             }
@@ -47,7 +47,7 @@ struct ButtonsView: View {
                 Image(systemName:"plus.square")
                     .resizable()
                     // change la couleur de l'image
-                    .foregroundColor(.white)
+                    .foregroundColor(.accentColor)
                     .frame(width: 75, height: 75)
                     .padding()
             }
@@ -63,6 +63,5 @@ struct ButtonsView: View {
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonsView()
-            .background(.blue)
     }
 }

@@ -11,7 +11,7 @@ struct ContentView: View {
     
     //
     init() {
-        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = UIColor(named: "Color1")
     }
     
@@ -35,7 +35,6 @@ struct ContentView: View {
                     Text("Préférences")
                 }
         }
-        .accentColor(.blue)
     }
 }
 

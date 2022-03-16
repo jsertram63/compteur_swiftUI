@@ -11,6 +11,7 @@
 		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
 		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
 		3766286127E1EC270095FBFD /* historiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766286027E1EC270095FBFD /* historiqueView.swift */; };
+		37F7286527E214630041A95F /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7286427E214630041A95F /* NavigationBarView.swift */; };
 		89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */; };
 		89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76227D67D1700359EA0 /* ContentView.swift */; };
 		89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76427D67D1800359EA0 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
 		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		3766286027E1EC270095FBFD /* historiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historiqueView.swift; sourceTree = "<group>"; };
+		37F7286427E214630041A95F /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		89BFD75D27D67D1700359EA0 /* compteur_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compteur_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compteur_swiftUIApp.swift; sourceTree = "<group>"; };
 		89BFD76227D67D1700359EA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,8 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				89F5083027DFB49200AAE627 /* HeaderView.swift */,
-				89F5082E27DFB1B600AAE627 /* ButtonsView.swift */,
 				89F5083227DFB87800AAE627 /* ParametersView.swift */,
+				89F5082E27DFB1B600AAE627 /* ButtonsView.swift */,
+				37F7286427E214630041A95F /* NavigationBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
 				3766286127E1EC270095FBFD /* historiqueView.swift in Sources */,
+				37F7286527E214630041A95F /* NavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

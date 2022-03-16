@@ -13,14 +13,15 @@ struct CompteurView: View {
         // Propriété conteneur en couche ZStack
         ZStack {
             
-            Color.blue.ignoresSafeArea()
+            Color("Color1").ignoresSafeArea()
             
             // propriété conteneur verticale VStack
             VStack {
+                NavigationBarView()
+                
+                Divider()
                 
                 HeaderView()
-                
-                Spacer()
                 
                 Divider()
                     .padding()
@@ -38,15 +39,15 @@ struct CompteurView: View {
                     // Fonction pour sauvegarder le comptage
                 }) {
                     Text("Sauvegarder")
+                        .fontWeight(.bold)
                 }
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .background(.green)
+                .background(Color("Color2"))
                 .clipShape(Capsule())
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 5, y: 5)
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 2, y: 3)
                 
                 Spacer()
             }
-            .foregroundColor(.white) // accenColor défini dans Assets
             .padding()
         }
     }

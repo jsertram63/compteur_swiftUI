@@ -15,18 +15,18 @@ struct ParametersView: View {
             VStack(spacing: 5) {
                 Text("Articles")
                     .font(.system(size: 35.0,weight: .bold))
-                    .foregroundColor(.white)
                 Text("3")
-                    .foregroundColor(.white)
                     .font(.system(size: 25.0,weight: .bold))
             }
+            .padding(.trailing)
         }
+        .foregroundColor(.accentColor)
     }
 }
 
 struct ParametersView_Previews: PreviewProvider {
     static var previews: some View {
         ParametersView()
-            .background(.blue)
+            .background(Color("Color1"))
     }
 }
