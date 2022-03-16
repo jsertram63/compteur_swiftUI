@@ -25,7 +25,7 @@ struct ContentView: View {
             historiqueView()
                 .tabItem{
                     Image(systemName: "list.bullet")
-                    Text("Compteur")
+                    Text("Historiques")
                 }
             
             PreferenceView()
