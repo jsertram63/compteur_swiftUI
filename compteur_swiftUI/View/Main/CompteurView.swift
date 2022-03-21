@@ -36,17 +36,7 @@ struct CompteurView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    // Fonction pour sauvegarder le comptage
-                }) {
-                    Text("Sauvegarder")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("Color5"))
-                }
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .background(Color("Color2"))
-                .clipShape(Capsule())
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 2, y: 3)
+                saveButton
                 
                 Spacer()
             }
@@ -58,5 +48,24 @@ struct CompteurView: View {
 struct CompteurView_Previews: PreviewProvider {
     static var previews: some View {
         CompteurView()
+    }
+}
+
+/* ******************************************************* ******** */
+
+extension CompteurView {
+    // Bouton sauvegarder
+    private var saveButton: some View {
+        Button(action: {
+            // Fonction pour sauvegarder le comptage
+        }) {
+            Text("Sauvegarder")
+                .fontWeight(.bold)
+                .foregroundColor(Color("Color5"))
+        }
+        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .background(Color("Color2"))
+        .clipShape(Capsule())
+        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 2, y: 3)
     }
 }

@@ -51,8 +51,8 @@
 		3766285727E1DBE40095FBFD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3766285827E1DBFF0095FBFD /* Main */,
 				3766285927E1DC080095FBFD /* Components */,
+				3766285827E1DBFF0095FBFD /* Main */,
 			);
 			path = View;
 			sourceTree = "<group>";
