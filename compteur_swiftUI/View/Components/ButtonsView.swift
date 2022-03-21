@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ButtonsView: View {
+    
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
     var body: some View {
         HStack {
             
             Spacer()
             
             Button {
-                // Action pour soustraire l'incrémentation
+                compteurViewModel.decCompteur()
             } label: {
                 Image(systemName:"minus.square")
                     .resizable()
@@ -28,7 +31,10 @@ struct ButtonsView: View {
             Spacer()
             
             Button {
-                // Action pour mettre à zéro le compteur
+                // appel des fonctions du compteurViewModel
+                compteurViewModel.alertEstVisible.toggle()
+                
+                //compteurViewModel.resetCompteur()
             } label: {
                 Image(systemName: "arrow.counterclockwise.circle")
                     .resizable()
@@ -37,12 +43,18 @@ struct ButtonsView: View {
                     .frame(width: 75, height: 75)
                     .padding()
             }
+            .alert(isPresented: $compteurViewModel.alertEstVisible, content: {
+            
+                return Alert(title: Text("Remise à zero"), message: Text("Voulez vous remettre à zero"), dismissButton: .default(Text("Oui"), action: {
+                    compteurViewModel.resetCompteur()
+                }))
+            })
 
             
             Spacer()
             
             Button {
-                // Action pour ajouter l'incrémentation
+                compteurViewModel.incCompteur()
             } label: {
                 Image(systemName:"plus.square")
                     .resizable()

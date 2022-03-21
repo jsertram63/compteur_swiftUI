@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CompteurView: View {
     
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
     var body: some View {
         // Propriété conteneur en couche ZStack
         ZStack {
