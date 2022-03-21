@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
     var body: some View {
         HStack{
-            Text("0000")
+            Text(String(compteurViewModel.compteurEnCourant))
                 .font(.system(size: 75.0, weight: .bold))
                 .foregroundColor(Color("Color5"))
                 // ultraThinMaterial : effet de transparence
