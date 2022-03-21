@@ -15,19 +15,21 @@ struct ContentView: View {
     }
     
     var body: some View {
+        // Tabview : container pour implémenter une tabbar (3 onglets)
         TabView {
+            // onglet compteur
             CompteurView()
                 .tabItem{
-                    Image(systemName: "10.square.fill")
+                    Image(systemName: "10.square.fill") // sfSympbol
                     Text("Compteur")
                 }
-            
+            // onglet historique
             historiqueView()
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Historiques")
                 }
-            
+            // onglet preferences
             PreferenceView()
                 .tabItem {
                     Image(systemName: "filemenu.and.selection")
