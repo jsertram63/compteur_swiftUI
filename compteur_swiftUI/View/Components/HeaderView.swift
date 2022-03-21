@@ -11,10 +11,8 @@ struct HeaderView: View {
     var body: some View {
         HStack{
             Text("0000")
-                .font(.system(size: 70.0,weight: .bold))
-            
-                .foregroundColor(.white)
-                .padding()
+                .font(.system(size: 75.0, weight: .bold))
+                .foregroundColor(Color("Color5"))
                 // ultraThinMaterial : effet de transparence
                 //.background(.ultraThinMaterial)
         }

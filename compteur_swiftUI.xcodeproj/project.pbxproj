@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */; };
+		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
+		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
+		3766286127E1EC270095FBFD /* historiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766286027E1EC270095FBFD /* historiqueView.swift */; };
+		37F7286527E214630041A95F /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7286427E214630041A95F /* NavigationBarView.swift */; };
 		89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */; };
 		89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76227D67D1700359EA0 /* ContentView.swift */; };
 		89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76427D67D1800359EA0 /* Assets.xcassets */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
+		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		3766286027E1EC270095FBFD /* historiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historiqueView.swift; sourceTree = "<group>"; };
+		37F7286427E214630041A95F /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		89BFD75D27D67D1700359EA0 /* compteur_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compteur_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compteur_swiftUIApp.swift; sourceTree = "<group>"; };
 		89BFD76227D67D1700359EA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +48,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3766285727E1DBE40095FBFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3766285927E1DC080095FBFD /* Components */,
+				3766285827E1DBFF0095FBFD /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3766285827E1DBFF0095FBFD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */,
+				89BFD76227D67D1700359EA0 /* ContentView.swift */,
+				3766285C27E1E75B0095FBFD /* CompteurView.swift */,
+				3766285E27E1E9F80095FBFD /* PreferenceView.swift */,
+				3766286027E1EC270095FBFD /* historiqueView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3766285927E1DC080095FBFD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				89F5083027DFB49200AAE627 /* HeaderView.swift */,
+				89F5083227DFB87800AAE627 /* ParametersView.swift */,
+				89F5082E27DFB1B600AAE627 /* ButtonsView.swift */,
+				37F7286427E214630041A95F /* NavigationBarView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		89BFD75427D67D1700359EA0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */,
-				89BFD76227D67D1700359EA0 /* ContentView.swift */,
-				89BFD76427D67D1800359EA0 /* Assets.xcassets */,
+				3766285727E1DBE40095FBFD /* View */,
 				89BFD76627D67D1800359EA0 /* Preview Content */,
-				89F5082E27DFB1B600AAE627 /* ButtonsView.swift */,
-				89F5083027DFB49200AAE627 /* HeaderView.swift */,
-				89F5083227DFB87800AAE627 /* ParametersView.swift */,
+				89BFD76427D67D1800359EA0 /* Assets.xcassets */,
 			);
 			path = compteur_swiftUI;
 			sourceTree = "<group>";
@@ -134,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */,
 				89BFD76827D67D1800359EA0 /* Preview Assets.xcassets in Resources */,
 				89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */,
 			);
@@ -147,10 +187,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F5082F27DFB1B600AAE627 /* ButtonsView.swift in Sources */,
+				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				89F5083327DFB87800AAE627 /* ParametersView.swift in Sources */,
 				89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */,
+				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
+				3766286127E1EC270095FBFD /* historiqueView.swift in Sources */,
+				37F7286527E214630041A95F /* NavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"compteur_swiftUI/Preview Content\"";
@@ -287,8 +332,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +346,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,6 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"compteur_swiftUI/Preview Content\"";
@@ -316,8 +365,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,7 +379,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
