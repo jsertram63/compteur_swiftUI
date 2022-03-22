@@ -84,6 +84,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3796FBA427E9BE8D0046361F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89F4741827E907BA00F15410 /* CompteurViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		89BFD75427D67D1700359EA0 = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +111,10 @@
 		89BFD75F27D67D1700359EA0 /* compteur_swiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				89F4741727E907A900F15410 /* Model */,
 				89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */,
+				89F4741727E907A900F15410 /* Model */,
 				3766285727E1DBE40095FBFD /* View */,
+				3796FBA427E9BE8D0046361F /* ViewModel */,
 				89BFD76627D67D1800359EA0 /* Preview Content */,
 				89BFD76427D67D1800359EA0 /* Assets.xcassets */,
 			);
@@ -124,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				89F4741927E907BA00F15410 /* CompteurModel.swift */,
-				89F4741827E907BA00F15410 /* CompteurViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
