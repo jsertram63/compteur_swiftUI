@@ -10,12 +10,11 @@ import SwiftUI
 
 class CompteurViewModel : ObservableObject {
     // déclaration de variables qui pourront être modifiée grâce à @Published
-    @Published var compteurEnCours = 0
+    @Published var compteurEnCours = 0000
     @Published var pasDuCompteur = 1
     @Published var intituleCompteur = []
-    @Published var alertEstVisible = false;
+    @Published var alertEstVisible = false
     
-    // Propriété déclarée qui convertira compteruEnCours en String avec 0000
     var formattedCompteurEnCours: String {
         return String(format: "%04d", compteurEnCours)
     }
@@ -36,6 +35,3 @@ class CompteurViewModel : ObservableObject {
         compteurEnCours = 0
     }
 }
-
-
-

@@ -65,7 +65,7 @@ extension ButtonsView {
     private var resetButton: some View {
         Button {
             // appel des fonctions du compteurViewModel
-            compteurViewModel.alertEstVisible.toggle()
+            compteurViewModel.alertEstVisible = true
         } label: {
             Image(systemName: "arrow.counterclockwise.circle")
                 .resizable()
@@ -80,6 +80,7 @@ extension ButtonsView {
                 message: Text("Attention, vous perdrez le votre dernier comptage !"),
                 primaryButton: .destructive(Text("Oui")) {
                     compteurViewModel.resetCompteur()
+                    compteurViewModel.compteurEnCours = 0000
                 },
                 secondaryButton: .cancel(Text("Annuler"))
             )
