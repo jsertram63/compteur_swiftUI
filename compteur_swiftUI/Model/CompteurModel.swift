@@ -9,7 +9,7 @@ import Foundation
 
 // définition d'un compteur
 struct Compteur {
-    let digitialNumber:String
-    let pasDuCompteur:Int
-    let intituleCompteur:String
+    let compteurEnCours: Int
+    let pasDuCompteur: Int
+    let intituleCompteur: [String]
 }
