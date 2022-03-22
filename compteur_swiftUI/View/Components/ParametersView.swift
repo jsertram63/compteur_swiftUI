@@ -13,8 +13,10 @@ struct ParametersView: View {
             Spacer()
             
             VStack(spacing: 5) {
+                // Nom du type de choix sera passé à l'avenir
                 Text("Articles")
                     .font(.system(size: 35.0,weight: .bold))
+                // Choix du pas d'incrémentation à afficher selon paramètres
                 Text("3")
                     .font(.system(size: 25.0,weight: .bold))
             }
