@@ -15,6 +15,7 @@ struct CompteurView: View {
         // Propriété conteneur en couche ZStack
         ZStack {
             
+            // par exemple la propriété Color est une première couche de la ZStack
             Color("Color1").ignoresSafeArea()
             
             // propriété conteneur verticale VStack
@@ -50,6 +51,7 @@ struct CompteurView: View {
 struct CompteurView_Previews: PreviewProvider {
     static var previews: some View {
         CompteurView()
+            .environmentObject(CompteurViewModel())
     }
 }
 
