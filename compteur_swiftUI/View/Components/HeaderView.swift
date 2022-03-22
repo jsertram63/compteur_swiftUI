@@ -13,7 +13,8 @@ struct HeaderView: View {
     
     var body: some View {
         HStack{
-            Text(String(compteurViewModel.compteurEnCourant))
+            // formattage de Int -> String en la propriété déclarée
+            Text(compteurViewModel.formattedCompteurEnCours)
                 .font(.system(size: 75.0, weight: .bold))
                 .foregroundColor(Color("Color5"))
                 // ultraThinMaterial : effet de transparence
