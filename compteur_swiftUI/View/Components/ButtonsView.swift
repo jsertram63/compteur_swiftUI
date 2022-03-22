@@ -54,7 +54,7 @@ extension ButtonsView {
         } label: {
             Image(systemName:"minus.square")
                 .resizable()
-                // change la couleur de l'image
+            // change la couleur de l'image
                 .foregroundColor(Color("Color5"))
                 .frame(width: 75, height: 75)
                 .padding()
@@ -66,22 +66,24 @@ extension ButtonsView {
         Button {
             // appel des fonctions du compteurViewModel
             compteurViewModel.alertEstVisible.toggle()
-            
-            //compteurViewModel.resetCompteur()
         } label: {
             Image(systemName: "arrow.counterclockwise.circle")
                 .resizable()
-                // change la couleur de l'image
+            // change la couleur de l'image
                 .foregroundColor(Color("Color5"))
                 .frame(width: 75, height: 75)
                 .padding()
         }
-        .alert(isPresented: $compteurViewModel.alertEstVisible, content: {
-        
-            return Alert(title: Text("Remise à zero"), message: Text("Voulez vous remettre à zero"), dismissButton: .default(Text("Oui"), action: {
-                compteurViewModel.resetCompteur()
-            }))
-        })
+        .alert(isPresented:$compteurViewModel.alertEstVisible) {
+            Alert(
+                title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
+                message: Text("Attention, vous perdrez le votre dernier comptage !"),
+                primaryButton: .destructive(Text("Oui")) {
+                    compteurViewModel.resetCompteur()
+                },
+                secondaryButton: .cancel(Text("Annuler"))
+            )
+        }
     }
     
     // Vue bouton d'incrémentation
@@ -91,7 +93,7 @@ extension ButtonsView {
         } label: {
             Image(systemName:"plus.square")
                 .resizable()
-                // change la couleur de l'image
+            // change la couleur de l'image
                 .foregroundColor(Color("Color5"))
                 .frame(width: 75, height: 75)
                 .padding()
