@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    //
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
+    // initialisation de la tabBar pour effectuer des modifications sur celle-ci
     init() {
         UITabBar.appearance().isTranslucent = false
     }
@@ -19,6 +21,7 @@ struct ContentView: View {
         TabView {
             // onglet compteur
             CompteurView()
+                // création des éléments de la tabBar
                 .tabItem{
                     Image(systemName: "10.square.fill") // sfSympbol
                     Text("Compteur")
@@ -42,5 +45,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(CompteurViewModel())
     }
 }
