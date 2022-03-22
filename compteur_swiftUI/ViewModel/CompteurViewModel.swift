@@ -6,33 +6,35 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 class CompteurViewModel : ObservableObject {
-    // déclaration d'une variable String et pourra être modifier
-    @Published var digitalNumber:String = "0000"
-    @Published var compteurEnCourant:Int = 0
-    @Published var pasDuCompteur:Int = 1
-    @Published var intituleCompteur: String = "Posts"
-    @Published var alertEstVisible : Bool = false;
+    // déclaration de variables qui pourront être modifiée grâce à @Published
+    @Published var compteurEnCours = 0
+    @Published var pasDuCompteur = 1
+    @Published var intituleCompteur = []
+    @Published var alertEstVisible = false;
+    
+    // Propriété déclarée qui convertira compteruEnCours en String avec 0000
+    var formattedCompteurEnCours: String {
+        return String(format: "%04d", compteurEnCours)
+    }
     
     // les fonctions de notre compteur
     func incCompteur(){
-        
-        compteurEnCourant = compteurEnCourant + 1
+        compteurEnCours = compteurEnCours + 1
     }
     
     func decCompteur() {
-        if (compteurEnCourant > 0){
-            compteurEnCourant = compteurEnCourant - 1
+        if compteurEnCours > 0 {
+            compteurEnCours = compteurEnCours - 1
         }
        
     }
     
     func resetCompteur() {
-        compteurEnCourant = 0
+        compteurEnCours = 0
     }
-    
 }
 
 
