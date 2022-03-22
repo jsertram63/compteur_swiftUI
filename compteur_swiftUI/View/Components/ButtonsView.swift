@@ -16,54 +16,15 @@ struct ButtonsView: View {
             
             Spacer()
             
-            Button {
-                compteurViewModel.decCompteur()
-            } label: {
-                Image(systemName:"minus.square")
-                    .resizable()
-                    // change la couleur de l'image
-                    .foregroundColor(Color("Color5"))
-                    .frame(width: 75, height: 75)
-                    .padding()
-            }
-
+            minusButton
             
             Spacer()
             
-            Button {
-                // appel des fonctions du compteurViewModel
-                compteurViewModel.alertEstVisible.toggle()
-                
-                //compteurViewModel.resetCompteur()
-            } label: {
-                Image(systemName: "arrow.counterclockwise.circle")
-                    .resizable()
-                    // change la couleur de l'image
-                    .foregroundColor(Color("Color5"))
-                    .frame(width: 75, height: 75)
-                    .padding()
-            }
-            .alert(isPresented: $compteurViewModel.alertEstVisible, content: {
-            
-                return Alert(title: Text("Remise à zero"), message: Text("Voulez vous remettre à zero"), dismissButton: .default(Text("Oui"), action: {
-                    compteurViewModel.resetCompteur()
-                }))
-            })
-
+            resetButton
             
             Spacer()
             
-            Button {
-                compteurViewModel.incCompteur()
-            } label: {
-                Image(systemName:"plus.square")
-                    .resizable()
-                    // change la couleur de l'image
-                    .foregroundColor(Color("Color5"))
-                    .frame(width: 75, height: 75)
-                    .padding()
-            }
-
+            plusButton
             
             Spacer()
         }
@@ -74,6 +35,66 @@ struct ButtonsView: View {
 
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonsView()
+        // Coloration du fond de la preview afin de mieux visualiser
+        ZStack {
+            Color.accentColor.ignoresSafeArea()
+            ButtonsView()
+                .environmentObject(CompteurViewModel())
+        }
+    }
+}
+
+/* ************************************************************************** */
+
+extension ButtonsView {
+    // Vue bouton décrémentation
+    private var minusButton: some View {
+        Button {
+            compteurViewModel.decCompteur()
+        } label: {
+            Image(systemName:"minus.square")
+                .resizable()
+                // change la couleur de l'image
+                .foregroundColor(Color("Color5"))
+                .frame(width: 75, height: 75)
+                .padding()
+        }
+    }
+    
+    // Vue bouton reset
+    private var resetButton: some View {
+        Button {
+            // appel des fonctions du compteurViewModel
+            compteurViewModel.alertEstVisible.toggle()
+            
+            //compteurViewModel.resetCompteur()
+        } label: {
+            Image(systemName: "arrow.counterclockwise.circle")
+                .resizable()
+                // change la couleur de l'image
+                .foregroundColor(Color("Color5"))
+                .frame(width: 75, height: 75)
+                .padding()
+        }
+        .alert(isPresented: $compteurViewModel.alertEstVisible, content: {
+        
+            return Alert(title: Text("Remise à zero"), message: Text("Voulez vous remettre à zero"), dismissButton: .default(Text("Oui"), action: {
+                compteurViewModel.resetCompteur()
+            }))
+        })
+    }
+    
+    // Vue bouton d'incrémentation
+    private var plusButton: some View {
+        Button {
+            compteurViewModel.incCompteur()
+        } label: {
+            Image(systemName:"plus.square")
+                .resizable()
+                // change la couleur de l'image
+                .foregroundColor(Color("Color5"))
+                .frame(width: 75, height: 75)
+                .padding()
+        }
     }
 }
