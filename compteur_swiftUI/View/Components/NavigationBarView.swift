@@ -16,6 +16,7 @@ struct NavigationBarView: View {
             
             Spacer()
         }
+        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 

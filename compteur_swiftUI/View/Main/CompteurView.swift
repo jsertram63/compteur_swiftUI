@@ -23,19 +23,20 @@ struct CompteurView: View {
                 NavigationBarView()
                 
                 Divider()
-                    .padding()
+                    .padding(.horizontal)
                 
                 HeaderView()
                 
                 Divider()
-                    .padding()
+                    .padding(.horizontal)
                 
                 ParametersView()
                 
                 Divider()
-                    .padding()
+                    .padding(.horizontal)
                 
                 ButtonsView()
+                    .padding()
                 
                 Spacer()
                 
