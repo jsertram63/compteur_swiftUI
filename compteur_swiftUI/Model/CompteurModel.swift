@@ -12,4 +12,7 @@ struct Compteur {
     let compteurEnCours: Int
     let pasDuCompteur: Int
     let intituleCompteur: [String]
+    let indexSelectionne: String
 }
+
+

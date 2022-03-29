@@ -10,9 +10,10 @@ import SwiftUI
 
 class CompteurViewModel : ObservableObject {
     // déclaration de variables qui pourront être modifiée grâce à @Published
-    @Published var compteurEnCours = 0000
+    @Published var compteurEnCours = 0
     @Published var pasDuCompteur = 1
-    @Published var intituleCompteur = []
+    @Published var intituleCompteur = ["Posts", "Articles", "Votes"]
+    @Published var indexSelectionne = "Posts"
     @Published var alertEstVisible = false
     
     var formattedCompteurEnCours: String {
@@ -21,12 +22,14 @@ class CompteurViewModel : ObservableObject {
     
     // les fonctions de notre compteur
     func incCompteur(){
-        compteurEnCours = compteurEnCours + 1
+        compteurEnCours += pasDuCompteur
     }
     
     func decCompteur() {
-        if compteurEnCours > 0 {
-            compteurEnCours = compteurEnCours - 1
+        if compteurEnCours <= 0 {
+            compteurEnCours = 0
+        } else {
+            compteurEnCours -= pasDuCompteur
         }
        
     }

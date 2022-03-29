@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct PreferenceView: View {
-    // Propriété pour le StepperView
-    @State var pas: Int = 1
     
-    // Propriétés pour le PickerView
-    var libelles = ["Posts", "Articles", "Votes"]
-    @State private var selectedLibelleIndex = "Posts"
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
     
     // Propriété pour le ColorPickerView
-    @State private var bgColor = Color("Color5")
+    @State var bgColor = Color("Color5")
     
     // Propriété pour l'opacité
     @State var selectedOpacity: Double = 1.0
@@ -42,9 +38,9 @@ struct PreferenceView: View {
                     .padding(.bottom)
                 //
                 VStack(alignment: .leading, spacing: 15.0) {
-                    Stepper("incrémentation de: \(pas)", value: $pas, in: 1...100)
+                    Stepper("incrémentation de: \(compteurViewModel.pasDuCompteur)", value: $compteurViewModel.pasDuCompteur, in: 1...100)
                     
-                    Text("Cotégorie: \(selectedLibelleIndex)")
+                    Text("Cotégorie: \(compteurViewModel.indexSelectionne)")
                     
                     HStack(alignment: .center) {
                         Text("Choix de la couleur: ")
@@ -62,8 +58,8 @@ struct PreferenceView: View {
                     .padding(.bottom)
                 
                 VStack(spacing: 25.0) {
-                    Picker("Choisir une catégorie", selection: $selectedLibelleIndex) {
-                        ForEach(libelles, id: \.self) { index in
+                    Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
+                        ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
                             Text(index)
                                 .fontWeight(.medium)
                         }
@@ -85,6 +81,8 @@ struct PreferenceView: View {
                     Button {
                         bgColor = Color("Color5")
                         selectedOpacity = 1.0
+                        compteurViewModel.pasDuCompteur = 1
+                        compteurViewModel.indexSelectionne = "Posts"
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                             .frame(width: 15.0, height: 15.0)
@@ -105,6 +103,7 @@ struct PreferenceView: View {
     struct PreferenceView_Previews: PreviewProvider {
         static var previews: some View {
             PreferenceView()
+                .environmentObject(CompteurViewModel())
         }
     }
 }
