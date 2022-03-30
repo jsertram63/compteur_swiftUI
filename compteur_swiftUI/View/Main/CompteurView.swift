@@ -60,7 +60,7 @@ extension CompteurView {
     private var header: some View {
         HStack {
             Text("Compteur")
-                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .font(.system(size: 40, weight: .bold, design: .rounded))
                 .foregroundColor(Color("Color3"))
             
             Spacer()
@@ -73,7 +73,7 @@ extension CompteurView {
         HStack{
             // formattage de Int -> String en la propriété déclarée
             Text(compteurViewModel.formattedCompteurEnCours)
-                .font(.system(size: 50.0, weight: .bold))
+                .font(.system(size: 40.0, weight: .bold))
                 .foregroundColor(Color("Color5"))
                 .padding(.all)
             // ultraThinMaterial : effet de transparence
@@ -89,10 +89,10 @@ extension CompteurView {
             VStack(spacing: 5) {
                 // Nom du type de choix sera passé à l'avenir
                 Text(compteurViewModel.indexSelectionne)
-                    .font(.system(size: 25.0, weight: .bold))
+                    .font(.system(size: 20.0, weight: .bold))
                 // Choix du pas d'incrémentation à afficher selon paramètres
                 Text("\(compteurViewModel.pasDuCompteur)")
-                    .font(.system(size: 25.0, weight: .bold))
+                    .font(.system(size: 20.0, weight: .bold))
             }
         }
         .padding(.trailing)
@@ -101,7 +101,7 @@ extension CompteurView {
     
     // Users Actions
     private var usersActions: some View {
-        VStack(spacing: 50.0) {
+        VStack(spacing: 20.0) {
             // Boutons de comptage
             HStack {
                 Button {
@@ -111,7 +111,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 75, height: 75)
+                        .frame(width: 50, height: 50)
                         .padding()
                 }
                 
@@ -123,7 +123,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 75, height: 75)
+                        .frame(width: 50, height: 50)
                         .padding()
                 }
                 .alert(isPresented:$compteurViewModel.alertEstVisible) {
@@ -132,7 +132,7 @@ extension CompteurView {
                         message: Text("Attention, vous perdrez le votre dernier comptage !"),
                         primaryButton: .destructive(Text("Oui")) {
                             compteurViewModel.resetCompteur()
-                            compteurViewModel.compteurEnCours = 0000
+                            compteurViewModel.compteurEnCours = 0
                         },
                         secondaryButton: .cancel(Text("Annuler"))
                     )
@@ -145,7 +145,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 75, height: 75)
+                        .frame(width: 50, height: 50)
                         .padding()
                 }
             }

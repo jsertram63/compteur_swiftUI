@@ -23,14 +23,11 @@ struct PreferenceView: View {
                 Divider()
                     .background(Color.black)
                 
-                resumeParameter
-                
-                Divider()
-                    .background(Color.black)
-                
-                parameters
-                
-                Spacer()
+                ScrollView(showsIndicators: false) {
+                    resumeParameter
+                    
+                    parameters
+                }
             }
             .padding()
             .foregroundColor(Color("Color5"))
@@ -52,7 +49,7 @@ extension PreferenceView {
     private var header: some View {
         HStack(alignment: .center) {
             Text("Préférences")
-                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .font(.system(size: 40, weight: .bold, design: .rounded))
                 .foregroundColor(Color("Color3"))
                 .padding(.top)
             
@@ -84,8 +81,7 @@ extension PreferenceView {
                 .cornerRadius(5)
             }
         }
-        .font(.body)
-        .cornerRadius(15)
+        .padding(.bottom)
     }
     
     // Parameters
