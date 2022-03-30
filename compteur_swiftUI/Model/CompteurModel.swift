@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // définition d'un compteur
 struct Compteur {
@@ -13,6 +14,8 @@ struct Compteur {
     let pasDuCompteur: Int
     let intituleCompteur: [String]
     let indexSelectionne: String
+    let arrièrePlan: Color
+    let opaciteSelectionnee: Double
 }
 
 

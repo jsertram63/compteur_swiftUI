@@ -11,14 +11,7 @@ struct PreferenceView: View {
     
     @EnvironmentObject  private var compteurViewModel: CompteurViewModel
     
-    // Propriété pour le ColorPickerView
-    @State var bgColor = Color("Color5")
-    
-    // Propriété pour l'opacité
-    @State var selectedOpacity: Double = 1.0
-    
     var body: some View {
-        
         
         ZStack {
             Color("Color1").ignoresSafeArea()
@@ -32,9 +25,9 @@ struct PreferenceView: View {
                     
                     Spacer()
                 }
-                .padding(.vertical)
                 
                 Divider()
+                    .background(Color.black)
                     .padding(.bottom)
                 //
                 VStack(alignment: .leading, spacing: 15.0) {
@@ -43,19 +36,25 @@ struct PreferenceView: View {
                     Text("Cotégorie: \(compteurViewModel.indexSelectionne)")
                     
                     HStack(alignment: .center) {
-                        Text("Choix de la couleur: ")
+                        Text("Choix du thème: ")
                         
                         Image(systemName: "square.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(bgColor.opacity(selectedOpacity))
+                            .scaledToFit()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .foregroundColor(compteurViewModel.arrièrePlan.opacity(compteurViewModel.opaciteSelectionnee))
+                            .overlay {
+                                Circle().stroke(.white, lineWidth: 3)
+                            }
+                            .shadow(radius: 2)
                     }
                 }
-                .font(.headline)
+                .font(.body)
                 .cornerRadius(15)
                 
                 Divider()
-                    .padding(.bottom)
+                    .background(Color.black)
+                    .padding(.vertical)
                 
                 VStack(spacing: 25.0) {
                     Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
@@ -66,21 +65,22 @@ struct PreferenceView: View {
                     }
                     .pickerStyle(WheelPickerStyle())
                     
-                    ColorPicker("Définir votre couleur de fond", selection: $bgColor, supportsOpacity: false)
-                        .font(.headline)
+                    ColorPicker("Définir votre couleur de fond", selection: $compteurViewModel.arrièrePlan, supportsOpacity: false)
+                        .font(.body)
                     
-                    Slider(value: $selectedOpacity, in: 0...1)
+                    Slider(value: $compteurViewModel.opaciteSelectionnee, in: 0...1)
                     
-                    Text("Opacité: \((selectedOpacity * 100), specifier: "%.f") %")
-                        .font(.headline)
+                    Text("Opacité: \((compteurViewModel.opaciteSelectionnee * 100), specifier: "%.f") %")
+                        .font(.body)
+                        .fontWeight(.bold)
                 }
                 .padding()
                 .background(.ultraThinMaterial)
                 .cornerRadius(15)
                 .overlay(alignment: .topLeading) {
                     Button {
-                        bgColor = Color("Color5")
-                        selectedOpacity = 1.0
+                        compteurViewModel.arrièrePlan = Color("Color1")
+                        compteurViewModel.opaciteSelectionnee = 1.0
                         compteurViewModel.pasDuCompteur = 1
                         compteurViewModel.indexSelectionne = "Posts"
                     } label: {
@@ -93,9 +93,10 @@ struct PreferenceView: View {
                             .cornerRadius(15)
                             .shadow(radius: 5)
                     }
-                    .padding(10.0)
+                    .padding(12.0)
                 }
             }
+            .foregroundColor(Color("Color5"))
             .padding()
         }
     }

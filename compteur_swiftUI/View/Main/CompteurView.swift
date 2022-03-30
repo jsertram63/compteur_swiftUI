@@ -16,23 +16,28 @@ struct CompteurView: View {
         ZStack {
             
             // par exemple la propriété Color est une première couche de la ZStack
-            Color("Color1").ignoresSafeArea()
+            compteurViewModel.arrièrePlan
+                .opacity(compteurViewModel.opaciteSelectionnee)
+                .ignoresSafeArea()
             
             // propriété conteneur verticale VStack
             VStack {
                 NavigationBarView()
                 
                 Divider()
+                    .background(Color.black)
                     .padding(.horizontal)
                 
                 HeaderView()
                 
                 Divider()
+                    .background(Color.black)
                     .padding(.horizontal)
                 
                 ParametersView()
                 
                 Divider()
+                    .background(Color.black)
                     .padding(.horizontal)
                 
                 ButtonsView()
