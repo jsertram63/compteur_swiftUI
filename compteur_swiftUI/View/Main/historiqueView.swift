@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct historiqueView: View {
+    
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
     var body: some View {
         
         ZStack {
-            Color("Color1").ignoresSafeArea()
+            compteurViewModel.arrièrePlan
+                .opacity(compteurViewModel.opaciteSelectionnee)
+                .ignoresSafeArea()
             
             VStack {
                 Text("Historique")
@@ -24,5 +29,6 @@ struct historiqueView: View {
 struct historiqueView_Previews: PreviewProvider {
     static var previews: some View {
         historiqueView()
+            .environmentObject(CompteurViewModel())
     }
 }

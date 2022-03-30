@@ -14,43 +14,35 @@ struct CompteurView: View {
     var body: some View {
         // Propriété conteneur en couche ZStack
         ZStack {
-            
             // par exemple la propriété Color est une première couche de la ZStack
             compteurViewModel.arrièrePlan
                 .opacity(compteurViewModel.opaciteSelectionnee)
                 .ignoresSafeArea()
             
             // propriété conteneur verticale VStack
-            VStack {
-                NavigationBarView()
+            VStack(spacing: 25.0) {
+                header
                 
                 Divider()
                     .background(Color.black)
-                    .padding(.horizontal)
                 
-                HeaderView()
-                
-                Divider()
-                    .background(Color.black)
-                    .padding(.horizontal)
-                
-                ParametersView()
+                counter
                 
                 Divider()
                     .background(Color.black)
-                    .padding(.horizontal)
                 
-                ButtonsView()
-                    .padding()
+                categoriesAndPitch
                 
-                Spacer()
+                Divider()
+                    .background(Color.black)
                 
-                saveButton
+                usersActions
                 
                 Spacer()
             }
             .padding()
         }
+        
     }
 }
 
@@ -61,21 +53,117 @@ struct CompteurView_Previews: PreviewProvider {
     }
 }
 
-/* ******************************************************* ******** */
+/* ********************************************************************************************** */
 
 extension CompteurView {
-    // Bouton sauvegarder
-    private var saveButton: some View {
-        Button(action: {
-            // Fonction pour sauvegarder le comptage
-        }) {
-            Text("Sauvegarder")
-                .fontWeight(.bold)
-                .foregroundColor(Color("Color5"))
+    // Header
+    private var header: some View {
+        HStack {
+            Text("Compteur")
+                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .foregroundColor(Color("Color3"))
+            
+            Spacer()
         }
-        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .background(Color("Color2"))
-        .clipShape(Capsule())
-        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 2, y: 3)
+        .padding(.top)
+    }
+    
+    // Counter
+    private var counter: some View {
+        HStack{
+            // formattage de Int -> String en la propriété déclarée
+            Text(compteurViewModel.formattedCompteurEnCours)
+                .font(.system(size: 50.0, weight: .bold))
+                .foregroundColor(Color("Color5"))
+                .padding(.all)
+            // ultraThinMaterial : effet de transparence
+            //.background(.ultraThinMaterial)
+        }
+    }
+    
+    // Categories and pitch
+    private var categoriesAndPitch: some View {
+        HStack {
+            Spacer()
+            
+            VStack(spacing: 5) {
+                // Nom du type de choix sera passé à l'avenir
+                Text(compteurViewModel.indexSelectionne)
+                    .font(.system(size: 25.0, weight: .bold))
+                // Choix du pas d'incrémentation à afficher selon paramètres
+                Text("\(compteurViewModel.pasDuCompteur)")
+                    .font(.system(size: 25.0, weight: .bold))
+            }
+        }
+        .padding(.trailing)
+        .foregroundColor(Color("Color5"))
+    }
+    
+    // Users Actions
+    private var usersActions: some View {
+        VStack(spacing: 50.0) {
+            // Boutons de comptage
+            HStack {
+                Button {
+                    compteurViewModel.decCompteur()
+                } label: {
+                    Image(systemName:"minus.square")
+                        .resizable()
+                    // change la couleur de l'image
+                        .foregroundColor(Color("Color5"))
+                        .frame(width: 75, height: 75)
+                        .padding()
+                }
+                
+                Button {
+                    // appel des fonctions du compteurViewModel
+                    compteurViewModel.alertEstVisible = true
+                } label: {
+                    Image(systemName: "arrow.counterclockwise.circle")
+                        .resizable()
+                    // change la couleur de l'image
+                        .foregroundColor(Color("Color5"))
+                        .frame(width: 75, height: 75)
+                        .padding()
+                }
+                .alert(isPresented:$compteurViewModel.alertEstVisible) {
+                    Alert(
+                        title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
+                        message: Text("Attention, vous perdrez le votre dernier comptage !"),
+                        primaryButton: .destructive(Text("Oui")) {
+                            compteurViewModel.resetCompteur()
+                            compteurViewModel.compteurEnCours = 0000
+                        },
+                        secondaryButton: .cancel(Text("Annuler"))
+                    )
+                }
+                
+                Button {
+                    compteurViewModel.incCompteur()
+                } label: {
+                    Image(systemName:"plus.square")
+                        .resizable()
+                    // change la couleur de l'image
+                        .foregroundColor(Color("Color5"))
+                        .frame(width: 75, height: 75)
+                        .padding()
+                }
+            }
+            // Bouton sauvegarder
+            Button(action: {
+                // Fonction pour sauvegarder le comptage
+            }) {
+                Text("Sauvegarder")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+            }
+            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            .background(Color("Color2"))
+            .cornerRadius(15)
+            .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
+        }
+        .padding()
+        .background(.thinMaterial)
+        .cornerRadius(15)
     }
 }

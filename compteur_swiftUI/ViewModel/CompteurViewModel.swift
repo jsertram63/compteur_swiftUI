@@ -14,15 +14,10 @@ class CompteurViewModel : ObservableObject {
     // CompteurView
     @Published var compteurEnCours = 0
     @Published var pasDuCompteur = 1
-    //
-    @Published var intituleCompteur = ["Posts", "Articles", "Votes"]
-    @Published var indexSelectionne = "Posts"
-    //
-    @Published var alertEstVisible = false
-    //
-    @Published var arrièrePlan = Color("Color1")
-    @Published var opaciteSelectionnee = 1.0
     
+    @Published var alertEstVisible = false
+    
+    // Propriété déclarée qui convertie compteurEnCours de type String avec quatre caractères 0000
     var formattedCompteurEnCours: String {
         return String(format: "%04d", compteurEnCours)
     }
@@ -38,10 +33,16 @@ class CompteurViewModel : ObservableObject {
         } else {
             compteurEnCours -= pasDuCompteur
         }
-       
     }
     
     func resetCompteur() {
         compteurEnCours = 0
     }
+    
+    // PreferenceView
+    @Published var intituleCompteur = ["Posts", "Articles", "Votes"]
+    @Published var indexSelectionne = "Posts"
+    
+    @Published var arrièrePlan = Color("Color1")
+    @Published var opaciteSelectionnee = 1.0
 }
