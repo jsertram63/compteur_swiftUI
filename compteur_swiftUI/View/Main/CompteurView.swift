@@ -129,12 +129,12 @@ extension CompteurView {
                 .alert(isPresented:$compteurViewModel.alertEstVisible) {
                     Alert(
                         title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
-                        message: Text("Attention, vous perdrez le votre dernier comptage !"),
-                        primaryButton: .destructive(Text("Oui")) {
+                        message: Text("Attention, vous perdrez votre dernier comptage !"),
+                        primaryButton: .destructive(Text("Annuler")),
+                        secondaryButton: .cancel(Text("Oui")) {
                             compteurViewModel.resetCompteur()
                             compteurViewModel.compteurEnCours = 0
-                        },
-                        secondaryButton: .cancel(Text("Annuler"))
+                        }
                     )
                 }
                 
