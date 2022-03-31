@@ -18,7 +18,7 @@ class CompteurViewModel : ObservableObject {
     @Published var alertEstVisible = false
     
     // Propriété déclarée qui convertie compteurEnCours de type String avec quatre caractères 0000
-    var formattedCompteurEnCours: String {
+    var compteurEnCoursFormatte: String {
         return String(format: "%04d", compteurEnCours)
     }
     
@@ -40,7 +40,7 @@ class CompteurViewModel : ObservableObject {
     }
     
     // PreferenceView
-    @Published var intituleCompteur = ["Posts", "Articles", "Votes"]
+    @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = "Posts"
     
     @Published var arrièrePlan = Color("Color1")

@@ -23,11 +23,11 @@ struct PreferenceView: View {
                 Divider()
                     .background(Color.black)
                 
-                ScrollView(showsIndicators: false) {
-                    resumeParameter
-                    
-                    parameters
-                }
+                resumeParameter
+                
+                parameters
+                
+                Spacer()
             }
             .padding()
             .foregroundColor(Color("Color5"))
@@ -51,7 +51,7 @@ extension PreferenceView {
             Text("Préférences")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .foregroundColor(Color("Color3"))
-                .padding(.top)
+                
             
             Spacer()
         }
@@ -59,7 +59,7 @@ extension PreferenceView {
     
     // ResumeParameter
     private var resumeParameter: some View {
-        VStack(alignment: .leading, spacing: 15.0) {
+        VStack(alignment: .leading) {
             Stepper("incrémentation de: \(compteurViewModel.pasDuCompteur)", value: $compteurViewModel.pasDuCompteur, in: 1...100)
             
             Text("Cotégorie: \(compteurViewModel.indexSelectionne)")
@@ -86,7 +86,7 @@ extension PreferenceView {
     
     // Parameters
     private var parameters: some View {
-        VStack(spacing: 15.0) {
+        VStack(spacing: 25.0) {
             Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
                 ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
                     Text(index)

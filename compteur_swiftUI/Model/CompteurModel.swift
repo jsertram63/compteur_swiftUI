@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 // définition d'un compteur
-struct Compteur {
-    let compteurEnCours: Int
-    let pasDuCompteur: Int
-    let intituleCompteur: [String]
-    let indexSelectionne: String
-    let arrièrePlan: Color
-    let opaciteSelectionnee: Double
-}
 
-
+//struct Compteur {
+//    let compteurEnCours: Int
+//    let pasDuCompteur: Int
+//    let intituleCompteur: [String]
+//    let indexSelectionne: String
+//    let arrièrePlan: Color
+//    let opaciteSelectionnee: Double
+//}

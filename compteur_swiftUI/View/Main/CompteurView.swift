@@ -20,7 +20,7 @@ struct CompteurView: View {
                 .ignoresSafeArea()
             
             // propriété conteneur verticale VStack
-            VStack(spacing: 25.0) {
+            VStack(spacing: 30.0) {
                 header
                 
                 Divider()
@@ -42,7 +42,6 @@ struct CompteurView: View {
             }
             .padding()
         }
-        
     }
 }
 
@@ -65,19 +64,22 @@ extension CompteurView {
             
             Spacer()
         }
-        .padding(.top)
     }
     
     // Counter
     private var counter: some View {
         HStack{
-            // formattage de Int -> String en la propriété déclarée
-            Text(compteurViewModel.formattedCompteurEnCours)
-                .font(.system(size: 40.0, weight: .bold))
-                .foregroundColor(Color("Color5"))
-                .padding(.all)
-            // ultraThinMaterial : effet de transparence
-            //.background(.ultraThinMaterial)
+            Rectangle()
+                .foregroundColor(.white)
+                .background(.ultraThinMaterial)
+                .frame(width: 200.0, height: 100.0)
+                .cornerRadius(25)
+                .shadow(color: Color("Color5").opacity(0.8), radius: 5, x: 5, y: 5)
+                .overlay(alignment: .center) {
+                    Text(compteurViewModel.compteurEnCoursFormatte)
+                        .font(.system(size: 60, weight: .bold, design: .rounded))
+                        .foregroundColor(Color("Color5"))
+                }
         }
     }
     
@@ -89,10 +91,12 @@ extension CompteurView {
             VStack(spacing: 5) {
                 // Nom du type de choix sera passé à l'avenir
                 Text(compteurViewModel.indexSelectionne)
-                    .font(.system(size: 20.0, weight: .bold))
+                    .font(.title)
+                    .fontWeight(.bold)
                 // Choix du pas d'incrémentation à afficher selon paramètres
                 Text("\(compteurViewModel.pasDuCompteur)")
-                    .font(.system(size: 20.0, weight: .bold))
+                    .font(.title)
+                    .fontWeight(.bold)
             }
         }
         .padding(.trailing)
@@ -101,7 +105,7 @@ extension CompteurView {
     
     // Users Actions
     private var usersActions: some View {
-        VStack(spacing: 20.0) {
+        VStack(spacing: 50.0) {
             // Boutons de comptage
             HStack {
                 Button {
@@ -111,7 +115,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                         .padding()
                 }
                 
@@ -123,7 +127,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                         .padding()
                 }
                 .alert(isPresented:$compteurViewModel.alertEstVisible) {
@@ -145,7 +149,7 @@ extension CompteurView {
                         .resizable()
                     // change la couleur de l'image
                         .foregroundColor(Color("Color5"))
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                         .padding()
                 }
             }
