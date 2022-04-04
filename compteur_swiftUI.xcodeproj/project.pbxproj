@@ -15,6 +15,7 @@
 		89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76227D67D1700359EA0 /* ContentView.swift */; };
 		89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76427D67D1800359EA0 /* Assets.xcassets */; };
 		89BFD76827D67D1800359EA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76727D67D1800359EA0 /* Preview Assets.xcassets */; };
+		89DFA93B27FB6CB300D3D6DA /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFA93A27FB6CB300D3D6DA /* ContentView2.swift */; };
 		89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4741827E907BA00F15410 /* CompteurViewModel.swift */; };
 		89F4741B27E907BA00F15410 /* CompteurModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4741927E907BA00F15410 /* CompteurModel.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		89BFD76227D67D1700359EA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89BFD76427D67D1800359EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BFD76727D67D1800359EA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		89DFA93A27FB6CB300D3D6DA /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		89F4741827E907BA00F15410 /* CompteurViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompteurViewModel.swift; sourceTree = "<group>"; };
 		89F4741927E907BA00F15410 /* CompteurModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompteurModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 				3766285C27E1E75B0095FBFD /* CompteurView.swift */,
 				3766286027E1EC270095FBFD /* historiqueView.swift */,
 				3766285E27E1E9F80095FBFD /* PreferenceView.swift */,
+				89DFA93A27FB6CB300D3D6DA /* ContentView2.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
+				89DFA93B27FB6CB300D3D6DA /* ContentView2.swift in Sources */,
 				89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */,
 				3766286127E1EC270095FBFD /* historiqueView.swift in Sources */,
 			);
