@@ -21,6 +21,8 @@
 		89F5082F27DFB1B600AAE627 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5082E27DFB1B600AAE627 /* ButtonsView.swift */; };
 		89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5083027DFB49200AAE627 /* HeaderView.swift */; };
 		89F5083327DFB87800AAE627 /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5083227DFB87800AAE627 /* ParametersView.swift */; };
+		F86227E527FB0F1900F8D64C /* CircleCompteur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86227E427FB0F1900F8D64C /* CircleCompteur.swift */; };
+		F86227E727FB17C800F8D64C /* TimeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86227E627FB17C800F8D64C /* TimeMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		89F5082E27DFB1B600AAE627 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		89F5083027DFB49200AAE627 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		89F5083227DFB87800AAE627 /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
+		F86227E427FB0F1900F8D64C /* CircleCompteur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCompteur.swift; sourceTree = "<group>"; };
+		F86227E627FB17C800F8D64C /* TimeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				3766285C27E1E75B0095FBFD /* CompteurView.swift */,
 				3766285E27E1E9F80095FBFD /* PreferenceView.swift */,
 				3766286027E1EC270095FBFD /* historiqueView.swift */,
+				F86227E427FB0F1900F8D64C /* CircleCompteur.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				89F4741927E907BA00F15410 /* CompteurModel.swift */,
+				F86227E627FB17C800F8D64C /* TimeMode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,11 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86227E527FB0F1900F8D64C /* CircleCompteur.swift in Sources */,
 				89F5082F27DFB1B600AAE627 /* ButtonsView.swift in Sources */,
 				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
 				89F4741B27E907BA00F15410 /* CompteurModel.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
+				F86227E727FB17C800F8D64C /* TimeMode.swift in Sources */,
 				89F5083327DFB87800AAE627 /* ParametersView.swift in Sources */,
 				89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
