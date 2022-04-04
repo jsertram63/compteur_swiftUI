@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
+
+
+
+
 
 struct PreferenceView: View {
     
@@ -19,7 +24,7 @@ struct PreferenceView: View {
             
             VStack(spacing: 25.0) {
                 header
-                
+        
                 Divider()
                     .background(Color.black)
                 
@@ -95,14 +100,38 @@ extension PreferenceView {
             }
             .pickerStyle(WheelPickerStyle())
             
-            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrièrePlan, supportsOpacity: false)
+            HStack {
+                Spacer()
+                Button {
+                    
+                
+                    
+                } label: {
+                    Text("Ajouter")
+                        .foregroundColor(Color.blue)
+                
+                        
+                }
+               
+                
+                
+
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("Retirer")
+                        .foregroundColor(Color.red)
+                }
+                Spacer()
+             
+                
+            }
+            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrièrePlan, supportsOpacity: true)
                 .font(.body)
             
-            Slider(value: $compteurViewModel.opaciteSelectionnee, in: 0...1)
-            
-            Text("Opacité: \((compteurViewModel.opaciteSelectionnee * 100), specifier: "%.f") %")
-                .font(.body)
-                .fontWeight(.medium)
+         
         }
         .padding([.leading, .bottom, .trailing])
         .background(.ultraThinMaterial)
