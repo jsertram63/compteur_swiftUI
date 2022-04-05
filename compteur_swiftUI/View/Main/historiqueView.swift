@@ -15,7 +15,6 @@ struct historiqueView: View {
         
         ZStack {
             compteurViewModel.arrièrePlan
-                .opacity(compteurViewModel.opaciteSelectionnee)
                 .ignoresSafeArea()
             
             VStack {

@@ -19,23 +19,21 @@ struct PreferenceView: View {
     var body: some View {
         
         ZStack {
-            Color("Color1")
+            compteurViewModel.arrièrePlan
                 .ignoresSafeArea()
             
-            VStack(spacing: 25.0) {
-                header
-        
-                Divider()
-                    .background(Color.black)
-                
-                resumeParameter
-                
-                parameters
-                
-                Spacer()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 50.0) {
+                    header
+                    
+                    resumeParameter
+                    
+                    parameters
+                    
+                }
+                .padding()
+                .foregroundColor(Color("Color5"))
             }
-            .padding()
-            .foregroundColor(Color("Color5"))
         }
     }
     
@@ -47,67 +45,20 @@ struct PreferenceView: View {
     }
 }
 
-/* ********************************************************************************************** */
-
-
-extension PreferenceView {
-    func alertTF(title:String,message:String, hintText: String, primaryTitle:String,
-                 secondaryTitle:String, primaryAction: @escaping(String) -> (),
-                 secondaryAction:@escaping() ->()){
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addTextField { field in
-            field.placeholder = hintText
-        }
-        
-        alert.addAction(.init(title: secondaryTitle, style: .cancel, handler: { _ in
-            secondaryAction()
-        }))
-        
-        alert.addAction(.init(title: primaryTitle, style: .default, handler: { _ in
-            if let text = alert.textFields?[0].text{
-                primaryAction(text)
-                
-            }else {
-                primaryAction("")
-            }
-        }))
-        
-        rootController().present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func rootController() -> UIViewController{
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-            return .init()
-        }
-        guard let root = screen.windows.first?.rootViewController else {
-            return .init()
-        }
-        
-        return root
-    }
-    
-}
-
+/* ***************************************************************************************** */
 
 extension PreferenceView {
     // Header
     private var header: some View {
-        HStack(alignment: .center) {
-            Text("Préférences")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
-                .foregroundColor(Color("Color3"))
-                
-            
-            Spacer()
-        }
+        Text("Préférences")
+            .font(.system(size: 40, weight: .bold, design: .rounded))
+            .foregroundColor(.black)
     }
     
     // ResumeParameter
     private var resumeParameter: some View {
         VStack(alignment: .leading) {
-            Stepper("incrémentation de: \(compteurViewModel.pasDuCompteur)", value: $compteurViewModel.pasDuCompteur, in: 1...100)
+            Stepper("Choix du pas: \(compteurViewModel.pasDuCompteur)", value: $compteurViewModel.pasDuCompteur, in: 1...100)
             
             Text("Cotégorie: \(compteurViewModel.indexSelectionne)")
             
@@ -120,7 +71,7 @@ extension PreferenceView {
                         .scaledToFill()
                         .frame(width: 25.0, height: 25.0)
                         .clipShape(Rectangle())
-                        .foregroundColor(compteurViewModel.arrièrePlan.opacity(compteurViewModel.opaciteSelectionnee))
+                        .foregroundColor(compteurViewModel.arrièrePlan)
                 }
                 .padding(2.0)
                 .background(Color.white)
@@ -128,66 +79,69 @@ extension PreferenceView {
                 .cornerRadius(5)
             }
         }
-        .padding(.bottom)
+        .padding()
+        .background(.regularMaterial)
+        .cornerRadius(14)
+        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
     }
     
     // Parameters
     private var parameters: some View {
-        VStack(spacing: 25.0) {
+        VStack(spacing: 35.0) {
             Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
                 ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
                     Text(index)
-                        .fontWeight(.medium)
+                        .fontWeight(.bold)
                 }
             }
             .pickerStyle(WheelPickerStyle())
             
-            HStack {
+            HStack(alignment: .center) {
                 Spacer()
+                // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     alertTF(title: "Ajouter une category", message: "Saisir une catégorie", hintText: "category", primaryTitle: "OK", secondaryTitle: "Annuler") { text in
                         print(text)
                     } secondaryAction: {
                         print("cancel")
                     }
-
-                
-                    
                 } label: {
                     Text("Ajouter")
                         .foregroundColor(Color.blue)
-                
-                        
                 }
-               
+                .padding(10.0)
+                .background(.regularMaterial)
+                .cornerRadius(5)
+                .shadow(radius: 5)
                 
-                
-
                 Spacer()
                 
+                // Bouton retirer une catégorie par le biais d'une alerte
                 Button {
                     
                 } label: {
                     Text("Retirer")
                         .foregroundColor(Color.red)
                 }
-                Spacer()
-             
+                .padding(10.0)
+                .background(.regularMaterial)
+                .cornerRadius(5)
+                .shadow(radius: 5)
                 
+                
+                Spacer()
             }
+            
             ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrièrePlan, supportsOpacity: true)
                 .font(.body)
-            
-         
         }
         .padding([.leading, .bottom, .trailing])
-        .background(.ultraThinMaterial)
+        .background(.regularMaterial)
         .cornerRadius(15)
         .overlay(alignment: .topLeading) {
             Button {
                 // Remise à l'initial des variables
                 compteurViewModel.arrièrePlan = Color("Color1")
-                compteurViewModel.opaciteSelectionnee = 1.0
                 compteurViewModel.pasDuCompteur = 1
                 compteurViewModel.indexSelectionne = "Posts"
             } label: {
@@ -202,5 +156,47 @@ extension PreferenceView {
             }
             .padding(12.0)
         }
+    }
+    
+    // définition de création d'une alerte contenant un champ de texte avec le package SwiftAlertView
+    func alertTF(
+        title: String,
+        message: String,
+        hintText: String,
+        primaryTitle: String,
+        secondaryTitle: String,
+        primaryAction: @escaping(String) -> (),
+        secondaryAction:@escaping() ->()
+    ) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField { field in
+            field.placeholder = hintText
+        }
+        
+        alert.addAction(.init(title: secondaryTitle, style: .cancel, handler: { _ in
+            secondaryAction()
+        }))
+        
+        alert.addAction(.init(title: primaryTitle, style: .default, handler: { _ in
+            if let text = alert.textFields?[0].text{
+                primaryAction(text)
+                
+            } else {
+                primaryAction("")
+            }
+        }))
+        
+        rootController().present(alert, animated: true, completion: nil)
+    }
+    
+    func rootController() -> UIViewController{
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return .init()
+        }
+        guard let root = screen.windows.first?.rootViewController else {
+            return .init()
+        }
+        return root
     }
 }

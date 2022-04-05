@@ -56,10 +56,10 @@
     <resources>
         <image name="stepsCounter" width="128" height="128"/>
         <namedColor name="Color1">
-            <color red="0.4941176176" green="0.69019609689999994" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.2117646933" green="0.27843138579999999" blue="0.40392160420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Color3">
-            <color red="0.90588235859999999" green="0.84313726430000002" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

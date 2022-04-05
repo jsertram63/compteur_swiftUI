@@ -44,5 +44,4 @@ class CompteurViewModel : ObservableObject {
     @Published var indexSelectionne = "Posts"
     
     @Published var arrièrePlan = Color("Color1")
-    @Published var opaciteSelectionnee = 1.0
 }
