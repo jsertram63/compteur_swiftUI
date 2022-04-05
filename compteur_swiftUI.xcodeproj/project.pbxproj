@@ -162,7 +162,6 @@
 			);
 			mainGroup = 89BFD75427D67D1700359EA0;
 			packageReferences = (
-				89DFA93827FB5EBA00D3D6DA /* XCRemoteSwiftPackageReference "adaptive-master-detail-layouts" */,
 				89DFA93927FB5F0D00D3D6DA /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			productRefGroup = 89BFD75E27D67D1700359EA0 /* Products */;
@@ -411,14 +410,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		89DFA93827FB5EBA00D3D6DA /* XCRemoteSwiftPackageReference "adaptive-master-detail-layouts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jsertram63/adaptive-master-detail-layouts";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		89DFA93927FB5F0D00D3D6DA /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
