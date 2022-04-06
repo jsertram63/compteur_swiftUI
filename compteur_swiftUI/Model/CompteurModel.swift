@@ -16,5 +16,4 @@ import SwiftUI
 //    let intituleCompteur: [String]
 //    let indexSelectionne: String
 //    let arrièrePlan: Color
-//    let opaciteSelectionnee: Double
 //}

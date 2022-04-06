@@ -32,10 +32,11 @@ struct PreferenceView: View {
                 .padding()
                 .foregroundColor(Color("Color5"))
             }
-            .blur(radius: compteurViewModel.alertEstVisible ? 10 : 0)
+            // de flouter la view ciblée; ici la scrollView
+            .blur(radius: compteurViewModel.alertEstVisible ? 5 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(isShown: $compteurViewModel.alertEstVisible, text: $text)
+            AlertView(modaleEstVisible: $compteurViewModel.alertEstVisible, text: $text)
         }
     }
     

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct AlertView: View {
+    
+    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    
     let screenSize = UIScreen.main.bounds
-    @Binding var isShown: Bool
+    @Binding var modaleEstVisible: Bool
     @Binding var text: String
     
     var body: some View {
@@ -26,7 +29,7 @@ struct AlertView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        isShown = false
+                        modaleEstVisible = false
                     }
                     // Ajouter une fonction d'ajout d'une catégorie au picker en plus
                 } label: {
@@ -43,7 +46,7 @@ struct AlertView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        isShown = false
+                        modaleEstVisible = false
                     }
                 } label: {
                     Text("Annuler")
@@ -58,16 +61,16 @@ struct AlertView: View {
             }
         }
         .padding()
-        .frame(width: screenSize.width * 0.7, height: screenSize.height * 0.3)
+        .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.2)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
-        .offset(x: isShown ? 0 : screenSize.width, y: isShown ? 0 : screenSize.height)
+        .offset(x: modaleEstVisible ? 0 : screenSize.width, y: modaleEstVisible ? 0 : screenSize.height)
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
     }
 }
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertView(isShown: .constant(true), text: .constant(""))
+        AlertView(modaleEstVisible: .constant(true), text: .constant(""))
     }
 }
