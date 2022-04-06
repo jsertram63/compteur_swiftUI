@@ -32,10 +32,10 @@ struct PreferenceView: View {
                 .padding()
             }
             // de flouter la view ciblée; ici la scrollView
-            .blur(radius: compteurViewModel.alertEstVisible ? 5 : 0)
+            .blur(radius: compteurViewModel.modaleAffichee ? 5 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(modaleEstVisible: $compteurViewModel.alertEstVisible, text: $text)
+            AlertView(modaleEstVisible: $compteurViewModel.modaleAffichee, text: $text)
         }
     }
     
@@ -102,7 +102,7 @@ extension PreferenceView {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
-                        compteurViewModel.alertEstVisible = true
+                        compteurViewModel.modaleAffichee = true
                     }
                 } label: {
                     Text("Ajouter")

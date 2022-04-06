@@ -16,6 +16,7 @@ class CompteurViewModel : ObservableObject {
     @Published var pasDuCompteur = 1
     
     @Published var alertEstVisible = false
+    @Published var modaleAffichee = false
     
     // Propriété déclarée qui convertie compteurEnCours de type String avec quatre caractères 0000
     var compteurEnCoursFormatte: String {

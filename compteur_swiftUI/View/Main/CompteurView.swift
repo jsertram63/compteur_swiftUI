@@ -32,7 +32,7 @@ struct CompteurView: View {
                         categoriesAndPitch
                     }
                     .padding(25.0)
-                    .background(.thinMaterial)
+                    .background(.regularMaterial)
                     .cornerRadius(15)
                     .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
                     
@@ -69,10 +69,6 @@ extension CompteurView {
         Text(compteurViewModel.compteurEnCoursFormatte)
             .font(.system(size: 60, weight: .bold, design: .rounded))
             .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
-            .padding(10.0)
-            .background(.regularMaterial)
-            .cornerRadius(15)
-            .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
     }
     
     // Categories and pitch
