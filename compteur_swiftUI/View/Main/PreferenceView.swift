@@ -16,6 +16,9 @@ struct PreferenceView: View {
     
     @EnvironmentObject  private var compteurViewModel: CompteurViewModel
     
+    //@State private var isPresented: Bool = false
+    @State private var text: String = ""
+    
     var body: some View {
         
         ZStack {
@@ -87,117 +90,79 @@ extension PreferenceView {
     
     // Parameters
     private var parameters: some View {
-        VStack(spacing: 35.0) {
-            Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
-                ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
-                    Text(index)
-                        .fontWeight(.bold)
-                }
-            }
-            .pickerStyle(WheelPickerStyle())
-            
-            HStack(alignment: .center) {
-                Spacer()
-                // Bouton ajouter une catégorie par le biais d'une alerte
-                Button {
-                    alertTF(title: "Ajouter une category", message: "Saisir une catégorie", hintText: "category", primaryTitle: "OK", secondaryTitle: "Annuler") { text in
-                        print(text)
-                    } secondaryAction: {
-                        print("cancel")
+        ZStack {
+            VStack(spacing: 35.0) {
+                Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
+                    ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
+                        Text(index)
+                            .fontWeight(.bold)
                     }
-                } label: {
-                    Text("Ajouter")
-                        .foregroundColor(Color.blue)
                 }
-                .padding(10.0)
-                .background(.regularMaterial)
-                .cornerRadius(5)
-                .shadow(radius: 5)
+                .pickerStyle(WheelPickerStyle())
                 
-                Spacer()
-                
-                // Bouton retirer une catégorie par le biais d'une alerte
-                Button {
-                    
-                } label: {
-                    Text("Retirer")
-                        .foregroundColor(Color.red)
-                }
-                .padding(10.0)
-                .background(.regularMaterial)
-                .cornerRadius(5)
-                .shadow(radius: 5)
-                
-                
-                Spacer()
-            }
-            
-            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
-                .font(.body)
-        }
-        .padding([.leading, .bottom, .trailing])
-        .background(.thinMaterial)
-        .cornerRadius(15)
-        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-        .overlay(alignment: .topLeading) {
-            Button {
-                // Remise à l'initial des variables
-                compteurViewModel.arrierePlan = Color("Color1")
-                compteurViewModel.pasDuCompteur = 1
-                compteurViewModel.indexSelectionne = "Posts"
-            } label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .frame(width: 15.0, height: 15.0)
-                    .font(.headline)
-                    .padding(12.0)
-                    .foregroundColor(.primary)
+                HStack(alignment: .center) {
+                    Spacer()
+                    // Bouton ajouter une catégorie par le biais d'une alerte
+                    Button {
+                        withAnimation(.spring()) {
+                            compteurViewModel.alertEstVisible = true
+                        }
+                    } label: {
+                        Text("Ajouter")
+                            .foregroundColor(Color.blue)
+                    }
+                    .padding(10.0)
                     .background(.regularMaterial)
-                    .cornerRadius(15)
+                    .cornerRadius(5)
                     .shadow(radius: 5)
-            }
-            .padding(12.0)
-        }
-    }
-    
-    // définition de création d'une alerte contenant un champ de texte avec le package SwiftAlertView
-    func alertTF(
-        title: String,
-        message: String,
-        hintText: String,
-        primaryTitle: String,
-        secondaryTitle: String,
-        primaryAction: @escaping(String) -> (),
-        secondaryAction:@escaping() ->()
-    ) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addTextField { field in
-            field.placeholder = hintText
-        }
-        
-        alert.addAction(.init(title: secondaryTitle, style: .cancel, handler: { _ in
-            secondaryAction()
-        }))
-        
-        alert.addAction(.init(title: primaryTitle, style: .default, handler: { _ in
-            if let text = alert.textFields?[0].text{
-                primaryAction(text)
+                    
+                    Spacer()
+                    
+                    // Bouton retirer une catégorie par le biais d'une alerte
+                    Button {
+                        
+                    } label: {
+                        Text("Retirer")
+                            .foregroundColor(Color.red)
+                    }
+                    .padding(10.0)
+                    .background(.regularMaterial)
+                    .cornerRadius(5)
+                    .shadow(radius: 5)
+                    
+                    
+                    Spacer()
+                }
                 
-            } else {
-                primaryAction("")
+                ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
+                    .font(.body)
             }
-        }))
-        
-        rootController().present(alert, animated: true, completion: nil)
-    }
-    
-    func rootController() -> UIViewController{
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-            return .init()
+            .padding(.all)
+            .background(.thinMaterial)
+            .cornerRadius(15)
+            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+            .overlay(alignment: .topLeading) {
+                Button {
+                    // Remise à l'initial des variables
+                    compteurViewModel.arrierePlan = Color("Color1")
+                    compteurViewModel.pasDuCompteur = 1
+                    compteurViewModel.indexSelectionne = "Posts"
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .frame(width: 15.0, height: 15.0)
+                        .font(.headline)
+                        .padding(12.0)
+                        .foregroundColor(.primary)
+                        .background(.regularMaterial)
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                }
+                .padding(12.0)
+                
+                
+            }
+            // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
+            AlertView(isShown: $compteurViewModel.alertEstVisible, text: $text)
         }
-        guard let root = screen.windows.first?.rootViewController else {
-            return .init()
-        }
-        return root
     }
 }
