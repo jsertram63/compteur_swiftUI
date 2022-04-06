@@ -68,7 +68,7 @@ extension CompteurView {
     private var counter: some View {
         Text(compteurViewModel.compteurEnCoursFormatte)
             .font(.system(size: 60, weight: .bold, design: .rounded))
-            .foregroundColor(Color.accentColor)
+            .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
             .padding(10.0)
             .background(.regularMaterial)
             .cornerRadius(15)
@@ -82,10 +82,12 @@ extension CompteurView {
             Text(compteurViewModel.indexSelectionne)
                 .font(.title2)
                 .fontWeight(.bold)
+                .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurViewModel.pasDuCompteur)")
                 .font(.title2)
                 .fontWeight(.bold)
+                .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
         .padding()
@@ -104,7 +106,7 @@ extension CompteurView {
                     Image(systemName:"minus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(Color("Color1"))
+                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -116,7 +118,7 @@ extension CompteurView {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(Color("Color1"))
+                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -138,7 +140,7 @@ extension CompteurView {
                     Image(systemName:"plus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(Color("Color1"))
+                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -157,7 +159,7 @@ extension CompteurView {
                     .foregroundColor(Color.white)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .background(Color("Color3"))
+            .background(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
             

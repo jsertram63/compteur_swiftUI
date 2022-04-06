@@ -30,7 +30,6 @@ struct PreferenceView: View {
                     
                 }
                 .padding()
-                .foregroundColor(Color("Color5"))
             }
             // de flouter la view ciblée; ici la scrollView
             .blur(radius: compteurViewModel.alertEstVisible ? 5 : 0)
@@ -99,8 +98,7 @@ extension PreferenceView {
             }
             .pickerStyle(WheelPickerStyle())
             
-            HStack(alignment: .center) {
-                Spacer()
+            HStack(alignment: .center, spacing: 50.0) {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
@@ -115,8 +113,6 @@ extension PreferenceView {
                 .cornerRadius(5)
                 .shadow(radius: 5)
                 
-                Spacer()
-                
                 // Bouton retirer une catégorie par le biais d'une alerte
                 Button {
                     
@@ -128,13 +124,63 @@ extension PreferenceView {
                 .background(.regularMaterial)
                 .cornerRadius(5)
                 .shadow(radius: 5)
-                
-                
-                Spacer()
             }
             
-            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
-                .font(.body)
+            VStack(spacing: 20.0) {
+                Text("Choisissez un thème")
+                    .fontWeight(.medium)
+                
+                HStack(alignment: .center, spacing: 15.0) {
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color.white
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color("Color2"))
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color("Color2")
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color("Color3"))
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color("Color3")
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.red)
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color.red
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.brown)
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color.brown
+                        }
+                }
+            }
+            
+            //            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
+            //                .font(.body)
         }
         .padding(.all)
         .background(.thinMaterial)
