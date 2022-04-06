@@ -32,7 +32,7 @@ struct CompteurView: View {
                         categoriesAndPitch
                     }
                     .padding(25.0)
-                    .background(.regularMaterial)
+                    .background(.thinMaterial)
                     .cornerRadius(15)
                     .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
                     
@@ -68,7 +68,7 @@ extension CompteurView {
     private var counter: some View {
         Text(compteurViewModel.compteurEnCoursFormatte)
             .font(.system(size: 60, weight: .bold, design: .rounded))
-            .foregroundColor(Color("Color1"))
+            .foregroundColor(Color.accentColor)
             .padding(10.0)
             .background(.regularMaterial)
             .cornerRadius(15)
@@ -82,19 +82,19 @@ extension CompteurView {
             Text(compteurViewModel.indexSelectionne)
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(Color("Color1"))
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurViewModel.pasDuCompteur)")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(Color("Color1"))
         }
+        .foregroundColor(Color.accentColor)
         .padding()
     }
     
     // Users Actions
     private var usersActions: some View {
-        VStack(spacing: 40.0) {
+        VStack(spacing: 25.0) {
+            Spacer()
             
             HStack {
                 // Boutons de comptage -
@@ -144,6 +144,8 @@ extension CompteurView {
                 }
             }
             .padding()
+            .background(.regularMaterial)
+            .cornerRadius(15)
             
             Spacer()
             // Bouton sauvegarder
@@ -158,9 +160,11 @@ extension CompteurView {
             .background(Color("Color3"))
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
+            
+            Spacer()
         }
         .padding()
-        .background(.regularMaterial)
+        .background(.thinMaterial)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
     }

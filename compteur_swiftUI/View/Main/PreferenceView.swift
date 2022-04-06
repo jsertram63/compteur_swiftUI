@@ -136,8 +136,9 @@ extension PreferenceView {
                 .font(.body)
         }
         .padding([.leading, .bottom, .trailing])
-        .background(.regularMaterial)
+        .background(.thinMaterial)
         .cornerRadius(15)
+        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
         .overlay(alignment: .topLeading) {
             Button {
                 // Remise à l'initial des variables
@@ -150,7 +151,7 @@ extension PreferenceView {
                     .font(.headline)
                     .padding(12.0)
                     .foregroundColor(.primary)
-                    .background(.thickMaterial)
+                    .background(.regularMaterial)
                     .cornerRadius(15)
                     .shadow(radius: 5)
             }
