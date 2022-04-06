@@ -6,11 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
-
-
-
-
 
 struct PreferenceView: View {
     
@@ -37,6 +32,10 @@ struct PreferenceView: View {
                 .padding()
                 .foregroundColor(Color("Color5"))
             }
+            .blur(radius: compteurViewModel.alertEstVisible ? 10 : 0)
+            
+            // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
+            AlertView(isShown: $compteurViewModel.alertEstVisible, text: $text)
         }
     }
     
@@ -90,79 +89,73 @@ extension PreferenceView {
     
     // Parameters
     private var parameters: some View {
-        ZStack {
-            VStack(spacing: 35.0) {
-                Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
-                    ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
-                        Text(index)
-                            .fontWeight(.bold)
-                    }
+        VStack(spacing: 35.0) {
+            Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
+                ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
+                    Text(index)
+                        .fontWeight(.bold)
                 }
-                .pickerStyle(WheelPickerStyle())
-                
-                HStack(alignment: .center) {
-                    Spacer()
-                    // Bouton ajouter une catégorie par le biais d'une alerte
-                    Button {
-                        withAnimation(.spring()) {
-                            compteurViewModel.alertEstVisible = true
-                        }
-                    } label: {
-                        Text("Ajouter")
-                            .foregroundColor(Color.blue)
-                    }
-                    .padding(10.0)
-                    .background(.regularMaterial)
-                    .cornerRadius(5)
-                    .shadow(radius: 5)
-                    
-                    Spacer()
-                    
-                    // Bouton retirer une catégorie par le biais d'une alerte
-                    Button {
-                        
-                    } label: {
-                        Text("Retirer")
-                            .foregroundColor(Color.red)
-                    }
-                    .padding(10.0)
-                    .background(.regularMaterial)
-                    .cornerRadius(5)
-                    .shadow(radius: 5)
-                    
-                    
-                    Spacer()
-                }
-                
-                ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
-                    .font(.body)
             }
-            .padding(.all)
-            .background(.thinMaterial)
-            .cornerRadius(15)
-            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-            .overlay(alignment: .topLeading) {
+            .pickerStyle(WheelPickerStyle())
+            
+            HStack(alignment: .center) {
+                Spacer()
+                // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
-                    // Remise à l'initial des variables
-                    compteurViewModel.arrierePlan = Color("Color1")
-                    compteurViewModel.pasDuCompteur = 1
-                    compteurViewModel.indexSelectionne = "Posts"
+                    withAnimation(.easeInOut) {
+                        compteurViewModel.alertEstVisible = true
+                    }
                 } label: {
-                    Image(systemName: "arrow.counterclockwise")
-                        .frame(width: 15.0, height: 15.0)
-                        .font(.headline)
-                        .padding(12.0)
-                        .foregroundColor(.primary)
-                        .background(.regularMaterial)
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
+                    Text("Ajouter")
+                        .foregroundColor(Color.blue)
                 }
-                .padding(12.0)
+                .padding(10.0)
+                .background(.regularMaterial)
+                .cornerRadius(5)
+                .shadow(radius: 5)
+                
+                Spacer()
+                
+                // Bouton retirer une catégorie par le biais d'une alerte
+                Button {
+                    
+                } label: {
+                    Text("Retirer")
+                        .foregroundColor(Color.red)
+                }
+                .padding(10.0)
+                .background(.regularMaterial)
+                .cornerRadius(5)
+                .shadow(radius: 5)
                 
                 
+                Spacer()
             }
-            // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(isShown: $compteurViewModel.alertEstVisible, text: $text)
+            
+            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
+                .font(.body)
+        }
+        .padding(.all)
+        .background(.thinMaterial)
+        .cornerRadius(15)
+        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+        .overlay(alignment: .topLeading) {
+            Button {
+                // Remise à l'initial des variables
+                compteurViewModel.arrierePlan = Color("Color1")
+                compteurViewModel.pasDuCompteur = 1
+                compteurViewModel.indexSelectionne = "Posts"
+            } label: {
+                Image(systemName: "arrow.counterclockwise")
+                    .frame(width: 15.0, height: 15.0)
+                    .font(.headline)
+                    .padding(12.0)
+                    .foregroundColor(.primary)
+                    .background(.regularMaterial)
+                    .cornerRadius(15)
+                    .shadow(radius: 5)
+            }
+            .padding(12.0)
         }
     }
 }

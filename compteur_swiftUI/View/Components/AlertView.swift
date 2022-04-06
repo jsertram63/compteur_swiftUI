@@ -25,7 +25,9 @@ struct AlertView: View {
                 
                 Button {
                     // change la variable d'état pour enlever la modale
-                    isShown = false
+                    withAnimation(.easeInOut) {
+                        isShown = false
+                    }
                     // Ajouter une fonction d'ajout d'une catégorie au picker en plus
                 } label: {
                     Text("Valider")
@@ -40,7 +42,9 @@ struct AlertView: View {
                 
                 Button {
                     // change la variable d'état pour enlever la modale
-                    isShown = false
+                    withAnimation(.easeInOut) {
+                        isShown = false
+                    }
                 } label: {
                     Text("Annuler")
                         .foregroundColor(.red)
