@@ -14,7 +14,7 @@ struct historiqueView: View {
     var body: some View {
         
         ZStack {
-            compteurViewModel.arrièrePlan
+            compteurViewModel.arrierePlan
                 .ignoresSafeArea()
             
             VStack {

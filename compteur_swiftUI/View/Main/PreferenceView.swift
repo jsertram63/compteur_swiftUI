@@ -19,7 +19,7 @@ struct PreferenceView: View {
     var body: some View {
         
         ZStack {
-            compteurViewModel.arrièrePlan
+            compteurViewModel.arrierePlan
                 .ignoresSafeArea()
             
             ScrollView {
@@ -71,7 +71,7 @@ extension PreferenceView {
                         .scaledToFill()
                         .frame(width: 25.0, height: 25.0)
                         .clipShape(Rectangle())
-                        .foregroundColor(compteurViewModel.arrièrePlan)
+                        .foregroundColor(compteurViewModel.arrierePlan)
                 }
                 .padding(2.0)
                 .background(Color.white)
@@ -132,7 +132,7 @@ extension PreferenceView {
                 Spacer()
             }
             
-            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrièrePlan, supportsOpacity: true)
+            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
                 .font(.body)
         }
         .padding([.leading, .bottom, .trailing])
@@ -142,7 +142,7 @@ extension PreferenceView {
         .overlay(alignment: .topLeading) {
             Button {
                 // Remise à l'initial des variables
-                compteurViewModel.arrièrePlan = Color("Color1")
+                compteurViewModel.arrierePlan = Color("Color1")
                 compteurViewModel.pasDuCompteur = 1
                 compteurViewModel.indexSelectionne = "Posts"
             } label: {

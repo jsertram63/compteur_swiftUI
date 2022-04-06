@@ -43,5 +43,5 @@ class CompteurViewModel : ObservableObject {
     @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = "Posts"
     
-    @Published var arrièrePlan = Color("Color1")
+    @Published var arrierePlan = Color("Color1")
 }
