@@ -8,32 +8,93 @@
 import SwiftUI
 
 struct CircleCompteur: View {
-    // Création d'une propriété qui va servir pour notre enum
-    @State var timeMode: TimeMode = .initial
+    
+    // Déclarez une variable fastingManager et initialisez
+    // + la propriété StateObject Devant
+    // La class FastingManager
+    
+   @StateObject var fastingManager = FastingManager()
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.06).edgesIgnoringSafeArea(.all)
-                ZStack {
-                    Circle()
-                        .trim(from: 0, to: 1)
-                        .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 15, lineCap: .round))
-                        .frame(width: 280, height: 280)
-                    Circle()
-                        .trim(from: 0, to: 0.5)
-                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 15, lineCap: .round))
-                        .frame(width: 280, height: 280)
-                        .rotationEffect(.init(degrees: -90))
-                    VStack {
-                        Text("0000")
-                            // Le compteur
-                            .font(.system(size: 65))
-                    } // VSTACK
-                } // ZSTACK
-                .padding(.bottom, 200)
-                playPause
-                .padding(.top, 490)
+            // MARK: Background
+            
+            Color(#colorLiteral(red: 0.05033428222, green: 0.004766677506, blue: 0.2067147791, alpha: 1))
+                .ignoresSafeArea()
+            
+            content
         } // ZSTACK
+    }
+    // Le contenu est une autre vue qui va retourner une vue.
+    
+    var content: some View {
+        ZStack {
+            VStack(spacing: 40) {
+                // MARK: Titre
+                
+                Text("Compteur")
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                // MARK: Jeune Plan
+                
+                Text("16.8")
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
+                
+                Spacer()
+            }
+            .padding()
+            
+            VStack(spacing: 40) {
+            
+                // MARK: Anneau de progression
+                
+                ProgressRingView()
+                
+                HStack(spacing: 60) {
+                    // MARK: Start Temps
+                    
+                    VStack(spacing: 5) {
+                        Text("Start")
+                            .opacity(0.7)
+                        
+                        // TextDate represente la date actuelle
+                        Text(Date(), format: .dateTime.weekday().hour().minute().second())
+                            .fontWeight(.bold)
+                    } // VSTACK
+                    
+                    VStack(spacing: 5) {
+                        Text("Fin")
+                            .opacity(0.7)
+                        
+                        // TextDate .addingTimeInterval Cela nous évite d'avoir a initialiser une autre variable de date et a calculer
+                        Text(Date().addingTimeInterval(60), format: .dateTime.weekday().hour().minute().second())
+                            .fontWeight(.bold)
+                    } // VSTACK
+                } // HSTACK
+                
+                // MARK: Button
+                
+                
+                Button {
+                    
+                } label: {
+                    Text("Start fasting")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(20)
+                }
+            } // VSTACK
+            .padding()
+        } // ZSTACK
+        .foregroundColor(Color.white)
     }
 }
 
@@ -42,16 +103,3 @@ struct CircleCompteur_Previews: PreviewProvider {
         CircleCompteur()
     }
 }
-
-extension CircleCompteur {
-    // Button Play - Pause
-    public var playPause: some View {
-        VStack {
-            Image(systemName: timeMode == .running ? "pause.circle.fill" : "play.circle.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-        } // VSTACK
-    }
-}
-

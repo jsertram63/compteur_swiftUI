@@ -21,8 +21,9 @@
 		89F5082F27DFB1B600AAE627 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5082E27DFB1B600AAE627 /* ButtonsView.swift */; };
 		89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5083027DFB49200AAE627 /* HeaderView.swift */; };
 		89F5083327DFB87800AAE627 /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F5083227DFB87800AAE627 /* ParametersView.swift */; };
+		F84A985427FF08D0000CBC7C /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A985327FF08D0000CBC7C /* ProgressRingView.swift */; };
+		F84A985627FF2DC5000CBC7C /* FastingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A985527FF2DC4000CBC7C /* FastingManager.swift */; };
 		F86227E527FB0F1900F8D64C /* CircleCompteur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86227E427FB0F1900F8D64C /* CircleCompteur.swift */; };
-		F86227E727FB17C800F8D64C /* TimeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86227E627FB17C800F8D64C /* TimeMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +42,9 @@
 		89F5082E27DFB1B600AAE627 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		89F5083027DFB49200AAE627 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		89F5083227DFB87800AAE627 /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
+		F84A985327FF08D0000CBC7C /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
+		F84A985527FF2DC4000CBC7C /* FastingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingManager.swift; sourceTree = "<group>"; };
 		F86227E427FB0F1900F8D64C /* CircleCompteur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCompteur.swift; sourceTree = "<group>"; };
-		F86227E627FB17C800F8D64C /* TimeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				89F5083227DFB87800AAE627 /* ParametersView.swift */,
 				89F5082E27DFB1B600AAE627 /* ButtonsView.swift */,
 				37F7286427E214630041A95F /* NavigationBarView.swift */,
+				F84A985327FF08D0000CBC7C /* ProgressRingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -138,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				89F4741927E907BA00F15410 /* CompteurModel.swift */,
-				F86227E627FB17C800F8D64C /* TimeMode.swift */,
+				F84A985527FF2DC4000CBC7C /* FastingManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,11 +219,12 @@
 			files = (
 				F86227E527FB0F1900F8D64C /* CircleCompteur.swift in Sources */,
 				89F5082F27DFB1B600AAE627 /* ButtonsView.swift in Sources */,
+				F84A985627FF2DC5000CBC7C /* FastingManager.swift in Sources */,
+				F84A985427FF08D0000CBC7C /* ProgressRingView.swift in Sources */,
 				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
 				89F4741B27E907BA00F15410 /* CompteurModel.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
-				F86227E727FB17C800F8D64C /* TimeMode.swift in Sources */,
 				89F5083327DFB87800AAE627 /* ParametersView.swift in Sources */,
 				89F5083127DFB49200AAE627 /* HeaderView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
