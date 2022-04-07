@@ -61,7 +61,7 @@ struct AlertView: View {
             }
         }
         .padding()
-        .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.2)
+        .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.3)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
         .offset(x: modaleEstVisible ? 0 : screenSize.width, y: modaleEstVisible ? 0 : screenSize.height)

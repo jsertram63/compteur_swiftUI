@@ -30,9 +30,9 @@ struct PreferenceView: View {
                     
                 }
                 .padding()
+                // de flouter la view ciblée; ici la scrollView
+                .blur(radius: compteurViewModel.modaleAffichee ? 5 : 0)
             }
-            // de flouter la view ciblée; ici la scrollView
-            .blur(radius: compteurViewModel.modaleAffichee ? 5 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
             AlertView(modaleEstVisible: $compteurViewModel.modaleAffichee, text: $text)
@@ -90,6 +90,7 @@ extension PreferenceView {
     // Parameters
     private var parameters: some View {
         VStack(spacing: 35.0) {
+            // PickerView
             Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
                 ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
                     Text(index)
@@ -98,6 +99,7 @@ extension PreferenceView {
             }
             .pickerStyle(WheelPickerStyle())
             
+            // Boutons catégories Ajout/Retirer avec animation modale
             HStack(alignment: .center, spacing: 50.0) {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
@@ -126,6 +128,7 @@ extension PreferenceView {
                 .shadow(radius: 5)
             }
             
+            // Palette de couleurs
             VStack(spacing: 20.0) {
                 Text("Choisissez un thème")
                     .fontWeight(.medium)
@@ -167,6 +170,9 @@ extension PreferenceView {
                         .onTapGesture {
                             compteurViewModel.arrierePlan = Color.red
                         }
+                }
+                
+                HStack(alignment: .center, spacing: 15.0) {
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.brown)
@@ -176,11 +182,35 @@ extension PreferenceView {
                         .onTapGesture {
                             compteurViewModel.arrierePlan = Color.brown
                         }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color("Color1"))
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color("Color1")
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.purple)
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color.purple
+                        }
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.black)
+                        .clipShape(Circle())
+                        .frame(width: 50.0, height: 50.0)
+                        .shadow(radius: 5)
+                        .onTapGesture {
+                            compteurViewModel.arrierePlan = Color.black
+                        }
                 }
             }
-            
-            //            ColorPicker("Choisissez votre thème:", selection: $compteurViewModel.arrierePlan, supportsOpacity: true)
-            //                .font(.body)
         }
         .padding(.all)
         .background(.thinMaterial)
