@@ -31,11 +31,11 @@ struct PreferenceView: View {
                 }
                 .padding()
                 // de flouter la view ciblée; ici la scrollView
-                .blur(radius: compteurVM.modaleAffichee ? 5 : 0)
+                .blur(radius: compteurVM.modaleAjoutAffichee ? 5 : 0)
             }
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(modaleEstVisible: $compteurVM.modaleAffichee, text: $text)
+            AlertView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
         }
     }
     
@@ -92,8 +92,8 @@ extension PreferenceView {
         VStack(spacing: 35.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(compteurVM.intituleCompteur, id: \.self) { index in
-                    Text(index)
+                ForEach(compteurVM.intituleCompteur, id: \.self) {
+                    Text($0)
                         .fontWeight(.bold)
                 }
             }
@@ -104,7 +104,7 @@ extension PreferenceView {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
-                        compteurVM.modaleAffichee = true
+                        compteurVM.modaleAjoutAffichee = true
                     }
                 } label: {
                     Text("Ajouter")

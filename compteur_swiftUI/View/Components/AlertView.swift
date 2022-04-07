@@ -9,8 +9,11 @@ import SwiftUI
 
 struct AlertView: View {
     
+    @EnvironmentObject var compteurVM: CompteurViewModel
+    
     let screenSize = UIScreen.main.bounds
     @Binding var modaleEstVisible: Bool
+    
     @Binding var text: String
     
     var body: some View {
@@ -29,7 +32,8 @@ struct AlertView: View {
                     withAnimation(.easeInOut) {
                         modaleEstVisible = false
                     }
-                    // Ajouter une fonction d'ajout d'une catégorie au picker en plus
+                    // Une fonction d'ajout d'une catégorie au picker en plus
+                    compteurVM.intituleCompteur.append(text)
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)
