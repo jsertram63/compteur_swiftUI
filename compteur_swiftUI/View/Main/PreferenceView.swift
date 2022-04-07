@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PreferenceView: View {
     
-    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    @EnvironmentObject  private var compteurVM: CompteurViewModel
     
     //@State private var isPresented: Bool = false
     @State private var text: String = ""
@@ -17,7 +17,7 @@ struct PreferenceView: View {
     var body: some View {
         
         ZStack {
-            compteurViewModel.arrierePlan
+            compteurVM.arrierePlan
                 .ignoresSafeArea()
             
             ScrollView {
@@ -31,11 +31,11 @@ struct PreferenceView: View {
                 }
                 .padding()
                 // de flouter la view ciblée; ici la scrollView
-                .blur(radius: compteurViewModel.modaleAffichee ? 5 : 0)
+                .blur(radius: compteurVM.modaleAffichee ? 5 : 0)
             }
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(modaleEstVisible: $compteurViewModel.modaleAffichee, text: $text)
+            AlertView(modaleEstVisible: $compteurVM.modaleAffichee, text: $text)
         }
     }
     
@@ -60,9 +60,9 @@ extension PreferenceView {
     // ResumeParameter
     private var resumeParameter: some View {
         VStack(alignment: .leading) {
-            Stepper("Choix du pas: \(compteurViewModel.pasDuCompteur)", value: $compteurViewModel.pasDuCompteur, in: 1...100)
+            Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-            Text("Cotégorie: \(compteurViewModel.indexSelectionne)")
+            Text("Cotégorie: \(compteurVM.indexSelectionne)")
             
             HStack(alignment: .center) {
                 Text("Votre thème: ")
@@ -73,7 +73,7 @@ extension PreferenceView {
                         .scaledToFill()
                         .frame(width: 25.0, height: 25.0)
                         .clipShape(Rectangle())
-                        .foregroundColor(compteurViewModel.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan)
                 }
                 .padding(2.0)
                 .background(Color.white)
@@ -91,8 +91,8 @@ extension PreferenceView {
     private var parameters: some View {
         VStack(spacing: 35.0) {
             // PickerView
-            Picker("Choisir une catégorie", selection: $compteurViewModel.indexSelectionne) {
-                ForEach(compteurViewModel.intituleCompteur, id: \.self) { index in
+            Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
+                ForEach(compteurVM.intituleCompteur, id: \.self) { index in
                     Text(index)
                         .fontWeight(.bold)
                 }
@@ -104,7 +104,7 @@ extension PreferenceView {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
-                        compteurViewModel.modaleAffichee = true
+                        compteurVM.modaleAffichee = true
                     }
                 } label: {
                     Text("Ajouter")
@@ -141,7 +141,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color.white
+                            compteurVM.arrierePlan = Color.white
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -150,7 +150,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color("Color2")
+                            compteurVM.arrierePlan = Color("Color2")
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -159,7 +159,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color("Color3")
+                            compteurVM.arrierePlan = Color("Color3")
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -168,7 +168,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color.red
+                            compteurVM.arrierePlan = Color.red
                         }
                 }
                 
@@ -180,7 +180,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color.brown
+                            compteurVM.arrierePlan = Color.brown
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -189,7 +189,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color("Color1")
+                            compteurVM.arrierePlan = Color("Color1")
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -198,7 +198,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color.purple
+                            compteurVM.arrierePlan = Color.purple
                         }
                     Image(systemName: "circle.fill")
                         .resizable()
@@ -207,7 +207,7 @@ extension PreferenceView {
                         .frame(width: 50.0, height: 50.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurViewModel.arrierePlan = Color.black
+                            compteurVM.arrierePlan = Color.black
                         }
                 }
             }
@@ -219,9 +219,9 @@ extension PreferenceView {
         .overlay(alignment: .topLeading) {
             Button {
                 // Remise à l'initial des variables
-                compteurViewModel.arrierePlan = Color("Color1")
-                compteurViewModel.pasDuCompteur = 1
-                compteurViewModel.indexSelectionne = "Posts"
+                compteurVM.arrierePlan = Color("Color1")
+                compteurVM.pasDuCompteur = 1
+                compteurVM.indexSelectionne = "Posts"
             } label: {
                 Image(systemName: "arrow.counterclockwise")
                     .frame(width: 15.0, height: 15.0)

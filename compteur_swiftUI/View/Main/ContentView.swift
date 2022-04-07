@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    @EnvironmentObject  private var compteurVM: CompteurViewModel
     
     // initialisation de la tabBar pour effectuer des modifications sur celle-ci
     init() {

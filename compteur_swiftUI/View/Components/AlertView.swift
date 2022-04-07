@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AlertView: View {
     
-    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
-    
     let screenSize = UIScreen.main.bounds
     @Binding var modaleEstVisible: Bool
     @Binding var text: String

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CompteurView: View {
     
-    @EnvironmentObject  private var compteurViewModel: CompteurViewModel
+    @EnvironmentObject  private var compteurVM: CompteurViewModel
     
     var body: some View {
         // Propriété conteneur en couche ZStack
         ZStack {
             // par exemple la propriété Color est une première couche de la ZStack
-            compteurViewModel.arrierePlan
+            compteurVM.arrierePlan
                 .ignoresSafeArea()
             
             // propriété conteneur verticale VStack
@@ -61,29 +61,29 @@ extension CompteurView {
     private var header: some View {
         Text("Compteur")
             .font(.system(size: 40, weight: .bold, design: .rounded))
-            .foregroundColor(.black)
+            .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
     }
     
     // Counter
     private var counter: some View {
-        Text(compteurViewModel.compteurEnCoursFormatte)
+        Text(compteurVM.compteurEnCoursFormatte)
             .font(.system(size: 60, weight: .bold, design: .rounded))
-            .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+            .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
     }
     
     // Categories and pitch
     private var categoriesAndPitch: some View {
         VStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
-            Text(compteurViewModel.indexSelectionne)
+            Text(compteurVM.indexSelectionne)
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
             // Choix du pas d'incrémentation à afficher selon paramètres
-            Text("\(compteurViewModel.pasDuCompteur)")
+            Text("\(compteurVM.pasDuCompteur)")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
         .padding()
@@ -97,46 +97,46 @@ extension CompteurView {
             HStack {
                 // Boutons de comptage -
                 Button {
-                    compteurViewModel.decCompteur()
+                    compteurVM.decCompteur()
                 } label: {
                     Image(systemName:"minus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
                 // Boutons de reset
                 Button {
                     // appel des fonctions du compteurViewModel
-                    compteurViewModel.alertEstVisible = true
+                    compteurVM.alertEstVisible = true
                 } label: {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
-                .alert(isPresented:$compteurViewModel.alertEstVisible) {
+                .alert(isPresented:$compteurVM.alertEstVisible) {
                     Alert(
                         title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
                         message: Text("Attention, vous perdrez votre dernier comptage !"),
                         primaryButton: .destructive(Text("Annuler")),
                         secondaryButton: .cancel(Text("Oui")) {
-                            compteurViewModel.resetCompteur()
-                            compteurViewModel.compteurEnCours = 0
+                            compteurVM.resetCompteur()
+                            compteurVM.compteurEnCours = 0
                         }
                     )
                 }
                 // Boutons de comptage +
                 Button {
-                    compteurViewModel.incCompteur()
+                    compteurVM.incCompteur()
                 } label: {
                     Image(systemName:"plus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -155,7 +155,7 @@ extension CompteurView {
                     .foregroundColor(Color.white)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .background(compteurViewModel.arrierePlan == Color.white ? Color.black : compteurViewModel.arrierePlan)
+            .background(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
             
