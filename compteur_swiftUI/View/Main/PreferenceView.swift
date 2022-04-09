@@ -14,6 +14,11 @@ struct PreferenceView: View {
     //@State private var isPresented: Bool = false
     @State private var text: String = ""
     
+    // Delete items
+    func deleteItem(indexSet: IndexSet) {
+        compteurVM.intituleCompteur.remove(atOffsets: indexSet)
+    }
+    
     var body: some View {
         
         ZStack {
@@ -92,8 +97,8 @@ extension PreferenceView {
         VStack(spacing: 35.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(compteurVM.intituleCompteur, id: \.self) {
-                    Text($0)
+                ForEach(compteurVM.intituleCompteur, id: \.self) { index in
+                    Text(index)
                         .fontWeight(.bold)
                 }
             }

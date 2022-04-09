@@ -34,6 +34,7 @@ struct AlertView: View {
                     }
                     // Une fonction d'ajout d'une catégorie au picker en plus
                     compteurVM.intituleCompteur.append(text)
+                    text = ""
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)

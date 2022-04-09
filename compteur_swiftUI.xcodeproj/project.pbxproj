@@ -17,7 +17,6 @@
 		89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76427D67D1800359EA0 /* Assets.xcassets */; };
 		89BFD76827D67D1800359EA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76727D67D1800359EA0 /* Preview Assets.xcassets */; };
 		89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4741827E907BA00F15410 /* CompteurViewModel.swift */; };
-		89F4741B27E907BA00F15410 /* CompteurModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4741927E907BA00F15410 /* CompteurModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		89BFD76427D67D1800359EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BFD76727D67D1800359EA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89F4741827E907BA00F15410 /* CompteurViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompteurViewModel.swift; sourceTree = "<group>"; };
-		89F4741927E907BA00F15410 /* CompteurModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompteurModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 		89F4741727E907A900F15410 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				89F4741927E907BA00F15410 /* CompteurModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,7 +170,6 @@
 			);
 			mainGroup = 89BFD75427D67D1700359EA0;
 			packageReferences = (
-				89DFA93927FB5F0D00D3D6DA /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			productRefGroup = 89BFD75E27D67D1700359EA0 /* Products */;
 			projectDirPath = "";
@@ -203,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
-				89F4741B27E907BA00F15410 /* CompteurModel.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
@@ -420,17 +415,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		89DFA93927FB5F0D00D3D6DA /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 89BFD75527D67D1700359EA0 /* Project object */;
 }
