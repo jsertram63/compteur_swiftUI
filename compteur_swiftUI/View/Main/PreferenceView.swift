@@ -11,7 +11,6 @@ struct PreferenceView: View {
     
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     
-    //@State private var isPresented: Bool = false
     @State private var text: String = ""
     
     // Delete items
@@ -41,6 +40,7 @@ struct PreferenceView: View {
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
             AlertView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
+            Alert2View(modaleEstVisible2: $compteurVM.modaleSuppAffichee)
         }
     }
     
@@ -67,7 +67,7 @@ extension PreferenceView {
         VStack(alignment: .leading) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-            Text("Cotégorie: \(compteurVM.indexSelectionne)")
+            /* Text("Cotégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") */
             
             HStack(alignment: .center) {
                 Text("Votre thème: ")
@@ -97,8 +97,8 @@ extension PreferenceView {
         VStack(spacing: 35.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(compteurVM.intituleCompteur, id: \.self) { index in
-                    Text(index)
+                ForEach(0 ..< compteurVM.intituleCompteur.count, id: \.self) { index in
+                    Text(compteurVM.intituleCompteur[index])
                         .fontWeight(.bold)
                 }
             }
@@ -122,7 +122,9 @@ extension PreferenceView {
                 
                 // Bouton retirer une catégorie par le biais d'une alerte
                 Button {
-                    
+                    withAnimation(.easeInOut) {
+                        compteurVM.modaleSuppAffichee = true
+                    }
                 } label: {
                     Text("Retirer")
                         .foregroundColor(Color.red)
@@ -226,7 +228,7 @@ extension PreferenceView {
                 // Remise à l'initial des variables
                 compteurVM.arrierePlan = Color("Color1")
                 compteurVM.pasDuCompteur = 1
-                compteurVM.indexSelectionne = "Posts"
+                compteurVM.indexSelectionne = 0
             } label: {
                 Image(systemName: "arrow.counterclockwise")
                     .frame(width: 15.0, height: 15.0)

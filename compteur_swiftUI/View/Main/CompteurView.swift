@@ -54,7 +54,7 @@ struct CompteurView_Previews: PreviewProvider {
     }
 }
 
-/* ********************************************************************************************** */
+/* *************************************************************************************** */
 
 extension CompteurView {
     // Header
@@ -75,10 +75,12 @@ extension CompteurView {
     private var categoriesAndPitch: some View {
         VStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
-            Text(compteurVM.indexSelectionne)
+            
+            /* Text(compteurVM.intituleCompteur[compteurVM.indexSelectionne])
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan) */
+            
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
                 .font(.title2)
