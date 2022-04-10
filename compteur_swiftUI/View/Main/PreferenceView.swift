@@ -35,7 +35,7 @@ struct PreferenceView: View {
                 }
                 .padding()
                 // de flouter la view ciblée; ici la scrollView
-                .blur(radius: compteurVM.modaleAjoutAffichee ? 5 : 0)
+                .blur(radius: compteurVM.modaleAjoutAffichee || compteurVM.modaleSuppAffichee ? 10 : 0)
             }
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
