@@ -14,9 +14,11 @@ struct PreferenceView: View {
     @State private var text: String = ""
     
     // Delete items
+    /*
     func deleteItem(indexSet: IndexSet) {
+        compteurVM.indexSelectionne = 0
         compteurVM.intituleCompteur.remove(atOffsets: indexSet)
-    }
+    }*/
     
     var body: some View {
         
@@ -67,7 +69,7 @@ extension PreferenceView {
         VStack(alignment: .leading) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-            /* Text("Cotégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") */
+             Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") 
             
             HStack(alignment: .center) {
                 Text("Votre thème: ")
@@ -102,6 +104,9 @@ extension PreferenceView {
                         .fontWeight(.bold)
                 }
             }
+            .onChange(of: compteurVM.indexSelectionne, perform: { newValue in
+                print(newValue)
+            })
             .pickerStyle(WheelPickerStyle())
             
             // Boutons catégories Ajout/Retirer avec animation modale

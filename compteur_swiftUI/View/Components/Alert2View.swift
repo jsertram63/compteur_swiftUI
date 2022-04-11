@@ -28,7 +28,7 @@ struct Alert2View: View {
                     withAnimation(.easeInOut) {
                         modaleEstVisible2 = false
                     }
-                    compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
+                    compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)
@@ -64,6 +64,7 @@ struct Alert2View: View {
         .offset(x: modaleEstVisible2 ? 0 : screenSize.width, y: modaleEstVisible2 ? 0 : screenSize.height)
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
     }
+
 }
 
 struct Alert2View_Previews: PreviewProvider {

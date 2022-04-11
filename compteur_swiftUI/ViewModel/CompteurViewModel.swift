@@ -41,6 +41,15 @@ class CompteurViewModel : ObservableObject {
         compteurEnCours = 0
     }
     
+    
+    func removeElementOfPicker(indexSel:Int){
+        indexSelectionne = 0
+        if (intituleCompteur.count > 1){
+            intituleCompteur.remove(at: indexSel)
+        }
+       
+    }
+    
     // PreferenceView
     @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = 0
