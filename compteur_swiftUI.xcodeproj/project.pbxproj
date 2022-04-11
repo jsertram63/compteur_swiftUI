@@ -104,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */,
-				89F4741727E907A900F15410 /* Model */,
 				3766285727E1DBE40095FBFD /* View */,
 				3796FBA427E9BE8D0046361F /* ViewModel */,
 				89BFD76627D67D1800359EA0 /* Preview Content */,
@@ -119,13 +118,6 @@
 				89BFD76727D67D1800359EA0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		89F4741727E907A900F15410 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
