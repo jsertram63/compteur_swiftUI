@@ -19,7 +19,7 @@ struct AlertView: View {
     var body: some View {
         VStack(spacing: 25.0) {
             Text("Ajouter une catégorie")
-                .fontWeight(.medium)
+                .fontWeight(.bold)
             
             TextField("", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())

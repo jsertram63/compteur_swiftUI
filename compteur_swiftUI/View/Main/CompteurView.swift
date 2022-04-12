@@ -12,28 +12,34 @@ struct CompteurView: View {
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     
     var body: some View {
-        // propriété conteneur verticale VStack
-        VStack {
-            header
-            ScrollView {
-                VStack(alignment: .center, spacing: 25.0) {
-                    VStack(alignment: .center, spacing: 10.0) {
-                        counter
+        ZStack {
+            compteurVM.arrierePlan.ignoresSafeArea()
+            
+            VStack {
+                header
+                ScrollView {
+                    VStack(alignment: .center, spacing: 25.0) {
+                        VStack(alignment: .center, spacing: 10.0) {
+                            counter
+                            
+                            categoriesAndPitch
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(15.0)
+                        .background(.regularMaterial)
+                        .cornerRadius(15)
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
                         
-                        categoriesAndPitch
+                        usersActions
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(15.0)
-                    .background(.regularMaterial)
-                    .cornerRadius(15)
-                    .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
-                    
-                    usersActions
+                    .padding()
                 }
-                .padding()
             }
+            // de flouter la view ciblée; ici la scrollView
+            .blur(radius: compteurVM.alertEstVisible ? 10 : 0)
+            // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
+            Alert3View(modaleEstVisible3: $compteurVM.alertEstVisible)
         }
-        .background(compteurVM.arrierePlan)
     }
 }
 
@@ -105,7 +111,9 @@ extension CompteurView {
                 // Boutons de reset
                 Button {
                     // appel des fonctions du compteurViewModel
-                    compteurVM.alertEstVisible = true
+                    withAnimation(.easeInOut) {
+                        compteurVM.alertEstVisible = true
+                    }
                 } label: {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
@@ -114,17 +122,16 @@ extension CompteurView {
                         .frame(width: 60, height: 60)
                         .padding()
                 }
-                .alert(isPresented:$compteurVM.alertEstVisible) {
-                    Alert(
-                        title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
-                        message: Text("Attention, vous perdrez votre dernier comptage !"),
-                        primaryButton: .destructive(Text("Annuler")),
-                        secondaryButton: .cancel(Text("Oui")) {
-                            compteurVM.resetCompteur()
-                            compteurVM.compteurEnCours = 0
-                        }
-                    )
-                }
+//                .alert(isPresented:$compteurVM.alertEstVisible) {
+//                    Alert(
+//                        title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
+//                        message: Text("Attention, vous perdrez votre dernier comptage !"),
+//                        primaryButton: .destructive(Text("Annuler")),
+//                        secondaryButton: .cancel(Text("Oui")) {
+//                            compteurVM.resetCompteur()
+//                        }
+//                    )
+//                }
                 // Boutons de comptage +
                 Button {
                     compteurVM.incCompteur()

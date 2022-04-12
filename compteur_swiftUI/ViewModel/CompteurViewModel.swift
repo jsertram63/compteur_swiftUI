@@ -25,7 +25,7 @@ class CompteurViewModel : ObservableObject {
     }
     
     // les fonctions de notre compteur
-    func incCompteur(){
+    func incCompteur() {
         compteurEnCours += pasDuCompteur
     }
     
@@ -41,8 +41,8 @@ class CompteurViewModel : ObservableObject {
         compteurEnCours = 0
     }
     
-    
-    func removeElementOfPicker(indexSel:Int){
+    // permet de retirer un élément du picker tout en mettant à jour l'index du tableau
+    func removeElementOfPicker(indexSel: Int) {
         indexSelectionne = 0
         if (intituleCompteur.count > 1){
             intituleCompteur.remove(at: indexSel)
