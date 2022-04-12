@@ -11,6 +11,8 @@ struct CompteurView: View {
     
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     
+    let screenSize = UIScreen.main.bounds
+    
     var body: some View {
         ZStack {
             compteurVM.arrierePlan.ignoresSafeArea()
@@ -18,13 +20,13 @@ struct CompteurView: View {
             VStack {
                 header
                 ScrollView {
-                    VStack(alignment: .center, spacing: 25.0) {
-                        VStack(alignment: .center, spacing: 10.0) {
+                    VStack(alignment: .center, spacing: 60.0) {
+                        VStack(alignment: .center, spacing: 15.0) {
                             counter
                             
                             categoriesAndPitch
                         }
-                        .frame(maxWidth: .infinity)
+                        .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.15)
                         .padding(15.0)
                         .background(.regularMaterial)
                         .cornerRadius(15)
@@ -77,7 +79,7 @@ extension CompteurView {
         HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
-             Text(compteurVM.intituleCompteur[compteurVM.indexSelectionne])
+             Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]):")
                 .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan) 
@@ -122,16 +124,6 @@ extension CompteurView {
                         .frame(width: 60, height: 60)
                         .padding()
                 }
-//                .alert(isPresented:$compteurVM.alertEstVisible) {
-//                    Alert(
-//                        title: Text("Voulez-vous vraiment remettre à zéro le compteur?"),
-//                        message: Text("Attention, vous perdrez votre dernier comptage !"),
-//                        primaryButton: .destructive(Text("Annuler")),
-//                        secondaryButton: .cancel(Text("Oui")) {
-//                            compteurVM.resetCompteur()
-//                        }
-//                    )
-//                }
                 // Boutons de comptage +
                 Button {
                     compteurVM.incCompteur()
@@ -144,7 +136,7 @@ extension CompteurView {
                         .padding()
                 }
             }
-            .padding()
+            .padding(5.0)
             .background(.regularMaterial)
             .cornerRadius(15)
             
@@ -165,6 +157,7 @@ extension CompteurView {
             Spacer()
         }
         .padding()
+        .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.4)
         .background(.thinMaterial)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
