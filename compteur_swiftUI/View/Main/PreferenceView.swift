@@ -13,32 +13,26 @@ struct PreferenceView: View {
     
     @State private var text: String = ""
     
-    // Delete items
-    /*
-    func deleteItem(indexSet: IndexSet) {
-        compteurVM.indexSelectionne = 0
-        compteurVM.intituleCompteur.remove(atOffsets: indexSet)
-    }*/
-    
     var body: some View {
         
         ZStack {
             compteurVM.arrierePlan
                 .ignoresSafeArea()
             
-            ScrollView {
-                VStack(alignment: .leading, spacing: 50.0) {
-                    header
-                    
-                    resumeParameter
-                    
-                    parameters
-                    
+            VStack {
+                header
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .center, spacing: 35.0) {
+                        resumeParameter
+                        
+                        parameters
+                        
+                    }
+                    .padding()
                 }
-                .padding()
-                // de flouter la view ciblée; ici la scrollView
-                .blur(radius: compteurVM.modaleAjoutAffichee || compteurVM.modaleSuppAffichee ? 10 : 0)
             }
+            // de flouter la view ciblée; ici la scrollView
+            .blur(radius: compteurVM.modaleAjoutAffichee || compteurVM.modaleSuppAffichee ? 10 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
             AlertView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
@@ -59,14 +53,19 @@ struct PreferenceView: View {
 extension PreferenceView {
     // Header
     private var header: some View {
-        Text("Préférences")
-            .font(.system(size: 40, weight: .bold, design: .rounded))
-            .foregroundColor(.black)
+        HStack {
+            Text("Préférences")
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+                .padding([.top, .leading])
+            
+            Spacer()
+        }
     }
     
     // ResumeParameter
     private var resumeParameter: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20.0) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
              Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") 
@@ -96,7 +95,7 @@ extension PreferenceView {
     
     // Parameters
     private var parameters: some View {
-        VStack(spacing: 35.0) {
+        VStack(spacing: 30.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
                 ForEach(0 ..< compteurVM.intituleCompteur.count, id: \.self) { index in
@@ -145,82 +144,107 @@ extension PreferenceView {
                 Text("Choisissez un thème")
                     .fontWeight(.medium)
                 
-                HStack(alignment: .center, spacing: 15.0) {
+                HStack(alignment: .center) {
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.white)
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color.white
                         }
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color("Color2"))
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color("Color2")
                         }
+                    
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color("Color3"))
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color("Color3")
                         }
+                    
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.red)
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color.red
                         }
+                    
+                    Spacer()
                 }
                 
-                HStack(alignment: .center, spacing: 15.0) {
+                HStack(alignment: .center) {
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.brown)
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color.brown
                         }
+                    
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color("Color1"))
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color("Color1")
                         }
+                    
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.purple)
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color.purple
                         }
+                    
+                    Spacer()
+                    
                     Image(systemName: "circle.fill")
                         .resizable()
                         .foregroundColor(Color.black)
                         .clipShape(Circle())
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
                             compteurVM.arrierePlan = Color.black
                         }
+                    
+                    Spacer()
                 }
             }
         }

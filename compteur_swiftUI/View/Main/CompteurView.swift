@@ -12,38 +12,28 @@ struct CompteurView: View {
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     
     var body: some View {
-        // Propriété conteneur en couche ZStack
-        ZStack {
-            // par exemple la propriété Color est une première couche de la ZStack
-            compteurVM.arrierePlan
-                .ignoresSafeArea()
-            
-            // propriété conteneur verticale VStack
+        // propriété conteneur verticale VStack
+        VStack {
+            header
             ScrollView {
-                VStack(alignment: .center, spacing: 50.0) {
-                    header
-                    
-                    HStack(alignment: .center) {
-                        
+                VStack(alignment: .center, spacing: 25.0) {
+                    VStack(alignment: .center, spacing: 10.0) {
                         counter
-                        
-                        Spacer()
                         
                         categoriesAndPitch
                     }
-                    .padding(25.0)
+                    .frame(maxWidth: .infinity)
+                    .padding(15.0)
                     .background(.regularMaterial)
                     .cornerRadius(15)
                     .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
-                    
-                    Divider()
-                        .background(.black)
                     
                     usersActions
                 }
                 .padding()
             }
         }
+        .background(compteurVM.arrierePlan)
     }
 }
 
@@ -59,9 +49,14 @@ struct CompteurView_Previews: PreviewProvider {
 extension CompteurView {
     // Header
     private var header: some View {
-        Text("Compteur")
-            .font(.system(size: 40, weight: .bold, design: .rounded))
-            .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+        HStack {
+            Text("Compteur")
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+                .padding([.top, .leading])
+            
+            Spacer()
+        }
     }
     
     // Counter
@@ -73,27 +68,26 @@ extension CompteurView {
     
     // Categories and pitch
     private var categoriesAndPitch: some View {
-        VStack(spacing: 5) {
+        HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
              Text(compteurVM.intituleCompteur[compteurVM.indexSelectionne])
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan) 
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
-        .padding()
     }
     
     // Users Actions
     private var usersActions: some View {
-        VStack(spacing: 25.0) {
+        VStack(spacing: 20.0) {
             Spacer()
             
             HStack {
