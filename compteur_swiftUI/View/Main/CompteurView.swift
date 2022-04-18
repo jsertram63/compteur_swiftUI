@@ -42,6 +42,10 @@ struct CompteurView: View {
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
             Alert3View(modaleEstVisible3: $compteurVM.alertEstVisible)
         }
+        .onAppear {
+            var intitule : String = DataStore().jsonModel.first?.libelle ?? "valeur non chargé"
+            print("valeur apres chargement : \(intitule)")
+        }
     }
 }
 

@@ -13,6 +13,8 @@ struct compteur_swiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(CompteurViewModel())
+                .environmentObject(DataStore())
+            
         }
     }
 }

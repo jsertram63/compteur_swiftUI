@@ -10,6 +10,7 @@ import SwiftUI
 struct PreferenceView: View {
     
     @EnvironmentObject  private var compteurVM: CompteurViewModel
+    @EnvironmentObject private var dataStore: DataStore
     
     @State private var text: String = ""
     
@@ -105,6 +106,12 @@ extension PreferenceView {
             }
             .onChange(of: compteurVM.indexSelectionne, perform: { newValue in
                 print(newValue)
+                //jsonModel.libelle = compteurVM.intituleCompteur[newValue]
+                let jsonModel = JsonModel(id: "AAA", libelle: compteurVM.intituleCompteur[newValue], pasIcremental: 1)
+                
+                dataStore.savePreferences()
+                print(dataStore.jsonModel.first?.libelle);
+            
             })
             .pickerStyle(WheelPickerStyle())
             
