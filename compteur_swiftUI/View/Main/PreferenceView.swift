@@ -108,8 +108,11 @@ extension PreferenceView {
                 print(newValue)
                 //jsonModel.libelle = compteurVM.intituleCompteur[newValue]
                 let jsonModel = JsonModel(id: "AAA", libelle: compteurVM.intituleCompteur[newValue], pasIcremental: 1)
+                dataStore.jsonModel.removeAll()
+                dataStore.jsonModel.append(jsonModel);
+                dataStore.savePreferences();
                 
-                dataStore.savePreferences()
+                
                 print(dataStore.jsonModel.first?.libelle);
             
             })

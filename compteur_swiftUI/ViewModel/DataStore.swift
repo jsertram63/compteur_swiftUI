@@ -18,6 +18,7 @@ class DataStore : ObservableObject {
         print(FileManager.docDirURL.path)
         if FileManager().docExist(name: fileName){
             // chargement des données
+            loadPreferences()
         }
     }
     
