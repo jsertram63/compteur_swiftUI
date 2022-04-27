@@ -11,8 +11,7 @@ import Foundation
 
 class DataStore : ObservableObject {
     
-    @Published var jsonModel:[JsonModel] = []
-    
+    @Published var jsonModel: [JsonModel] = []
     
     init(){
         print(FileManager.docDirURL.path)

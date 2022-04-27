@@ -104,18 +104,14 @@ extension PreferenceView {
                         .fontWeight(.bold)
                 }
             }
-            .onChange(of: compteurVM.indexSelectionne, perform: { newValue in
-                print(newValue)
-                //jsonModel.libelle = compteurVM.intituleCompteur[newValue]
-                let jsonModel = JsonModel(id: "AAA", libelle: compteurVM.intituleCompteur[newValue], pasIcremental: 1)
-                dataStore.jsonModel.removeAll()
-                dataStore.jsonModel.append(jsonModel);
-                dataStore.savePreferences();
-                
-                
-                print(dataStore.jsonModel.first?.libelle);
-            
-            })
+//            .onChange(of: compteurVM.indexSelectionne, perform: { newValue in
+//                print(newValue)
+//                //jsonModel.libelle = compteurVM.intituleCompteur[newValue]
+//                let jsonModel = JsonModel(id: "AAA", libelle: compteurVM.intituleCompteur[newValue], pasIcremental: 1)
+//                dataStore.jsonModel.removeAll()
+//                dataStore.jsonModel.append(jsonModel)
+//                dataStore.savePreferences()
+//            })
             .pickerStyle(WheelPickerStyle())
             
             // Boutons catégories Ajout/Retirer avec animation modale

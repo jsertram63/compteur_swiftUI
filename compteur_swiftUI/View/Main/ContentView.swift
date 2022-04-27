@@ -27,7 +27,7 @@ struct ContentView: View {
                     Text("Compteur")
                 }
             // onglet historique
-            historiqueView()
+            HistoriqueView()
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Historiques")

@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 class CompteurViewModel : ObservableObject {
-    // déclaration de variables qui pourront être modifiée grâce à @Published
+    /* ****************************** CompteurView *********************************************** */
     
-    // CompteurView
+    // déclaration de variables qui pourront être modifiée grâce à @Published
     @Published var compteurEnCours = 0
     @Published var pasDuCompteur = 1
     
@@ -41,6 +41,57 @@ class CompteurViewModel : ObservableObject {
         compteurEnCours = 0
     }
     
+    /* ****************************** HistoriqueView ********************************************* */
+    
+    @Published var historique: [HistoriqueModel] = [] {
+        didSet {
+            sauvegardeHistorique()
+        }
+    }
+    
+    let itemsKey: String = "historique_list"
+    // Initialize ListViewModel class
+    
+    init() {
+        recupHistorique()
+    }
+    // Get items
+    func recupHistorique() {
+        guard
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            let savedItems = try? JSONDecoder().decode([HistoriqueModel].self, from: data)
+        else {return}
+        
+        self.historique = savedItems
+    }
+    // Delete items
+    func suppHistorique(indexSet: IndexSet) {
+        historique.remove(atOffsets: indexSet)
+    }
+    // Move items
+    func deplacerHistorique(from: IndexSet, to: Int) {
+        historique.move(fromOffsets: from, toOffset: to)
+    }
+    // Adding items
+    func ajoutHistorique(compteur: String, pasCompteur: Int) {
+        let nouvelHistorique = HistoriqueModel(compteur: compteur, pasCompteur: pasCompteur)
+        historique.append(nouvelHistorique)
+    }
+    // Update items
+    func miseAJourHistorique(item: HistoriqueModel) {
+        if let index = historique.firstIndex(where: {$0.id == item.id}) {
+            historique[index] = item.updateCompletion()
+        }
+    }
+    // Save items
+    func sauvegardeHistorique() {
+        if let encodedData = try? JSONEncoder().encode(historique) {
+            UserDefaults.standard.set(encodedData, forKey: itemsKey )
+        }
+    }
+    
+    /* ****************************** PreferenceView ********************************************* */
+    
     // permet de retirer un élément du picker tout en mettant à jour l'index du tableau
     func removeElementOfPicker(indexSel: Int) {
         indexSelectionne = 0
@@ -50,7 +101,7 @@ class CompteurViewModel : ObservableObject {
        
     }
     
-    // PreferenceView
+    // Propriétés déclarée publiéées au travers des vues
     @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = 0
     
