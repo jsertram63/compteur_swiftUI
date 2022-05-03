@@ -147,7 +147,12 @@ extension CompteurView {
             Spacer()
             // Bouton sauvegarder
             Button(action: {
-                // Fonction pour sauvegarder le comptage
+                // Ajoute à la liste des historiques le résultat du comptage
+                compteurVM.ajoutHistorique(
+                    compteur: compteurVM.compteurEnCoursFormatte,
+                    categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne],
+                    pasCompteur: compteurVM.pasDuCompteur
+                )
             }) {
                 Text("Sauvegarder")
                     .fontWeight(.bold)

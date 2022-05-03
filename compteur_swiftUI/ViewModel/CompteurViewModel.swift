@@ -12,7 +12,7 @@ class CompteurViewModel : ObservableObject {
     /* ****************************** CompteurView *********************************************** */
     
     // déclaration de variables qui pourront être modifiée grâce à @Published
-    @Published var compteurEnCours = 0
+    @Published var compteur = 0
     @Published var pasDuCompteur = 1
     
     @Published var alertEstVisible = false
@@ -21,24 +21,24 @@ class CompteurViewModel : ObservableObject {
     
     // Propriété déclarée qui convertie compteurEnCours de type String avec quatre caractères 0000
     var compteurEnCoursFormatte: String {
-        return String(format: "%04d", compteurEnCours)
+        return String(format: "%04d", compteur)
     }
     
     // les fonctions de notre compteur
     func incCompteur() {
-        compteurEnCours += pasDuCompteur
+        compteur += pasDuCompteur
     }
     
     func decCompteur() {
-        if compteurEnCours <= 0 {
-            compteurEnCours = 0
+        if compteur <= 0 {
+            compteur = 0
         } else {
-            compteurEnCours -= pasDuCompteur
+            compteur -= pasDuCompteur
         }
     }
     
     func resetCompteur() {
-        compteurEnCours = 0
+        compteur = 0
     }
     
     /* ****************************** HistoriqueView ********************************************* */
@@ -50,12 +50,12 @@ class CompteurViewModel : ObservableObject {
     }
     
     let itemsKey: String = "historique_list"
-    // Initialize ListViewModel class
     
+    // Initialisation de la classe
     init() {
         recupHistorique()
     }
-    // Get items
+    // Récupération de l'historique
     func recupHistorique() {
         guard
             let data = UserDefaults.standard.data(forKey: itemsKey),
@@ -64,26 +64,26 @@ class CompteurViewModel : ObservableObject {
         
         self.historique = savedItems
     }
-    // Delete items
+    // Suppression historique
     func suppHistorique(indexSet: IndexSet) {
         historique.remove(atOffsets: indexSet)
     }
-    // Move items
+    // Déplacement historique
     func deplacerHistorique(from: IndexSet, to: Int) {
         historique.move(fromOffsets: from, toOffset: to)
     }
-    // Adding items
-    func ajoutHistorique(compteur: String, pasCompteur: Int) {
-        let nouvelHistorique = HistoriqueModel(compteur: compteur, pasCompteur: pasCompteur)
+    // Ajout d'un historique
+    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int) {
+        let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur)
         historique.append(nouvelHistorique)
     }
-    // Update items
+    // Mise à jour historique
     func miseAJourHistorique(item: HistoriqueModel) {
         if let index = historique.firstIndex(where: {$0.id == item.id}) {
             historique[index] = item.updateCompletion()
         }
     }
-    // Save items
+    // Sauvegarde historique
     func sauvegardeHistorique() {
         if let encodedData = try? JSONEncoder().encode(historique) {
             UserDefaults.standard.set(encodedData, forKey: itemsKey )
