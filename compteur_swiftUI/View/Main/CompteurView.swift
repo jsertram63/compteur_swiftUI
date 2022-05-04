@@ -83,7 +83,7 @@ extension CompteurView {
         HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
-             Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]):")
+             Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
                 .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan) 

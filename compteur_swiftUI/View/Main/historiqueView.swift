@@ -31,35 +31,18 @@ struct HistoriqueView: View {
                         header
                         
                         ScrollView(showsIndicators: false) {
-                            ForEach(compteurVM.historique) { item in
-                                HStack(alignment: .center) {
-                                    Text(compteurVM.intituleCompteur[compteurVM.indexSelectionne])
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                    
-                                    Spacer()
-                                    
-                                    VStack(alignment: .center, spacing: 10.0) {
-                                        Text(compteurVM.compteurEnCoursFormatte)
-                                            .font(.title3)
-                                            .fontWeight(.medium)
-                                        
-                                        Text("\(compteurVM.pasDuCompteur)")
-                                            .font(.title3)
-                                            .fontWeight(.medium)
+                            VStack(spacing: 15.0) {
+                                ForEach(compteurVM.historique) { item in
+                                    listeHistoriqueView(historique: item)
+                                    .onAppear {
+                                        withAnimation(.linear) {
+                                            compteurVM.miseAJourHistorique(item: item)
+                                        }
                                     }
                                 }
-                                .padding(15.0)
-                                .background(.regularMaterial)
-                                .cornerRadius(15)
-                                //                                .onTapGesture {
-                                //                                    withAnimation(.linear) {
-                                //                                        compteurVM.miseAJourHistorique(item: item)
-                                //                                    }
-                                //                                }
+                                .onDelete(perform: compteurVM.suppHistorique)
+                                .onMove(perform: compteurVM.deplacerHistorique)
                             }
-                            .onDelete(perform: compteurVM.suppHistorique)
-                            .onMove(perform: compteurVM.deplacerHistorique)
                         }
                         .padding()
                     }
@@ -96,10 +79,9 @@ extension HistoriqueView {
         HStack {
             Text("Votre liste d'historique est vide")
         }
-        .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.15)
+        .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
         .padding(15.0)
         .background(.regularMaterial)
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
     }
 }
