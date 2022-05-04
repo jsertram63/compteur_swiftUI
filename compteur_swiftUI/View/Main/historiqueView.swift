@@ -39,13 +39,9 @@ struct HistoriqueView: View {
                                 }
                         }
                         .onDelete(perform: compteurVM.suppHistorique)
-                        .onMove(perform: compteurVM.deplacerHistorique)
+//                        .onMove(perform: compteurVM.deplacerHistorique)
                     }
-                    .listRowBackground(.none)
                     .listStyle(PlainListStyle())
-                    .toolbar {
-                        EditButton()
-                    }
                 }
             }
         }
@@ -82,5 +78,6 @@ extension HistoriqueView {
         .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
         .background(.regularMaterial)
         .cornerRadius(15)
+        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
     }
 }

@@ -17,26 +17,21 @@ struct CompteurView: View {
         ZStack {
             compteurVM.arrierePlan.ignoresSafeArea()
             
-            VStack {
-                header
-                ScrollView {
-                    VStack(alignment: .center, spacing: 60.0) {
-                        VStack(alignment: .center, spacing: 15.0) {
-                            counter
-                            
-                            categoriesAndPitch
-                        }
-                        .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.15)
-                        .padding(15.0)
-                        .background(.regularMaterial)
-                        .cornerRadius(15)
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
-                        
-                        usersActions
-                    }
-                    .padding()
+            VStack(alignment: .center, spacing: 60.0) {
+                VStack(alignment: .center, spacing: 15.0) {
+                    counter
+                    
+                    categoriesAndPitch
                 }
+                .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.25)
+                .padding(15.0)
+                .background(.regularMaterial)
+                .cornerRadius(15)
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
+                
+                usersActions
             }
+            .padding()
             // de flouter la view ciblée; ici la scrollView
             .blur(radius: compteurVM.alertEstVisible ? 10 : 0)
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
@@ -59,23 +54,11 @@ struct CompteurView_Previews: PreviewProvider {
 /* *************************************************************************************** */
 
 extension CompteurView {
-    // Header
-    private var header: some View {
-        HStack {
-            Text("Compteur")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
-                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
-                .padding([.top, .leading])
-            
-            Spacer()
-        }
-    }
-    
     // Counter
     private var counter: some View {
         Text(compteurVM.compteurEnCoursFormatte)
-            .font(.system(size: 60, weight: .bold, design: .rounded))
-            .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+            .font(.system(size: 75, weight: .bold, design: .rounded))
+            .foregroundColor(compteurVM.arrierePlan)
     }
     
     // Categories and pitch
@@ -84,15 +67,15 @@ extension CompteurView {
             // Nom du type de choix sera passé à l'avenir
             
              Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
-                .font(.title3)
+                .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan) 
+                .foregroundColor(compteurVM.arrierePlan)
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
-                .font(.title3)
+                .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+                .foregroundColor(compteurVM.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
     }
@@ -110,7 +93,7 @@ extension CompteurView {
                     Image(systemName:"minus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -124,7 +107,7 @@ extension CompteurView {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -135,7 +118,7 @@ extension CompteurView {
                     Image(systemName:"plus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -159,7 +142,7 @@ extension CompteurView {
                     .foregroundColor(Color.white)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .background(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+            .background(compteurVM.arrierePlan)
             .cornerRadius(15)
             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
             

@@ -31,6 +31,8 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
         }
+        .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
+        
     }
 }
 

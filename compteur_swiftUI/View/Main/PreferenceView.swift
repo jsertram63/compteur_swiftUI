@@ -155,12 +155,12 @@ extension PreferenceView {
                     
                     Image(systemName: "circle.fill")
                         .resizable()
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.gray)
                         .clipShape(Circle())
                         .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurVM.arrierePlan = Color.white
+                            compteurVM.arrierePlan = Color.gray
                         }
                     Spacer()
                     
@@ -242,12 +242,12 @@ extension PreferenceView {
                     
                     Image(systemName: "circle.fill")
                         .resizable()
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.mint)
                         .clipShape(Circle())
                         .frame(width: 40.0, height: 40.0)
                         .shadow(radius: 5)
                         .onTapGesture {
-                            compteurVM.arrierePlan = Color.black
+                            compteurVM.arrierePlan = Color.mint
                         }
                     
                     Spacer()
