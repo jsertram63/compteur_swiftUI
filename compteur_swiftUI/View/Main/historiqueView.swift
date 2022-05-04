@@ -27,24 +27,24 @@ struct HistoriqueView: View {
                     
                     Spacer()
                 } else {
-                    VStack {
-                        header
-                        
-                        ScrollView(showsIndicators: false) {
-                            VStack(spacing: 15.0) {
-                                ForEach(compteurVM.historique) { item in
-                                    listeHistoriqueView(historique: item)
-                                    .onAppear {
-                                        withAnimation(.linear) {
-                                            compteurVM.miseAJourHistorique(item: item)
-                                        }
+                    header
+                    
+                    List {
+                        ForEach(compteurVM.historique) { item in
+                            listeHistoriqueView(historique: item)
+                                .onAppear {
+                                    withAnimation(.linear) {
+                                        compteurVM.miseAJourHistorique(item: item)
                                     }
                                 }
-                                .onDelete(perform: compteurVM.suppHistorique)
-                                .onMove(perform: compteurVM.deplacerHistorique)
-                            }
                         }
-                        .padding()
+                        .onDelete(perform: compteurVM.suppHistorique)
+                        .onMove(perform: compteurVM.deplacerHistorique)
+                    }
+                    .listRowBackground(.none)
+                    .listStyle(PlainListStyle())
+                    .toolbar {
+                        EditButton()
                     }
                 }
             }
@@ -64,7 +64,7 @@ struct historiqueView_Previews: PreviewProvider {
 extension HistoriqueView {
     // Header
     private var header: some View {
-        HStack {
+        HStack(alignment: .center) {
             Text("Historique")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
@@ -80,7 +80,6 @@ extension HistoriqueView {
             Text("Votre liste d'historique est vide")
         }
         .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
-        .padding(15.0)
         .background(.regularMaterial)
         .cornerRadius(15)
     }

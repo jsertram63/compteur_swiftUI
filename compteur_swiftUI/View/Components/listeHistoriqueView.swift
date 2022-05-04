@@ -31,10 +31,6 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
         }
-        .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
-        .padding(15.0)
-        .background(.regularMaterial)
-        .cornerRadius(15)
     }
 }
 
