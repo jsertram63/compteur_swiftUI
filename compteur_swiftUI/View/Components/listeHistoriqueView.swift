@@ -16,7 +16,7 @@ struct listeHistoriqueView: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(historique.categorie)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
             
             Spacer()
@@ -31,7 +31,6 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
         }
-        .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
         
     }
 }
@@ -41,6 +40,7 @@ struct listeHistoriqueView_Previews: PreviewProvider {
         ZStack {
             Color.accentColor.ignoresSafeArea()
             listeHistoriqueView(historique: HistoriqueModel(categorie: "Votes", compteur: "0000", pasCompteur: 1))
+                .padding()
         }
     }
 }

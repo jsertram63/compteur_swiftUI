@@ -67,13 +67,13 @@ extension CompteurView {
             // Nom du type de choix sera passé à l'avenir
             
              Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan)
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan)
         }

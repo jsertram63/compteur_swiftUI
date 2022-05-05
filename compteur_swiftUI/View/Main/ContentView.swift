@@ -44,9 +44,7 @@ struct ContentView: View {
                     Image(systemName: "info.circle.fill")
                     Text("Crédits")
                 }
-        }
-      
-        
+        } 
     }
 }
 
