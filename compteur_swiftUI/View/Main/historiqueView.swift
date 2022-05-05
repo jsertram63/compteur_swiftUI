@@ -39,7 +39,7 @@ struct HistoriqueView: View {
                                 }
                         }
                         .onDelete(perform: compteurVM.suppHistorique)
-//                        .onMove(perform: compteurVM.deplacerHistorique)
+//                      .onMove(perform: compteurVM.deplacerHistorique)
                     }
                     .listStyle(PlainListStyle())
                 }
