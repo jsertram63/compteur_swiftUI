@@ -38,6 +38,12 @@ struct ContentView: View {
                     Image(systemName: "filemenu.and.selection")
                     Text("Préférences")
                 }
+            // onglet crédits
+            CreditsView()
+                .tabItem {
+                    Image(systemName: "info.circle.fill")
+                    Text("Crédits")
+                }
         }
       
         
