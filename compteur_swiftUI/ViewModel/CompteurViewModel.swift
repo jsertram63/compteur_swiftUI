@@ -55,6 +55,7 @@ class CompteurViewModel : ObservableObject {
     init() {
         recupHistorique()
     }
+    
     // Récupération de l'historique
     func recupHistorique() {
         guard
@@ -64,25 +65,30 @@ class CompteurViewModel : ObservableObject {
         
         self.historique = savedItems
     }
+    
     // Suppression historique
     func suppHistorique(indexSet: IndexSet) {
         historique.remove(atOffsets: indexSet)
     }
+    
     // Déplacement historique
-    func deplacerHistorique(from: IndexSet, to: Int) {
-        historique.move(fromOffsets: from, toOffset: to)
-    }
+//    func deplacerHistorique(from: IndexSet, to: Int) {
+//        historique.move(fromOffsets: from, toOffset: to)
+//    }
+    
     // Ajout d'un historique
-    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int) {
-        let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur)
+    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: Date) {
+        let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur, date: date)
         historique.append(nouvelHistorique)
     }
+    
     // Mise à jour historique
     func miseAJourHistorique(item: HistoriqueModel) {
         if let index = historique.firstIndex(where: {$0.id == item.id}) {
             historique[index] = item.updateCompletion()
         }
     }
+    
     // Sauvegarde historique
     func sauvegardeHistorique() {
         if let encodedData = try? JSONEncoder().encode(historique) {
@@ -92,6 +98,12 @@ class CompteurViewModel : ObservableObject {
     
     /* ****************************** PreferenceView ********************************************* */
     
+    // Propriétés déclarée publiées au travers des vues
+    @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
+    @Published var indexSelectionne = 0
+    
+    @Published var arrierePlan = Color("Color1")
+    
     // permet de retirer un élément du picker tout en mettant à jour l'index du tableau
     func removeElementOfPicker(indexSel: Int) {
         indexSelectionne = 0
@@ -100,10 +112,4 @@ class CompteurViewModel : ObservableObject {
         }
        
     }
-    
-    // Propriétés déclarée publiéées au travers des vues
-    @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
-    @Published var indexSelectionne = 0
-    
-    @Published var arrierePlan = Color("Color1")
 }

@@ -134,7 +134,8 @@ extension CompteurView {
                 compteurVM.ajoutHistorique(
                     compteur: compteurVM.compteurEnCoursFormatte,
                     categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne],
-                    pasCompteur: compteurVM.pasDuCompteur
+                    pasCompteur: compteurVM.pasDuCompteur,
+                    date: Date()
                 )
             }) {
                 Text("Sauvegarder")
