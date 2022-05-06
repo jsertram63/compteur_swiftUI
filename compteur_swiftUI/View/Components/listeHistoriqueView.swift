@@ -16,10 +16,10 @@ struct listeHistoriqueView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .center, spacing: 10.0) {
-                HStack {
-                    Text(Date(), style: .date)
-                    Text(Date(), style: .time)
-                }
+                Text(historique.date)
+                    .font(.headline)
+                    .fontWeight(.medium)
+                
                 Text(historique.categorie)
                     .font(.title2)
                     .fontWeight(.bold)
@@ -37,7 +37,6 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
         }
-        
     }
 }
 
@@ -45,8 +44,9 @@ struct listeHistoriqueView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.accentColor.ignoresSafeArea()
-            listeHistoriqueView(historique: HistoriqueModel(categorie: "Votes", compteur: "0000", pasCompteur: 1, date: Date()))
+            listeHistoriqueView(historique: HistoriqueModel(categorie: "Votes", compteur: "0000", pasCompteur: 1, date: "06/05/2022 à 16h25"))
                 .padding()
+                .background(.regularMaterial)
         }
     }
 }

@@ -12,9 +12,9 @@ struct HistoriqueModel: Identifiable, Codable {
     let categorie: String
     let compteur: String
     let pasCompteur: Int
-    let date: Date
+    let date: String
     
-    init(id: String = UUID().uuidString, categorie: String, compteur: String, pasCompteur: Int, date: Date) {
+    init(id: String = UUID().uuidString, categorie: String, compteur: String, pasCompteur: Int, date: String) {
         self.id = id
         self.categorie = categorie
         self.compteur = compteur

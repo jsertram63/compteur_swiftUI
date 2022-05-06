@@ -18,6 +18,16 @@ class CompteurViewModel : ObservableObject {
     @Published var alertEstVisible = false
     @Published var modaleAjoutAffichee = false
     @Published var modaleSuppAffichee = false
+
+    
+    var dateFormatee: String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "fr")
+        return dateFormatter.string(from: date)
+    }
     
     // Propriété déclarée qui convertie compteurEnCours de type String avec quatre caractères 0000
     var compteurEnCoursFormatte: String {
@@ -71,13 +81,8 @@ class CompteurViewModel : ObservableObject {
         historique.remove(atOffsets: indexSet)
     }
     
-    // Déplacement historique
-//    func deplacerHistorique(from: IndexSet, to: Int) {
-//        historique.move(fromOffsets: from, toOffset: to)
-//    }
-    
     // Ajout d'un historique
-    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: Date) {
+    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: String) {
         let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur, date: date)
         historique.append(nouvelHistorique)
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CompteurView: View {
     
-    @EnvironmentObject  private var compteurVM: CompteurViewModel
+    @EnvironmentObject private var compteurVM: CompteurViewModel
     
     let screenSize = UIScreen.main.bounds
     
@@ -135,7 +135,7 @@ extension CompteurView {
                     compteur: compteurVM.compteurEnCoursFormatte,
                     categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne],
                     pasCompteur: compteurVM.pasDuCompteur,
-                    date: Date()
+                    date: compteurVM.dateFormatee
                 )
             }) {
                 Text("Sauvegarder")

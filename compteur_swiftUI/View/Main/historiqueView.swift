@@ -39,7 +39,6 @@ struct HistoriqueView: View {
                                 }
                         }
                         .onDelete(perform: compteurVM.suppHistorique)
-//                      .onMove(perform: compteurVM.deplacerHistorique)
                     }
                     .listStyle(PlainListStyle())
                 }
@@ -73,7 +72,7 @@ extension HistoriqueView {
     // Liste vide
     private var listeVide: some View {
         HStack {
-            Text("Votre liste d'historique est vide")
+            Text("Votre liste d'historique est vide !")
         }
         .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
         .background(.regularMaterial)
