@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct listeHistoriqueView: View {
+    @EnvironmentObject private var compteurVM: CompteurViewModel
     
     let historique: HistoriqueModel
     

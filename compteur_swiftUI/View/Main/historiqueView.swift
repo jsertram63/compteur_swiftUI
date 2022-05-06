@@ -32,6 +32,7 @@ struct HistoriqueView: View {
                     List {
                         ForEach(compteurVM.historique) { item in
                             listeHistoriqueView(historique: item)
+                                .foregroundColor(compteurVM.arrierePlan)
                                 .onAppear {
                                     withAnimation(.linear) {
                                         compteurVM.miseAJourHistorique(item: item)
@@ -62,7 +63,7 @@ extension HistoriqueView {
         HStack(alignment: .center) {
             Text("Historique")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
-                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+                .foregroundColor(Color.black)
                 .padding([.top, .leading])
             
             Spacer()
@@ -73,6 +74,8 @@ extension HistoriqueView {
     private var listeVide: some View {
         HStack {
             Text("Votre liste d'historique est vide !")
+                .fontWeight(.bold)
+                .foregroundColor(compteurVM.arrierePlan)
         }
         .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
         .background(.regularMaterial)
