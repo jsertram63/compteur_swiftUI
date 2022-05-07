@@ -1,24 +1,28 @@
 //
-//  Alert2View.swift
+//  AlertView.swift
 //  compteur_swiftUI
 //
-//  Created by Pierric Marye on 10/04/2022.
+//  Created by Pierric Marye on 06/04/2022.
 //
 
 import SwiftUI
 
-struct Alert2View: View {
+struct AlertAjoutCategorieView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
     
     let screenSize = UIScreen.main.bounds
-    @Binding var modaleEstVisible2: Bool
+    @Binding var modaleEstVisible: Bool
+    
+    @Binding var text: String
     
     var body: some View {
         VStack(spacing: 25.0) {
-            Text("Voulez-vous vraiment supprimer cette catégorie ?")
+            Text("Ajouter une catégorie")
                 .fontWeight(.bold)
-                .multilineTextAlignment(.center)
+            
+            TextField("", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             HStack {
                 Spacer()
@@ -26,9 +30,11 @@ struct Alert2View: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible2 = false
+                        modaleEstVisible = false
                     }
-                    compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
+                    // Une fonction d'ajout d'une catégorie au picker en plus
+                    compteurVM.intituleCompteur.append(text)
+                    text = ""
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)
@@ -43,7 +49,7 @@ struct Alert2View: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible2 = false
+                        modaleEstVisible = false
                     }
                 } label: {
                     Text("Annuler")
@@ -61,14 +67,13 @@ struct Alert2View: View {
         .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.3)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
-        .offset(x: modaleEstVisible2 ? 0 : screenSize.width, y: modaleEstVisible2 ? 0 : screenSize.height)
+        .offset(x: modaleEstVisible ? 0 : screenSize.width, y: modaleEstVisible ? 0 : screenSize.height)
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
     }
-
 }
 
-struct Alert2View_Previews: PreviewProvider {
+struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        Alert2View(modaleEstVisible2: .constant(true))
+        AlertAjoutCategorieView(modaleEstVisible: .constant(true), text: .constant(""))
     }
 }

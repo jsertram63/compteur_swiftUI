@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Alert3View: View {
+struct AlertResetCompteurView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
     
@@ -72,6 +72,6 @@ struct Alert3View: View {
 
 struct Alert3View_Previews: PreviewProvider {
     static var previews: some View {
-        Alert3View(modaleEstVisible3: .constant(true))
+        AlertResetCompteurView(modaleEstVisible3: .constant(true))
     }
 }

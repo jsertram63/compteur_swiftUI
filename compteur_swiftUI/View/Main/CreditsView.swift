@@ -33,7 +33,7 @@ struct CreditsView: View {
                 VStack(spacing: 5.0) {
                     Text("Édition crée par:")
                         .fontWeight(.bold)
-                    Text("Julien Martres en partenariat avec les étudiants de la formation Studi.fr; Pierric Marye, Dylan Caetano, ... .")
+                    Text("Julien Martres en partenariat avec les étudiants de la formation Studi.fr: Pierric Marye, Dylan Caetano, ... .")
                 }
                 // Spécials Thanks text
                 VStack(spacing: 5.0) {

@@ -36,8 +36,8 @@ struct PreferenceView: View {
             .blur(radius: compteurVM.modaleAjoutAffichee || compteurVM.modaleSuppAffichee ? 10 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
-            Alert2View(modaleEstVisible2: $compteurVM.modaleSuppAffichee)
+            AlertAjoutCategorieView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
+            AlertSuppressionCategorieView(modaleEstVisible2: $compteurVM.modaleSuppAffichee)
         }
     }
     

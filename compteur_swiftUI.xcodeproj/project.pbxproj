@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		372A04542802C339004F7EDF /* Alert2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A04532802C339004F7EDF /* Alert2View.swift */; };
+		372A04542802C339004F7EDF /* AlertSuppressionCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */; };
 		3752CEF7282654C4008A13E0 /* buttonClic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3752CEF6282654C4008A13E0 /* buttonClic.mp3 */; };
 		3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */; };
 		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
 		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
 		3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766286027E1EC270095FBFD /* HistoriqueView.swift */; };
-		376F46F72805C3B900D2036F /* Alert3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F46F62805C3B900D2036F /* Alert3View.swift */; };
+		376F46F72805C3B900D2036F /* AlertResetCompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */; };
 		379B75142819904E0025EA31 /* historiqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B75132819904E0025EA31 /* historiqueModel.swift */; };
-		37A08CD827FD7C7F0079F7AB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A08CD727FD7C7F0079F7AB /* AlertView.swift */; };
+		37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A08CD727FD7C7F0079F7AB /* AlertAjoutCategorieView.swift */; };
 		37BF4D2B28264C1800FAC830 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF4D2A28264C1800FAC830 /* SoundManager.swift */; };
 		37CD6433282405E500BB7FAD /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD6432282405E500BB7FAD /* CreditsView.swift */; };
 		37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */; };
@@ -30,15 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		372A04532802C339004F7EDF /* Alert2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert2View.swift; sourceTree = "<group>"; };
+		372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSuppressionCategorieView.swift; sourceTree = "<group>"; };
 		3752CEF6282654C4008A13E0 /* buttonClic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClic.mp3; sourceTree = "<group>"; };
 		3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
 		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		3766286027E1EC270095FBFD /* HistoriqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueView.swift; sourceTree = "<group>"; };
-		376F46F62805C3B900D2036F /* Alert3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert3View.swift; sourceTree = "<group>"; };
+		376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResetCompteurView.swift; sourceTree = "<group>"; };
 		379B75132819904E0025EA31 /* historiqueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historiqueModel.swift; sourceTree = "<group>"; };
-		37A08CD727FD7C7F0079F7AB /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		37A08CD727FD7C7F0079F7AB /* AlertAjoutCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAjoutCategorieView.swift; sourceTree = "<group>"; };
 		37BF4D2A28264C1800FAC830 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		37CD6432282405E500BB7FAD /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listeHistoriqueView.swift; sourceTree = "<group>"; };
@@ -108,9 +108,9 @@
 		37A08CD927FD87DA0079F7AB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				37A08CD727FD7C7F0079F7AB /* AlertView.swift */,
-				372A04532802C339004F7EDF /* Alert2View.swift */,
-				376F46F62805C3B900D2036F /* Alert3View.swift */,
+				37A08CD727FD7C7F0079F7AB /* AlertAjoutCategorieView.swift */,
+				372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */,
+				376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */,
 				37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */,
 			);
 			path = Components;
@@ -245,10 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372A04542802C339004F7EDF /* Alert2View.swift in Sources */,
+				372A04542802C339004F7EDF /* AlertSuppressionCategorieView.swift in Sources */,
 				37BF4D2B28264C1800FAC830 /* SoundManager.swift in Sources */,
 				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
-				376F46F72805C3B900D2036F /* Alert3View.swift in Sources */,
+				376F46F72805C3B900D2036F /* AlertResetCompteurView.swift in Sources */,
 				37CD6433282405E500BB7FAD /* CreditsView.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
 				89023983280DC9AC0016C598 /* DataStore.swift in Sources */,
@@ -256,7 +256,7 @@
 				379B75142819904E0025EA31 /* historiqueModel.swift in Sources */,
 				37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
-				37A08CD827FD7C7F0079F7AB /* AlertView.swift in Sources */,
+				37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */,
 				89023981280DC6170016C598 /* FileMangager+Extension.swift in Sources */,
 				89023985280DCA710016C598 /* jsonModel.swift in Sources */,
 				89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */,

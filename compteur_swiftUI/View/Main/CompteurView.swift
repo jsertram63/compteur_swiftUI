@@ -36,7 +36,7 @@ struct CompteurView: View {
             // de flouter la view ciblée; ici la scrollView
             .blur(radius: compteurVM.alertEstVisible ? 10 : 0)
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
-            Alert3View(modaleEstVisible3: $compteurVM.alertEstVisible)
+            AlertResetCompteurView(modaleEstVisible3: $compteurVM.alertEstVisible)
         }
 //        .onAppear {
 //            var intitule: String = DataStore().jsonModel.first?.libelle ?? "valeur non chargé"
