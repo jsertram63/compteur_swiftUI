@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct CompteurView: View {
     
     @EnvironmentObject private var compteurVM: CompteurViewModel
-    //@StateObject var soundManager: SoundManager
     
     let screenSize = UIScreen.main.bounds
     
@@ -90,7 +90,7 @@ extension CompteurView {
                 // Boutons de comptage -
                 Button {
                     compteurVM.decCompteur()
-                    SoundManager.instance.jouerSon(son: "")
+                    SoundManager.instance.jouerSon(son: "buttonClic")
                 } label: {
                     Image(systemName:"minus.square")
                         .resizable()
@@ -116,7 +116,7 @@ extension CompteurView {
                 // Boutons de comptage +
                 Button {
                     compteurVM.incCompteur()
-                    SoundManager.instance.jouerSon(son: "")
+                    SoundManager.instance.jouerSon(son: "buttonClic")
                 } label: {
                     Image(systemName:"plus.square")
                         .resizable()

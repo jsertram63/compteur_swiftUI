@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		372A04542802C339004F7EDF /* Alert2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A04532802C339004F7EDF /* Alert2View.swift */; };
+		3752CEF7282654C4008A13E0 /* buttonClic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3752CEF6282654C4008A13E0 /* buttonClic.mp3 */; };
 		3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */; };
 		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
 		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		372A04532802C339004F7EDF /* Alert2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert2View.swift; sourceTree = "<group>"; };
+		3752CEF6282654C4008A13E0 /* buttonClic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClic.mp3; sourceTree = "<group>"; };
 		3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
 		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		37BF4D2C28264E3B00FAC830 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				3752CEF6282654C4008A13E0 /* buttonClic.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */,
 				89BFD76827D67D1800359EA0 /* Preview Assets.xcassets in Resources */,
 				89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */,
+				3752CEF7282654C4008A13E0 /* buttonClic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
