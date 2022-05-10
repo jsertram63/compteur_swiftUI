@@ -92,7 +92,7 @@ extension CompteurView {
                 // Boutons de comptage -
                 Button {
                     compteurVM.decCompteur()
-                    SoundManager.instance.jouerSon(son: "buttonClic")
+                    SoundManager.instance.jouerSon(son: "Click1")
                 } label: {
                     Image(systemName:"minus.square")
                         .resizable()
@@ -118,7 +118,7 @@ extension CompteurView {
                 // Boutons de comptage +
                 Button {
                     compteurVM.incCompteur()
-                    SoundManager.instance.jouerSon(son: "buttonClic")
+                    SoundManager.instance.jouerSon(son: "Click1")
                 } label: {
                     Image(systemName:"plus.square")
                         .resizable()

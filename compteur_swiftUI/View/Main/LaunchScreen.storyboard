@@ -23,13 +23,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dq0-Sd-SEK">
-                                <rect key="frame" x="68" y="360" width="278" height="186.5"/>
+                                <rect key="frame" x="76" y="360" width="262" height="186.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="counter" translatesAutoresizingMaskIntoConstraints="NO" id="1of-4i-WaD">
-                                        <rect key="frame" x="75" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="67" y="0.0" width="128" height="128"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToutComptage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNR-Hy-S83">
-                                        <rect key="frame" x="0.0" y="136" width="278" height="50.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TouComptage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNR-Hy-S83">
+                                        <rect key="frame" x="0.0" y="136" width="262" height="50.5"/>
                                         <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="50"/>
                                         <color key="textColor" name="Color3"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
