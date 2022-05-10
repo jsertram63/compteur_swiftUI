@@ -73,11 +73,11 @@ extension HistoriqueView {
     // Liste vide
     private var listeVide: some View {
         HStack {
-            Text("Votre liste d'historique est vide !")
+            Text("Votre liste d'historique est vide")
                 .fontWeight(.bold)
                 .foregroundColor(compteurVM.arrierePlan)
         }
-        .frame(width: screenSize.width * 0.85, height: screenSize.height * 0.10)
+        .frame(width: screenSize.width * 0.90, height: screenSize.height * 0.10)
         .background(.regularMaterial)
         .cornerRadius(15)
         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)

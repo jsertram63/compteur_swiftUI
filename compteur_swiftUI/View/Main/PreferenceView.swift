@@ -12,6 +12,9 @@ struct PreferenceView: View {
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     @EnvironmentObject private var dataStore: DataStore
     
+    @State var alerteAjout = false
+    @State var alerteSuppression = false
+    
     @State private var text: String = ""
     
     var body: some View {
@@ -33,11 +36,11 @@ struct PreferenceView: View {
                 }
             }
             // de flouter la view ciblée; ici la scrollView
-            .blur(radius: compteurVM.modaleAjoutAffichee || compteurVM.modaleSuppAffichee ? 10 : 0)
+            .blur(radius: alerteAjout || alerteSuppression ? 10 : 0)
             
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "Ajouter"
-            AlertAjoutCategorieView(modaleEstVisible: $compteurVM.modaleAjoutAffichee, text: $text)
-            AlertSuppressionCategorieView(modaleEstVisible2: $compteurVM.modaleSuppAffichee)
+            AlertAjoutCategorieView(alerteAjout1: $alerteAjout, text: $text)
+            AlertSuppressionCategorieView(alerteSuppression1: $alerteSuppression)
         }
     }
     
@@ -119,7 +122,7 @@ extension PreferenceView {
                 // Bouton ajouter une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
-                        compteurVM.modaleAjoutAffichee = true
+                        alerteAjout = true
                     }
                 } label: {
                     Text("Ajouter")
@@ -133,7 +136,7 @@ extension PreferenceView {
                 // Bouton retirer une catégorie par le biais d'une alerte
                 Button {
                     withAnimation(.easeInOut) {
-                        compteurVM.modaleSuppAffichee = true
+                        alerteSuppression = true
                     }
                 } label: {
                     Text("Retirer")

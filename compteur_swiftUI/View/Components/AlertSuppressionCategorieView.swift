@@ -12,7 +12,7 @@ struct AlertSuppressionCategorieView: View {
     @EnvironmentObject var compteurVM: CompteurViewModel
     
     let screenSize = UIScreen.main.bounds
-    @Binding var modaleEstVisible2: Bool
+    @Binding var alerteSuppression1: Bool
     
     var body: some View {
         VStack(spacing: 25.0) {
@@ -26,7 +26,7 @@ struct AlertSuppressionCategorieView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible2 = false
+                        alerteSuppression1 = false
                     }
                     compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
                 } label: {
@@ -43,7 +43,7 @@ struct AlertSuppressionCategorieView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible2 = false
+                        alerteSuppression1 = false
                     }
                 } label: {
                     Text("Annuler")
@@ -61,14 +61,14 @@ struct AlertSuppressionCategorieView: View {
         .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.3)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
-        .offset(x: modaleEstVisible2 ? 0 : screenSize.width, y: modaleEstVisible2 ? 0 : screenSize.height)
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
+        .offset(x: alerteSuppression1 ? 0 : screenSize.width, y: alerteSuppression1 ? 0 : screenSize.height)
     }
 
 }
 
 struct Alert2View_Previews: PreviewProvider {
     static var previews: some View {
-        AlertSuppressionCategorieView(modaleEstVisible2: .constant(true))
+        AlertSuppressionCategorieView(alerteSuppression1: .constant(true))
     }
 }

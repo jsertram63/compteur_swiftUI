@@ -12,6 +12,8 @@ struct CompteurView: View {
     
     @EnvironmentObject private var compteurVM: CompteurViewModel
     
+    @State var resetAlerte = false
+    
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
@@ -34,9 +36,9 @@ struct CompteurView: View {
             }
             .padding()
             // de flouter la view ciblée; ici la scrollView
-            .blur(radius: compteurVM.alertEstVisible ? 10 : 0)
+            .blur(radius: resetAlerte ? 10 : 0)
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
-            AlertResetCompteurView(modaleEstVisible3: $compteurVM.alertEstVisible)
+            AlertResetCompteurView(resetAlerte1: $resetAlerte)
         }
 //        .onAppear {
 //            var intitule: String = DataStore().jsonModel.first?.libelle ?? "valeur non chargé"
@@ -103,7 +105,7 @@ extension CompteurView {
                 Button {
                     // appel des fonctions du compteurViewModel
                     withAnimation(.easeInOut) {
-                        compteurVM.alertEstVisible = true
+                        resetAlerte = true
                     }
                 } label: {
                     Image(systemName: "arrow.counterclockwise.circle")

@@ -15,11 +15,6 @@ class CompteurViewModel : ObservableObject {
     @Published var compteur = 0
     @Published var pasDuCompteur = 1
     
-    @Published var alertEstVisible = false
-    @Published var modaleAjoutAffichee = false
-    @Published var modaleSuppAffichee = false
-
-    
     var dateFormatee: String {
         let date = Date()
         let dateFormatter = DateFormatter()

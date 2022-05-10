@@ -12,7 +12,7 @@ struct AlertAjoutCategorieView: View {
     @EnvironmentObject var compteurVM: CompteurViewModel
     
     let screenSize = UIScreen.main.bounds
-    @Binding var modaleEstVisible: Bool
+    @Binding var alerteAjout1: Bool
     
     @Binding var text: String
     
@@ -30,7 +30,7 @@ struct AlertAjoutCategorieView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible = false
+                        alerteAjout1 = false
                     }
                     // Une fonction d'ajout d'une catégorie au picker en plus
                     compteurVM.intituleCompteur.append(text)
@@ -49,7 +49,7 @@ struct AlertAjoutCategorieView: View {
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
-                        modaleEstVisible = false
+                        alerteAjout1 = false
                     }
                 } label: {
                     Text("Annuler")
@@ -67,13 +67,13 @@ struct AlertAjoutCategorieView: View {
         .frame(width: screenSize.width * 0.8, height: screenSize.height * 0.3)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
-        .offset(x: modaleEstVisible ? 0 : screenSize.width, y: modaleEstVisible ? 0 : screenSize.height)
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
+        .offset(x: alerteAjout1 ? 0 : screenSize.width, y: alerteAjout1 ? 0 : screenSize.height)
     }
 }
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertAjoutCategorieView(modaleEstVisible: .constant(true), text: .constant(""))
+        AlertAjoutCategorieView(alerteAjout1: .constant(true), text: .constant(""))
     }
 }
