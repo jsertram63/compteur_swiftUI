@@ -99,10 +99,13 @@ class CompteurViewModel : ObservableObject {
     /* ****************************** PreferenceView ********************************************* */
     
     // Propriétés déclarée publiées au travers des vues
+    
+    // Arrière plan
+    @Published var arrierePlan = Color("Color1")
+    
+    // Picker
     @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = 0
-    
-    @Published var arrierePlan = Color("Color1")
     
     // permet de retirer un élément du picker tout en mettant à jour l'index du tableau
     func removeElementOfPicker(indexSel: Int) {

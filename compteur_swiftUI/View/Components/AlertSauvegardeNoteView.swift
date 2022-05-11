@@ -21,8 +21,12 @@ struct AlertSauvegardeNoteView: View {
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
             
-            TextField("", text: $note)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextEditor(text: $note)
+                .frame(height: 75.0)
+                .cornerRadius(5)
+            
+//            TextField("", text: $note)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             HStack {
                 Spacer()
