@@ -14,6 +14,7 @@
 		3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766286027E1EC270095FBFD /* HistoriqueView.swift */; };
 		376F46F72805C3B900D2036F /* AlertResetCompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */; };
 		378D8BFD282A986100D84780 /* Click1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378D8BFC282A986100D84780 /* Click1.mp3 */; };
+		37991D2D282AA6C000601DC9 /* AlertSauvegardeNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37991D2C282AA6C000601DC9 /* AlertSauvegardeNoteView.swift */; };
 		379B75142819904E0025EA31 /* historiqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B75132819904E0025EA31 /* historiqueModel.swift */; };
 		37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A08CD727FD7C7F0079F7AB /* AlertAjoutCategorieView.swift */; };
 		37BF4D2B28264C1800FAC830 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF4D2A28264C1800FAC830 /* SoundManager.swift */; };
@@ -37,6 +38,7 @@
 		3766286027E1EC270095FBFD /* HistoriqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueView.swift; sourceTree = "<group>"; };
 		376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResetCompteurView.swift; sourceTree = "<group>"; };
 		378D8BFC282A986100D84780 /* Click1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click1.mp3; sourceTree = "<group>"; };
+		37991D2C282AA6C000601DC9 /* AlertSauvegardeNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSauvegardeNoteView.swift; sourceTree = "<group>"; };
 		379B75132819904E0025EA31 /* historiqueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historiqueModel.swift; sourceTree = "<group>"; };
 		37A08CD727FD7C7F0079F7AB /* AlertAjoutCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAjoutCategorieView.swift; sourceTree = "<group>"; };
 		37BF4D2A28264C1800FAC830 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */,
 				376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */,
 				37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */,
+				37991D2C282AA6C000601DC9 /* AlertSauvegardeNoteView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */,
 				89023981280DC6170016C598 /* FileMangager+Extension.swift in Sources */,
 				89023985280DCA710016C598 /* jsonModel.swift in Sources */,
+				37991D2D282AA6C000601DC9 /* AlertSauvegardeNoteView.swift in Sources */,
 				89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */,
 				3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */,
 			);

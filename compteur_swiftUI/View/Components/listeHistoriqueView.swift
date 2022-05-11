@@ -15,25 +15,32 @@ struct listeHistoriqueView: View {
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 10.0) {
+        VStack(alignment: .leading, spacing: 10.0) {
+            HStack {
                 Text(historique.date)
                     .font(.headline)
                     .fontWeight(.medium)
                 
-                Text("Commentaire")
+                Spacer()
             }
             
-            Spacer()
-            
-            VStack(alignment: .center, spacing: 10.0) {
-                Text(historique.categorie)
-                    .font(.title2)
-                    .fontWeight(.bold)
+            HStack(alignment: .top, spacing: 25.0) {
+                VStack(alignment: .leading, spacing: 5.0) {
+                    Text(historique.categorie)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    
+                    Text(historique.compteur)
+                        .font(.headline)
+                        .fontWeight(.medium)
+                }
                 
-                Text(historique.compteur)
-                    .font(.title3)
-                    .fontWeight(.medium)
+                Spacer()
+                
+                VStack(alignment: .leading) {
+                    Text(historique.note)
+                }
+                .frame(width: screenSize.width * 0.50)
             }
         }
     }
@@ -43,9 +50,18 @@ struct listeHistoriqueView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.accentColor.ignoresSafeArea()
-            listeHistoriqueView(historique: HistoriqueModel(categorie: "Votes", compteur: "0005", pasCompteur: 1, date: "06/05/2022 à 16h25"))
-                .padding()
-                .background(.regularMaterial)
+            listeHistoriqueView(
+                historique:
+                    HistoriqueModel(
+                        categorie: "Heures codage",
+                        compteur: "0100",
+                        pasCompteur: 1,
+                        date: "06/05/2022 à 16:25",
+                        note: "Nombres de votes obtenus lors des derniers comptages."
+                    )
+            )
+            .padding()
+            .background(.regularMaterial)
         }
     }
 }

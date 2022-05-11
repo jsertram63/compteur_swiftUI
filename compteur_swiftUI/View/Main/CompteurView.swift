@@ -13,6 +13,8 @@ struct CompteurView: View {
     @EnvironmentObject private var compteurVM: CompteurViewModel
     
     @State var resetAlerte = false
+    @State var alertNote = false
+    @State var note1: String = ""
     
     let screenSize = UIScreen.main.bounds
     
@@ -36,9 +38,10 @@ struct CompteurView: View {
             }
             .padding()
             // de flouter la view ciblée; ici la scrollView
-            .blur(radius: resetAlerte ? 10 : 0)
+            .blur(radius: resetAlerte || alertNote ? 10 : 0)
             // modale style alert en arrière plan sera au premier plan sur appui du bouton "⟲"
             AlertResetCompteurView(resetAlerte1: $resetAlerte)
+            AlertSauvegardeNoteView(alerteAjout2: $alertNote, note: $note1)
         }
 //        .onAppear {
 //            var intitule: String = DataStore().jsonModel.first?.libelle ?? "valeur non chargé"
@@ -135,13 +138,9 @@ extension CompteurView {
             Spacer()
             // Bouton sauvegarder
             Button(action: {
-                // Ajoute à la liste des historiques le résultat du comptage
-                compteurVM.ajoutHistorique(
-                    compteur: compteurVM.compteurEnCoursFormatte,
-                    categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne],
-                    pasCompteur: compteurVM.pasDuCompteur,
-                    date: compteurVM.dateFormatee
-                )
+                withAnimation(.easeInOut) {
+                    alertNote = true
+                }
             }) {
                 Text("Sauvegarder")
                     .fontWeight(.bold)

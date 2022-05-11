@@ -18,7 +18,7 @@ class CompteurViewModel : ObservableObject {
     var dateFormatee: String {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "fr")
         return dateFormatter.string(from: date)
@@ -77,8 +77,8 @@ class CompteurViewModel : ObservableObject {
     }
     
     // Ajout d'un historique
-    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: String) {
-        let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur, date: date)
+    func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: String, note: String) {
+        let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur, date: date, note: note)
         historique.append(nouvelHistorique)
     }
     
