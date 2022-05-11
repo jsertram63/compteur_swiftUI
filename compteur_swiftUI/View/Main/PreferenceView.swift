@@ -261,23 +261,5 @@ extension PreferenceView {
         .background(.thinMaterial)
         .cornerRadius(15)
         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-        .overlay(alignment: .topLeading) {
-            Button {
-                // Remise à l'initial des variables
-                compteurVM.arrierePlan = Color("Color1")
-                compteurVM.pasDuCompteur = 1
-                compteurVM.indexSelectionne = 0
-            } label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .frame(width: 15.0, height: 15.0)
-                    .font(.headline)
-                    .padding(12.0)
-                    .foregroundColor(.primary)
-                    .background(.regularMaterial)
-                    .cornerRadius(15)
-                    .shadow(radius: 5)
-            }
-            .padding(12.0)
-        }
     }
 }
