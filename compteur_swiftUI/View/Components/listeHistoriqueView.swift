@@ -15,53 +15,45 @@ struct listeHistoriqueView: View {
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10.0) {
+        VStack(alignment: .leading, spacing: 5.0) {
             HStack {
-                Text(historique.date)
-                    .font(.headline)
-                    .fontWeight(.medium)
-                
                 Spacer()
+                
+                Text(historique.date)
+                    .fontWeight(.medium)
             }
             
-            HStack(alignment: .top, spacing: 25.0) {
-                VStack(alignment: .leading, spacing: 5.0) {
-                    Text(historique.categorie)
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    
-                    Text(historique.compteur)
-                        .font(.headline)
-                        .fontWeight(.medium)
-                }
+            HStack {
+                Text(historique.categorie)
+                    .font(.headline)
+                    .fontWeight(.bold)
                 
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    Text(historique.note)
-                }
-                .frame(width: screenSize.width * 0.50)
+                Text(historique.compteur)
+                    .font(.headline)
+                    .fontWeight(.medium)
             }
+            
+            Text(historique.note)
         }
     }
-}
-
-struct listeHistoriqueView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.accentColor.ignoresSafeArea()
-            listeHistoriqueView(
-                historique:
-                    HistoriqueModel(
-                        categorie: "Heures codage",
-                        compteur: "0100",
-                        pasCompteur: 1,
-                        date: "06/05/2022 à 16:25",
-                        note: "Nombres de votes obtenus lors des derniers comptages."
-                    )
-            )
-            .padding()
-            .background(.regularMaterial)
+    
+    struct listeHistoriqueView_Previews: PreviewProvider {
+        static var previews: some View {
+            ZStack {
+                Color.accentColor.ignoresSafeArea()
+                listeHistoriqueView(
+                    historique:
+                        HistoriqueModel(
+                            categorie: "Migration oiseaux",
+                            compteur: "0352",
+                            pasCompteur: 10,
+                            date: "12/05/2022 15:45",
+                            note: "Nombres d'Hirondelles comptées lors de la migration printemps 2022. Comptage effectué dans la réserve naturelle de Py (66)"
+                        )
+                )
+                .padding()
+                .background(.regularMaterial)
+            }
         }
     }
 }
