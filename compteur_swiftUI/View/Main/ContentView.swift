@@ -54,3 +54,12 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(CompteurViewModel())
     }
 }
+
+/** Extension de View */
+
+extension View {
+    func cacherClavier() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}

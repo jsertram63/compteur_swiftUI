@@ -25,9 +25,6 @@ struct AlertSauvegardeNoteView: View {
                 .frame(height: 75.0)
                 .cornerRadius(5)
             
-//            TextField("", text: $note)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
             HStack {
                 Spacer()
                 
@@ -36,6 +33,7 @@ struct AlertSauvegardeNoteView: View {
                     withAnimation(.easeInOut) {
                         alerteAjout2 = false
                     }
+                    cacherClavier()
                     // Ajoute à la liste des historiques le résultat du comptage
                     compteurVM.ajoutHistorique(
                         compteur: compteurVM.compteurEnCoursFormatte,
