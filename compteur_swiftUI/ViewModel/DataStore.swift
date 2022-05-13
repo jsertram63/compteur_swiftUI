@@ -57,7 +57,6 @@ class DataStore : ObservableObject {
         }
     
     func addPref(_ pref: JsonModel){
-        //jsonModel.removeAll()
         savePreferences()
     }
     

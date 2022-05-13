@@ -10,6 +10,5 @@ import Foundation
 
 struct JsonModel: Hashable, Codable, Identifiable {
     var id = UUID().uuidString
-    var libelle: String
-    var pasIcremental: Int
+    var categorie: String
 }

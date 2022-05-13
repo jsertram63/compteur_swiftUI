@@ -59,6 +59,8 @@ struct AlertSauvegardeNoteView: View {
                     withAnimation(.easeInOut) {
                         alerteAjout2 = false
                     }
+                    cacherClavier()
+                    note = ""
                 } label: {
                     Text("Annuler")
                         .foregroundColor(.red)

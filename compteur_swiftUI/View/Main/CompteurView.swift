@@ -43,10 +43,6 @@ struct CompteurView: View {
             AlertResetCompteurView(resetAlerte1: $resetAlerte)
             AlertSauvegardeNoteView(alerteAjout2: $alertNote, note: $note1)
         }
-//        .onAppear {
-//            var intitule: String = DataStore().jsonModel.first?.libelle ?? "valeur non chargé"
-//            print("valeur apres chargement : \(intitule)")
-//        }
     }
 }
 

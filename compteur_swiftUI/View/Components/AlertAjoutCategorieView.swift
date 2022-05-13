@@ -10,6 +10,7 @@ import SwiftUI
 struct AlertAjoutCategorieView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
+    @EnvironmentObject private var dataStore: DataStore
     
     let screenSize = UIScreen.main.bounds
     @Binding var alerteAjout1: Bool
@@ -36,6 +37,12 @@ struct AlertAjoutCategorieView: View {
                     compteurVM.intituleCompteur.append(text)
                     text = ""
                     cacherClavier()
+//                    dataStore.jsonModel.append(
+//                        JsonModel(
+//                            categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne]
+//                        )
+//                    )
+//                    dataStore.savePreferences()
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)
@@ -52,6 +59,8 @@ struct AlertAjoutCategorieView: View {
                     withAnimation(.easeInOut) {
                         alerteAjout1 = false
                     }
+                    cacherClavier()
+                    text = ""
                 } label: {
                     Text("Annuler")
                         .foregroundColor(.red)
