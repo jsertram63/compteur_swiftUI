@@ -10,7 +10,7 @@ import SwiftUI
 struct AlertAjoutCategorieView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
-    @EnvironmentObject private var dataStore: DataStore
+    @EnvironmentObject var preferencesVM: preferencesViewModel
     
     let screenSize = UIScreen.main.bounds
     @Binding var alerteAjout1: Bool
@@ -35,14 +35,10 @@ struct AlertAjoutCategorieView: View {
                     }
                     // Une fonction d'ajout d'une catégorie au picker en plus
                     compteurVM.intituleCompteur.append(text)
+                    preferencesVM.pickerArray.append(PreferencesModel(id: UUID(), picker: text))
+                    preferencesVM.writeJSON()
                     text = ""
                     cacherClavier()
-//                    dataStore.jsonModel.append(
-//                        JsonModel(
-//                            categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne]
-//                        )
-//                    )
-//                    dataStore.savePreferences()
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)

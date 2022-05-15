@@ -113,6 +113,5 @@ class CompteurViewModel : ObservableObject {
         if (intituleCompteur.count > 1) {
             intituleCompteur.remove(at: indexSel)
         }
-       
     }
 }

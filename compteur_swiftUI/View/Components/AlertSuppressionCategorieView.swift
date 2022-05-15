@@ -10,6 +10,7 @@ import SwiftUI
 struct AlertSuppressionCategorieView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
+    @EnvironmentObject var preferencesVM: preferencesViewModel
     
     let screenSize = UIScreen.main.bounds
     @Binding var alerteSuppression1: Bool

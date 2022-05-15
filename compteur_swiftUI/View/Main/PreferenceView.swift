@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PreferenceView: View {
     
-    @EnvironmentObject  private var compteurVM: CompteurViewModel
-    @EnvironmentObject private var dataStore: DataStore
+    @EnvironmentObject var compteurVM: CompteurViewModel
+    @EnvironmentObject var preferencesVM: preferencesViewModel
     
     @State var alerteAjout = false
     @State var alerteSuppression = false
@@ -48,6 +48,7 @@ struct PreferenceView: View {
         static var previews: some View {
             PreferenceView()
                 .environmentObject(CompteurViewModel())
+                .environmentObject(preferencesViewModel())
         }
     }
 }
@@ -102,7 +103,7 @@ extension PreferenceView {
         VStack(spacing: 30.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(0 ..< compteurVM.intituleCompteur.count, id: \.self) { index in
+                ForEach(0 ..< preferencesVM.pickerArray.count, id: \.self) { index in
                     Text(compteurVM.intituleCompteur[index])
                         .fontWeight(.bold)
                 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		372A04542802C339004F7EDF /* AlertSuppressionCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */; };
+		3765766628312DD8001EC92F /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765766528312DD8001EC92F /* PreferencesModel.swift */; };
+		3765766828312F4F001EC92F /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765766728312F4F001EC92F /* PreferencesViewModel.swift */; };
+		3765766D283134B3001EC92F /* preferences.json in Resources */ = {isa = PBXBuildFile; fileRef = 3765766C283134B3001EC92F /* preferences.json */; };
 		3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */; };
 		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
 		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
@@ -20,9 +23,6 @@
 		37BF4D2B28264C1800FAC830 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF4D2A28264C1800FAC830 /* SoundManager.swift */; };
 		37CD6433282405E500BB7FAD /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD6432282405E500BB7FAD /* CreditsView.swift */; };
 		37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */; };
-		89023981280DC6170016C598 /* FileMangager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89023980280DC6170016C598 /* FileMangager+Extension.swift */; };
-		89023983280DC9AC0016C598 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89023982280DC9AC0016C598 /* DataStore.swift */; };
-		89023985280DCA710016C598 /* jsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89023984280DCA710016C598 /* jsonModel.swift */; };
 		89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */; };
 		89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFD76227D67D1700359EA0 /* ContentView.swift */; };
 		89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BFD76427D67D1800359EA0 /* Assets.xcassets */; };
@@ -32,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSuppressionCategorieView.swift; sourceTree = "<group>"; };
+		3765766528312DD8001EC92F /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
+		3765766728312F4F001EC92F /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
+		3765766C283134B3001EC92F /* preferences.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preferences.json; sourceTree = "<group>"; };
 		3766285A27E1E1C60095FBFD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
 		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
@@ -44,9 +47,6 @@
 		37BF4D2A28264C1800FAC830 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		37CD6432282405E500BB7FAD /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listeHistoriqueView.swift; sourceTree = "<group>"; };
-		89023980280DC6170016C598 /* FileMangager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileMangager+Extension.swift"; sourceTree = "<group>"; };
-		89023982280DC9AC0016C598 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		89023984280DCA710016C598 /* jsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonModel.swift; sourceTree = "<group>"; };
 		89BFD75D27D67D1700359EA0 /* compteur_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compteur_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compteur_swiftUIApp.swift; sourceTree = "<group>"; };
 		89BFD76227D67D1700359EA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3765766928312F95001EC92F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3765766C283134B3001EC92F /* preferences.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		3766285727E1DBE40095FBFD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				89F4741827E907BA00F15410 /* CompteurViewModel.swift */,
-				89023982280DC9AC0016C598 /* DataStore.swift */,
 				37BF4D2A28264C1800FAC830 /* SoundManager.swift */,
+				3765766728312F4F001EC92F /* PreferencesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -101,8 +109,8 @@
 		379B751228198E810025EA31 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				89023984280DCA710016C598 /* jsonModel.swift */,
 				379B75132819904E0025EA31 /* historiqueModel.swift */,
+				3765766528312DD8001EC92F /* PreferencesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,14 +135,6 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		8902397F280DC5EE0016C598 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				89023980280DC6170016C598 /* FileMangager+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		89BFD75427D67D1700359EA0 = {
 			isa = PBXGroup;
 			children = (
@@ -156,10 +156,10 @@
 			children = (
 				89BFD76027D67D1700359EA0 /* compteur_swiftUIApp.swift */,
 				379B751228198E810025EA31 /* Model */,
-				8902397F280DC5EE0016C598 /* Extensions */,
 				3766285727E1DBE40095FBFD /* View */,
 				3796FBA427E9BE8D0046361F /* ViewModel */,
 				89BFD76627D67D1800359EA0 /* Preview Content */,
+				3765766928312F95001EC92F /* Data */,
 				37BF4D2C28264E3B00FAC830 /* Sounds */,
 				89BFD76427D67D1800359EA0 /* Assets.xcassets */,
 			);
@@ -235,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3766285B27E1E1C60095FBFD /* LaunchScreen.storyboard in Resources */,
+				3765766D283134B3001EC92F /* preferences.json in Resources */,
 				89BFD76827D67D1800359EA0 /* Preview Assets.xcassets in Resources */,
 				378D8BFD282A986100D84780 /* Click1.mp3 in Resources */,
 				89BFD76527D67D1800359EA0 /* Assets.xcassets in Resources */,
@@ -251,19 +252,18 @@
 				372A04542802C339004F7EDF /* AlertSuppressionCategorieView.swift in Sources */,
 				37BF4D2B28264C1800FAC830 /* SoundManager.swift in Sources */,
 				3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */,
+				3765766828312F4F001EC92F /* PreferencesViewModel.swift in Sources */,
 				376F46F72805C3B900D2036F /* AlertResetCompteurView.swift in Sources */,
 				37CD6433282405E500BB7FAD /* CreditsView.swift in Sources */,
 				89BFD76327D67D1700359EA0 /* ContentView.swift in Sources */,
-				89023983280DC9AC0016C598 /* DataStore.swift in Sources */,
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				379B75142819904E0025EA31 /* historiqueModel.swift in Sources */,
 				37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
 				37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */,
-				89023981280DC6170016C598 /* FileMangager+Extension.swift in Sources */,
-				89023985280DCA710016C598 /* jsonModel.swift in Sources */,
 				37991D2D282AA6C000601DC9 /* AlertSauvegardeNoteView.swift in Sources */,
 				89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */,
+				3765766628312DD8001EC92F /* PreferencesModel.swift in Sources */,
 				3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

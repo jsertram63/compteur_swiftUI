@@ -12,8 +12,9 @@ struct compteur_swiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(CompteurViewModel())
-                .environmentObject(DataStore())
+            ContentView()
+                .environmentObject(CompteurViewModel())
+                .environmentObject(preferencesViewModel())
             
         }
     }
