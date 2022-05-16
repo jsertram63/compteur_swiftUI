@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject  private var compteurVM: CompteurViewModel
+    @EnvironmentObject  private var PreferencesVM: preferencesViewModel
     
     // initialisation de la tabBar pour effectuer des modifications sur celle-ci
     init() {
@@ -44,7 +45,13 @@ struct ContentView: View {
                     Image(systemName: "info.circle.fill")
                     Text("Crédits")
                 }
-        } 
+        }
+        .onAppear {
+            compteurVM.intituleCompteur.removeAll()
+            PreferencesVM.pickerArray.forEach { pref  in
+                compteurVM.intituleCompteur.append(pref.picker)
+            }
+        }
     }
 }
 

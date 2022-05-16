@@ -29,7 +29,8 @@ struct AlertSuppressionCategorieView: View {
                     withAnimation(.easeInOut) {
                         alerteSuppression1 = false
                     }
-                    compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
+                   // compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
+                    compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)
