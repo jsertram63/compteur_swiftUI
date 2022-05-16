@@ -29,8 +29,22 @@ struct AlertSuppressionCategorieView: View {
                     withAnimation(.easeInOut) {
                         alerteSuppression1 = false
                     }
-                   // compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
-                    compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
+                   compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
+                    
+                    print("BOUTON SUPPRESSION")
+                    print(compteurVM.intituleCompteur)
+                    /*preferencesVM.pickerArray.removeAll { $0.id == preferencesVM.pickerArray
+                        
+                    }*/
+                    //compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
+                    print("APRES SUPPRESSION")
+                    print(compteurVM.intituleCompteur)
+                    preferencesVM.pickerArray.removeAll()
+                    compteurVM.intituleCompteur.forEach { libelle  in
+                        preferencesVM.pickerArray.append(PreferencesModel(id: UUID(), picker: libelle))
+                    }
+                    preferencesVM.writeJSON()
+                   // compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)

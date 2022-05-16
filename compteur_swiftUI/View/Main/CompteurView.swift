@@ -68,10 +68,10 @@ extension CompteurView {
         HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
-             Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
+            Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
                 .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan)
+               .fontWeight(.bold)
+               .foregroundColor(compteurVM.arrierePlan)
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
@@ -80,6 +80,10 @@ extension CompteurView {
                 .foregroundColor(compteurVM.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
+        .onAppear {
+            print("==========================")
+            print(compteurVM.intituleCompteur)
+        }
     }
     
     // Users Actions

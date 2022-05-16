@@ -10,6 +10,7 @@ import Foundation
 class preferencesViewModel: ObservableObject {
     @Published var pickerArray : [PreferencesModel]
     
+    
     init() {
         self.pickerArray = Bundle.load("preferences")
     }

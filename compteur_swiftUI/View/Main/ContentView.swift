@@ -47,7 +47,7 @@ struct ContentView: View {
                 }
         }
         .onAppear {
-            compteurVM.intituleCompteur.removeAll()
+             compteurVM.intituleCompteur.removeAll()
             PreferencesVM.pickerArray.forEach { pref  in
                 compteurVM.intituleCompteur.append(pref.picker)
             }
