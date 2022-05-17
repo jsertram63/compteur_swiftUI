@@ -73,7 +73,7 @@ extension PreferenceView {
         VStack(alignment: .leading, spacing: 20.0) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-           //  Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") 
+           Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") 
             
             HStack(alignment: .center) {
                 Text("Votre thème: ")
@@ -108,7 +108,6 @@ extension PreferenceView {
                         .fontWeight(.bold)
                 }
             }
-            
             .pickerStyle(WheelPickerStyle())
             
             // Boutons catégories Ajout/Retirer avec animation modale

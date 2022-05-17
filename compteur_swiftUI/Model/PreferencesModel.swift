@@ -10,5 +10,4 @@ import Foundation
 struct PreferencesModel: Hashable, Codable, Identifiable {
     var id: UUID
     var picker: String
-
 }

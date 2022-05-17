@@ -81,7 +81,6 @@ extension CompteurView {
         }
         .foregroundColor(Color.accentColor)
         .onAppear {
-            print("==========================")
             print(compteurVM.intituleCompteur)
         }
     }
