@@ -80,9 +80,6 @@ extension CompteurView {
                 .foregroundColor(compteurVM.arrierePlan)
         }
         .foregroundColor(Color.accentColor)
-        .onAppear {
-            print(compteurVM.intituleCompteur)
-        }
     }
     
     // Users Actions

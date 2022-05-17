@@ -22,7 +22,7 @@ struct ContentView: View {
         TabView {
             // onglet compteur
             CompteurView()
-                // création des éléments de la tabBar
+            // création des éléments de la tabBar
                 .tabItem{
                     Image(systemName: "10.square.fill") // sfSympbol
                     Text("Compteur")
@@ -47,7 +47,7 @@ struct ContentView: View {
                 }
         }
         .onAppear {
-             compteurVM.intituleCompteur.removeAll()
+            compteurVM.intituleCompteur.removeAll()
             PreferencesVM.pickerArray.forEach { pref  in
                 compteurVM.intituleCompteur.append(pref.picker)
             }
