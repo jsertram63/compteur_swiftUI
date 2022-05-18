@@ -12,6 +12,8 @@ struct ContentView: View {
     @EnvironmentObject  private var compteurVM: CompteurViewModel
     @EnvironmentObject  private var PreferencesVM: preferencesViewModel
     
+    private var colorData = ColorData()
+    
     // initialisation de la tabBar pour effectuer des modifications sur celle-ci
     init() {
         UITabBar.appearance().isTranslucent = false
@@ -51,6 +53,7 @@ struct ContentView: View {
             PreferencesVM.pickerArray.forEach { pref  in
                 compteurVM.intituleCompteur.append(pref.picker)
             }
+            compteurVM.arrierePlan = colorData.loadColor()
         }
     }
 }

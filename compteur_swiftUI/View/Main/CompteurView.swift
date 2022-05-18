@@ -63,6 +63,8 @@ extension CompteurView {
             .foregroundColor(compteurVM.arrierePlan)
     }
     
+    // .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+    
     // Categories and pitch
     private var categoriesAndPitch: some View {
         HStack(spacing: 5) {
@@ -140,7 +142,7 @@ extension CompteurView {
             }) {
                 Text("Sauvegarder")
                     .fontWeight(.bold)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : Color.white)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             .background(compteurVM.arrierePlan)

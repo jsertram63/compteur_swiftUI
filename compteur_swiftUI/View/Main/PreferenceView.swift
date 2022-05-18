@@ -12,6 +12,8 @@ struct PreferenceView: View {
     @EnvironmentObject var compteurVM: CompteurViewModel
     @EnvironmentObject var preferencesVM: preferencesViewModel
     
+    private var colorData = ColorData()
+    
     @State var alerteAjout = false
     @State var alerteSuppression = false
     
@@ -75,21 +77,28 @@ extension PreferenceView {
             
            Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])") 
             
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 20.0) {
                 Text("Votre thème: ")
                 
-                ZStack {
-                    Image(systemName: "square.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 25.0, height: 25.0)
-                        .clipShape(Rectangle())
-                        .foregroundColor(compteurVM.arrierePlan)
+                // Palette de couleurs
+                ColorPicker("Choisir un thème", selection: $compteurVM.arrierePlan, supportsOpacity: false)
+                    .labelsHidden()
+                    .frame(width: 5.0, height: 5.0)
+                    .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 0)
+                
+                Spacer()
+                
+                Button(action: {
+                    colorData.saveColor(color: compteurVM.arrierePlan)
+                }) {
+                    Text("Sauvegarder")
+                        .fontWeight(.bold)
+                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : Color.white)
+                        .padding(7.0)
+                        .background(compteurVM.arrierePlan)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
                 }
-                .padding(2.0)
-                .background(Color.white)
-                .clipShape(Rectangle())
-                .cornerRadius(5)
             }
         }
         .padding()
@@ -120,11 +129,12 @@ extension PreferenceView {
                 } label: {
                     Text("Ajouter")
                         .foregroundColor(Color.blue)
+                        .padding(10.0)
+                        .background(.regularMaterial)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                        
                 }
-                .padding(10.0)
-                .background(.regularMaterial)
-                .cornerRadius(5)
-                .shadow(radius: 5)
                 
                 // Bouton retirer une catégorie par le biais d'une alerte
                 Button {
@@ -134,119 +144,10 @@ extension PreferenceView {
                 } label: {
                     Text("Retirer")
                         .foregroundColor(Color.red)
-                }
-                .padding(10.0)
-                .background(.regularMaterial)
-                .cornerRadius(5)
-                .shadow(radius: 5)
-            }
-            
-            // Palette de couleurs
-            VStack(spacing: 20.0) {
-                Text("Choisissez un thème")
-                    .fontWeight(.medium)
-                
-                HStack(alignment: .center) {
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.gray)
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color.gray
-                        }
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color("Color2"))
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color("Color2")
-                        }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color("Color3"))
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color("Color3")
-                        }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.red)
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color.red
-                        }
-                    
-                    Spacer()
-                }
-                
-                HStack(alignment: .center) {
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.brown)
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color.brown
-                        }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color("Color1"))
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color("Color1")
-                        }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.purple)
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color.purple
-                        }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.mint)
-                        .clipShape(Circle())
-                        .frame(width: 40.0, height: 40.0)
-                        .shadow(radius: 5)
-                        .onTapGesture {
-                            compteurVM.arrierePlan = Color.mint
-                        }
-                    
-                    Spacer()
+                        .padding(10.0)
+                        .background(.regularMaterial)
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
                 }
             }
         }

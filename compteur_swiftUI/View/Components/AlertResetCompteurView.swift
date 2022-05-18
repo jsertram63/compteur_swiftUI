@@ -55,7 +55,7 @@ struct AlertResetCompteurView: View {
                         .padding(10.0)
                         .background(.white)
                         .cornerRadius(10)
-                        .shadow(radius: 3)
+                        .shadow(radius: 2)
                 }
                 
                 Spacer()
