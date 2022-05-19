@@ -37,7 +37,7 @@ struct AlertSauvegardeNoteView: View {
                     // Ajoute à la liste des historiques le résultat du comptage
                     compteurVM.ajoutHistorique(
                         compteur: compteurVM.compteurEnCoursFormatte,
-                        categorie: compteurVM.intituleCompteur[compteurVM.indexSelectionne],
+                        categorie: compteurVM.categoriePicker[compteurVM.indexSelectionne],
                         pasCompteur: compteurVM.pasDuCompteur,
                         date: compteurVM.dateFormatee,
                         note: note

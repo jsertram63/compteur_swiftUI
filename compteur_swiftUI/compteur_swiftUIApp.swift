@@ -14,7 +14,7 @@ struct compteur_swiftUIApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(CompteurViewModel())
-                .environmentObject(preferencesViewModel())
+                .environmentObject(PickerViewModel())
             
         }
     }

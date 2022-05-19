@@ -10,24 +10,25 @@ import SwiftUI
 struct PreferenceView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
-    @EnvironmentObject var preferencesVM: preferencesViewModel
     
     private var colorData = ColorData()
-    private var themes: [Color] = [.accentColor, .mint,.blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .gray]
+    private var themes: [Color] = [.accentColor, .blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .mint, .gray]
     
     @State var alerteAjout = false
     @State var alerteSuppression = false
     
+    let screenSize = UIScreen.main.bounds
+    
     @State private var text: String = ""
     
     var body: some View {
-        
         ZStack {
             compteurVM.arrierePlan
                 .ignoresSafeArea()
             
             VStack {
                 header
+                
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center, spacing: 35.0) {
                         resumeParameter
@@ -54,7 +55,7 @@ struct PreferenceView: View {
         static var previews: some View {
             PreferenceView()
                 .environmentObject(CompteurViewModel())
-                .environmentObject(preferencesViewModel())
+                .environmentObject(PickerViewModel())
         }
     }
 }
@@ -66,7 +67,7 @@ extension PreferenceView {
     private var header: some View {
         HStack {
             Text("Préférences")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .font(.system(size: 40, weight: .heavy, design: .rounded))
                 .foregroundColor(Color.black)
                 .padding([.top, .leading])
             
@@ -79,7 +80,7 @@ extension PreferenceView {
         VStack(alignment: .leading, spacing: 20.0) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-            Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])")
+            Text("Catégorie: \(compteurVM.categoriePicker[compteurVM.indexSelectionne])")
             
             HStack(alignment: .center, spacing: 15.0) {
                 Text("Votre thème: ")
@@ -111,12 +112,13 @@ extension PreferenceView {
         VStack(spacing: 30.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(0 ..< compteurVM.intituleCompteur.count, id: \.self) { index in
-                    Text(compteurVM.intituleCompteur[index])
+                ForEach(0 ..< compteurVM.categoriePicker.count, id: \.self) { index in
+                    Text(compteurVM.categoriePicker[index])
                         .fontWeight(.bold)
                 }
             }
             .pickerStyle(WheelPickerStyle())
+            .frame(width: screenSize.width * 0.5, height: screenSize.height * 0.2)
             
             // Boutons catégories Ajout/Retirer avec animation modale
             HStack(alignment: .center, spacing: 50.0) {
@@ -129,7 +131,7 @@ extension PreferenceView {
                     Text("Ajouter")
                         .foregroundColor(Color.blue)
                         .padding(10.0)
-                        .background(.thickMaterial)
+                        .background(.regularMaterial)
                         .cornerRadius(10)
                         .shadow(radius: 2)
                     
@@ -144,7 +146,7 @@ extension PreferenceView {
                     Text("Retirer")
                         .foregroundColor(Color.red)
                         .padding(10.0)
-                        .background(.thickMaterial)
+                        .background(.regularMaterial)
                         .cornerRadius(10)
                         .shadow(radius: 2)
                 }
@@ -153,7 +155,7 @@ extension PreferenceView {
             
             // Color Picker personnalisé
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .center, spacing: 15.0) {
+                HStack(alignment: .center, spacing: 20.0) {
                     ForEach(themes, id: \.self) { theme in
                         Circle()
                             .foregroundColor(theme)
@@ -164,7 +166,7 @@ extension PreferenceView {
                             }
                     }
                 }
-                .padding(.all, 10.0)
+                .padding(.all, 15.0)
                 .background(.regularMaterial)
                 .cornerRadius(20)
             }

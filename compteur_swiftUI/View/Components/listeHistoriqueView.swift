@@ -15,7 +15,7 @@ struct listeHistoriqueView: View {
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5.0) {
+        VStack(alignment: .leading, spacing: 8.0) {
             HStack {
                 Spacer()
                 
@@ -23,10 +23,10 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
             
-            HStack {
+            HStack(alignment: .center) {
                 Text(historique.categorie)
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .fontWeight(.heavy)
                 
                 Text(historique.compteur)
                     .font(.headline)

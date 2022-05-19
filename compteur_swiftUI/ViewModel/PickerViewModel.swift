@@ -7,19 +7,19 @@
 
 import Foundation
 
-class preferencesViewModel: ObservableObject {
-    @Published var pickerArray : [PreferencesModel]
+class PickerViewModel: ObservableObject {
+    @Published var pickerArray : [PickerModel]
     
     
     init() {
-        self.pickerArray = Bundle.load("preferences")
+        self.pickerArray = Bundle.load("picker")
     }
     
     // Écrire des données du json dans file manager
     func writeJSON() {
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let jsonURL = documentDirectory
-            .appendingPathComponent("preferences")
+            .appendingPathComponent("picker")
             .appendingPathExtension("json")
         try? JSONEncoder().encode(pickerArray).write(to: jsonURL, options: .atomic)
     }

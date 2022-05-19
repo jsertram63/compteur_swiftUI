@@ -49,7 +49,7 @@ struct CreditsView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(compteurVM.arrierePlan)
                                 .padding()
-                                .background(.thinMaterial)
+                                .background(.regularMaterial)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
                         }
@@ -66,7 +66,7 @@ struct CreditsView: View {
                         Text("©2022 Tous droits réservés.")
                             .fontWeight(.bold)
                         
-                        Text("Aucune partie du contenu de cette application ne peut être reproduite, transmise ou modifiée sans l'autorisation au préalable de l'éditeur.")
+                        Text("Aucunes parties du contenu de cette application ne peut être reproduite, transmise ou modifiée sans l'autorisation au préalable de l'éditeur.")
                     }
                 }
                 .padding()

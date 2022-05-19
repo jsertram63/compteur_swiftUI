@@ -30,7 +30,7 @@ struct CompteurView: View {
                 }
                 .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.25)
                 .padding(15.0)
-                .background(.thinMaterial)
+                .background(.regularMaterial)
                 .cornerRadius(15)
                 .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
                 
@@ -59,25 +59,23 @@ extension CompteurView {
     // Counter
     private var counter: some View {
         Text(compteurVM.compteurEnCoursFormatte)
-            .font(.system(size: 75, weight: .bold, design: .rounded))
-            .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
+            .font(.system(size: 75, weight: .heavy, design: .rounded))
+            .foregroundColor(compteurVM.arrierePlan)
     }
-    
-    // .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
     
     // Categories and pitch
     private var categoriesAndPitch: some View {
         HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
-            Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
+            Text("\(compteurVM.categoriePicker[compteurVM.indexSelectionne]) :")
                 .font(.title2)
-                .fontWeight(.bold)
+                .fontWeight(.heavy)
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
                 .font(.title2)
-                .fontWeight(.bold)
+                .fontWeight(.heavy)
         }
         .foregroundColor(compteurVM.arrierePlan)
     }
@@ -96,7 +94,6 @@ extension CompteurView {
                     Image(systemName:"minus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
@@ -110,10 +107,10 @@ extension CompteurView {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
+                
                 // Boutons de comptage +
                 Button {
                     compteurVM.incCompteur()
@@ -122,11 +119,11 @@ extension CompteurView {
                     Image(systemName:"plus.square")
                         .resizable()
                     // change la couleur de l'image
-                        .foregroundColor(compteurVM.arrierePlan)
                         .frame(width: 60, height: 60)
                         .padding()
                 }
             }
+            .foregroundColor(compteurVM.arrierePlan)
             .padding(5.0)
             .background(.regularMaterial)
             .cornerRadius(15)
@@ -140,15 +137,16 @@ extension CompteurView {
             }) {
                 Text("Sauvegarder")
                     .fontWeight(.bold)
-                    .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : Color.white)
+                    .foregroundColor(Color.white)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             .background(compteurVM.arrierePlan)
-            .cornerRadius(15)
+            .cornerRadius(10)
             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 2, y: 2)
             
             Spacer()
         }
+        .foregroundColor(compteurVM.arrierePlan)
         .padding()
         .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.4)
         .background(.thinMaterial)
