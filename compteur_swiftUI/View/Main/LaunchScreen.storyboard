@@ -31,7 +31,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TouComptage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNR-Hy-S83">
                                         <rect key="frame" x="0.0" y="136" width="262" height="50.5"/>
                                         <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="50"/>
-                                        <color key="textColor" name="Color3"/>
+                                        <color key="textColor" name="Color1"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                 </subviews>
@@ -58,8 +58,8 @@
         <namedColor name="AccentColor">
             <color red="0.43529411764705883" green="0.69803921568627447" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="Color3">
-            <color red="0.9570000171661377" green="0.72200000286102295" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Color1">
+            <color red="0.95686274770000002" green="0.72156864399999998" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

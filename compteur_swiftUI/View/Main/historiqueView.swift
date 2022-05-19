@@ -20,15 +20,22 @@ struct HistoriqueView: View {
                 .ignoresSafeArea()
             
             VStack {
+                header
+                
                 if compteurVM.historique.isEmpty {
-                    header
-                    
-                    listeVide
+                    // Liste vide
+                    HStack {
+                        Text("Votre liste d'historique est vide")
+                            .fontWeight(.heavy)
+                            .foregroundColor(compteurVM.arrierePlan)
+                    }
+                    .frame(width: screenSize.width * 0.90, height: screenSize.height * 0.10)
+                    .background(.regularMaterial)
+                    .cornerRadius(15)
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                     
                     Spacer()
                 } else {
-                    header
-                    
                     List {
                         ForEach(compteurVM.historique) { item in
                             listeHistoriqueView(historique: item)
@@ -38,6 +45,7 @@ struct HistoriqueView: View {
                                         compteurVM.miseAJourHistorique(item: item)
                                     }
                                 }
+                                .foregroundColor(compteurVM.arrierePlan)
                         }
                         .onDelete(perform: compteurVM.suppHistorique)
                     }
@@ -62,24 +70,10 @@ extension HistoriqueView {
     private var header: some View {
         HStack(alignment: .center) {
             Text("Historique")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
-                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
+                .font(.system(size: 40, weight: .heavy, design: .rounded))
                 .padding([.top, .leading])
             
             Spacer()
         }
-    }
-    
-    // Liste vide
-    private var listeVide: some View {
-        HStack {
-            Text("Votre liste d'historique est vide")
-                .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan)
-        }
-        .frame(width: screenSize.width * 0.90, height: screenSize.height * 0.10)
-        .background(.regularMaterial)
-        .cornerRadius(15)
-        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
     }
 }

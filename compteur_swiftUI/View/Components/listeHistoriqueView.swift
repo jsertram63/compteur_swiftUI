@@ -23,10 +23,10 @@ struct listeHistoriqueView: View {
                     .fontWeight(.medium)
             }
             
-            HStack {
+            HStack(alignment: .center) {
                 Text(historique.categorie)
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .fontWeight(.heavy)
                 
                 Text(historique.compteur)
                     .font(.headline)

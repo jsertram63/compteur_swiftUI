@@ -13,10 +13,12 @@ struct PreferenceView: View {
     @EnvironmentObject var preferencesVM: preferencesViewModel
     
     private var colorData = ColorData()
-    private var themes: [Color] = [.accentColor, .mint,.blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .gray]
+    private var themes: [Color] = [.accentColor, .blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .mint, .gray]
     
     @State var alerteAjout = false
     @State var alerteSuppression = false
+    
+    let screenSize = UIScreen.main.bounds
     
     @State private var text: String = ""
     
@@ -28,6 +30,7 @@ struct PreferenceView: View {
             
             VStack {
                 header
+                
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center, spacing: 35.0) {
                         resumeParameter
@@ -66,7 +69,7 @@ extension PreferenceView {
     private var header: some View {
         HStack {
             Text("Préférences")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .font(.system(size: 40, weight: .heavy, design: .rounded))
                 .foregroundColor(Color.black)
                 .padding([.top, .leading])
             
@@ -117,6 +120,7 @@ extension PreferenceView {
                 }
             }
             .pickerStyle(WheelPickerStyle())
+            .frame(width: screenSize.width * 0.5, height: screenSize.height * 0.2)
             
             // Boutons catégories Ajout/Retirer avec animation modale
             HStack(alignment: .center, spacing: 50.0) {
@@ -129,7 +133,7 @@ extension PreferenceView {
                     Text("Ajouter")
                         .foregroundColor(Color.blue)
                         .padding(10.0)
-                        .background(.thickMaterial)
+                        .background(.regularMaterial)
                         .cornerRadius(10)
                         .shadow(radius: 2)
                     
@@ -144,7 +148,7 @@ extension PreferenceView {
                     Text("Retirer")
                         .foregroundColor(Color.red)
                         .padding(10.0)
-                        .background(.thickMaterial)
+                        .background(.regularMaterial)
                         .cornerRadius(10)
                         .shadow(radius: 2)
                 }
