@@ -45,6 +45,9 @@ struct PreferenceView: View {
             AlertAjoutCategorieView(alerteAjout1: $alerteAjout, text: $text)
             AlertSuppressionCategorieView(alerteSuppression1: $alerteSuppression)
         }
+        .onChange(of: compteurVM.arrierePlan) { _ in
+            colorData.saveColor(color: compteurVM.arrierePlan)
+        }
     }
     
     struct PreferenceView_Previews: PreviewProvider {
@@ -78,7 +81,7 @@ extension PreferenceView {
             
             Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])")
             
-            HStack(alignment: .center, spacing: 20.0) {
+            HStack(alignment: .center, spacing: 15.0) {
                 Text("Votre thème: ")
                 
                 // Couleur choisie
@@ -95,20 +98,6 @@ extension PreferenceView {
                 .clipShape(Circle())
                 .cornerRadius(5)
                 .shadow(radius: 3)
-                
-                Spacer()
-                
-                Button(action: {
-                    colorData.saveColor(color: compteurVM.arrierePlan)
-                }) {
-                    Text("Sauvegarder")
-                        .fontWeight(.bold)
-                        .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : Color.white)
-                        .padding(7.0)
-                        .background(compteurVM.arrierePlan)
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                }
             }
         }
         .padding()
