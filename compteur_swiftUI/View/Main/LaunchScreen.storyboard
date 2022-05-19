@@ -38,7 +38,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" name="Color1"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="dq0-Sd-SEK" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="4hc-4G-Rbg"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
@@ -55,8 +55,8 @@
     </scenes>
     <resources>
         <image name="counter" width="128" height="128"/>
-        <namedColor name="Color1">
-            <color red="0.53600001335144043" green="0.68500000238418579" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="AccentColor">
+            <color red="0.43529411764705883" green="0.69803921568627447" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Color3">
             <color red="0.9570000171661377" green="0.72200000286102295" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

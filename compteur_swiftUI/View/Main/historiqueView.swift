@@ -63,7 +63,7 @@ extension HistoriqueView {
         HStack(alignment: .center) {
             Text("Historique")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
-                .foregroundColor(Color.black)
+                .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
                 .padding([.top, .leading])
             
             Spacer()
