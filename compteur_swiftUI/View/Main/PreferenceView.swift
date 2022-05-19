@@ -10,7 +10,6 @@ import SwiftUI
 struct PreferenceView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
-    @EnvironmentObject var preferencesVM: preferencesViewModel
     
     private var colorData = ColorData()
     private var themes: [Color] = [.accentColor, .blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .mint, .gray]
@@ -57,7 +56,7 @@ struct PreferenceView: View {
         static var previews: some View {
             PreferenceView()
                 .environmentObject(CompteurViewModel())
-                .environmentObject(preferencesViewModel())
+                .environmentObject(PickerViewModel())
         }
     }
 }

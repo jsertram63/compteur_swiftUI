@@ -10,7 +10,7 @@ import SwiftUI
 struct AlertSuppressionCategorieView: View {
     
     @EnvironmentObject var compteurVM: CompteurViewModel
-    @EnvironmentObject var preferencesVM: preferencesViewModel
+    @EnvironmentObject var PickerVM: PickerViewModel
     
     let screenSize = UIScreen.main.bounds
     @Binding var alerteSuppression1: Bool
@@ -39,12 +39,11 @@ struct AlertSuppressionCategorieView: View {
                     //compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
                     print("APRES SUPPRESSION")
                     print(compteurVM.intituleCompteur)
-                    preferencesVM.pickerArray.removeAll()
+                    PickerVM.pickerArray.removeAll()
                     compteurVM.intituleCompteur.forEach { libelle  in
-                        preferencesVM.pickerArray.append(PreferencesModel(id: UUID(), picker: libelle))
+                        PickerVM.pickerArray.append(PickerModel(id: UUID(), picker: libelle))
                     }
-                    preferencesVM.writeJSON()
-                   // compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
+                    PickerVM.writeJSON()
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)

@@ -26,7 +26,7 @@ struct AlertResetCompteurView: View {
             
             HStack {
                 Spacer()
-                
+                // Valider
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {
@@ -44,6 +44,7 @@ struct AlertResetCompteurView: View {
                 
                 Spacer()
                 
+                // Annuler
                 Button {
                     // change la variable d'état pour enlever la modale
                     withAnimation(.easeInOut) {

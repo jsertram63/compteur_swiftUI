@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject  private var compteurVM: CompteurViewModel
-    @EnvironmentObject  private var PreferencesVM: preferencesViewModel
+    @EnvironmentObject  private var PickerVM: PickerViewModel
     
     private var colorData = ColorData()
     
@@ -50,7 +50,7 @@ struct ContentView: View {
         }
         .onAppear {
             compteurVM.intituleCompteur.removeAll()
-            PreferencesVM.pickerArray.forEach { pref  in
+            PickerVM.pickerArray.forEach { pref  in
                 compteurVM.intituleCompteur.append(pref.picker)
             }
             compteurVM.arrierePlan = colorData.loadColor()
@@ -62,7 +62,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(CompteurViewModel())
-            .environmentObject(preferencesViewModel())
+            .environmentObject(PickerViewModel())
     }
 }
 

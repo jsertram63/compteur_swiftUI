@@ -7,8 +7,8 @@
 
 import Foundation
 
-class preferencesViewModel: ObservableObject {
-    @Published var pickerArray : [PreferencesModel]
+class PickerViewModel: ObservableObject {
+    @Published var pickerArray : [PickerModel]
     
     
     init() {
