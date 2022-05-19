@@ -34,7 +34,7 @@ struct AlertAjoutCategorieView: View {
                         alerteAjout1 = false
                     }
                     // Une fonction d'ajout d'une catégorie au picker en plus
-                    compteurVM.intituleCompteur.append(text)
+                    compteurVM.categoriePicker.append(text)
                     PickerVM.pickerArray.append(PickerModel(id: UUID(), picker: text))
                     PickerVM.writeJSON()
                     text = ""

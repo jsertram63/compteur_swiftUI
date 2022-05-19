@@ -20,7 +20,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        // Tabview : container pour implémenter une tabbar (3 onglets)
+        // Tabview : View container pour implémenter une tabbar (4 onglets)
         TabView {
             // onglet compteur
             CompteurView()
@@ -49,9 +49,9 @@ struct ContentView: View {
                 }
         }
         .onAppear {
-            compteurVM.intituleCompteur.removeAll()
+            compteurVM.categoriePicker.removeAll()
             PickerVM.pickerArray.forEach { pref  in
-                compteurVM.intituleCompteur.append(pref.picker)
+                compteurVM.categoriePicker.append(pref.picker)
             }
             compteurVM.arrierePlan = colorData.loadColor()
         }

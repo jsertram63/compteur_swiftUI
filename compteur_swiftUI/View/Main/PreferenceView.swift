@@ -22,7 +22,6 @@ struct PreferenceView: View {
     @State private var text: String = ""
     
     var body: some View {
-        
         ZStack {
             compteurVM.arrierePlan
                 .ignoresSafeArea()
@@ -81,7 +80,7 @@ extension PreferenceView {
         VStack(alignment: .leading, spacing: 20.0) {
             Stepper("Choix du pas: \(compteurVM.pasDuCompteur)", value: $compteurVM.pasDuCompteur, in: 1...100)
             
-            Text("Catégorie: \(compteurVM.intituleCompteur[compteurVM.indexSelectionne])")
+            Text("Catégorie: \(compteurVM.categoriePicker[compteurVM.indexSelectionne])")
             
             HStack(alignment: .center, spacing: 15.0) {
                 Text("Votre thème: ")
@@ -113,8 +112,8 @@ extension PreferenceView {
         VStack(spacing: 30.0) {
             // PickerView
             Picker("Choisir une catégorie", selection: $compteurVM.indexSelectionne) {
-                ForEach(0 ..< compteurVM.intituleCompteur.count, id: \.self) { index in
-                    Text(compteurVM.intituleCompteur[index])
+                ForEach(0 ..< compteurVM.categoriePicker.count, id: \.self) { index in
+                    Text(compteurVM.categoriePicker[index])
                         .fontWeight(.bold)
                 }
             }
@@ -156,7 +155,7 @@ extension PreferenceView {
             
             // Color Picker personnalisé
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .center, spacing: 15.0) {
+                HStack(alignment: .center, spacing: 20.0) {
                     ForEach(themes, id: \.self) { theme in
                         Circle()
                             .foregroundColor(theme)
@@ -167,7 +166,7 @@ extension PreferenceView {
                             }
                     }
                 }
-                .padding(.all, 10.0)
+                .padding(.all, 15.0)
                 .background(.regularMaterial)
                 .cornerRadius(20)
             }

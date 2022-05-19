@@ -68,7 +68,7 @@ extension CompteurView {
         HStack(spacing: 5) {
             // Nom du type de choix sera passé à l'avenir
             
-            Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
+            Text("\(compteurVM.categoriePicker[compteurVM.indexSelectionne]) :")
                 .font(.title2)
                 .fontWeight(.heavy)
             

@@ -29,18 +29,11 @@ struct AlertSuppressionCategorieView: View {
                     withAnimation(.easeInOut) {
                         alerteSuppression1 = false
                     }
-                   compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
-                    
-                    print("BOUTON SUPPRESSION")
-                    print(compteurVM.intituleCompteur)
-                    /*preferencesVM.pickerArray.removeAll { $0.id == preferencesVM.pickerArray
-                        
-                    }*/
-                    //compteurVM.intituleCompteur.remove(at: compteurVM.indexSelectionne)
-                    print("APRES SUPPRESSION")
-                    print(compteurVM.intituleCompteur)
+                    // Fait appel à la fonction définie dans CompteurViewModel qui actualise l'index du tableau de categoriePicker
+                    compteurVM.removeElementOfPicker(indexSel:compteurVM.indexSelectionne)
                     PickerVM.pickerArray.removeAll()
-                    compteurVM.intituleCompteur.forEach { libelle  in
+                    // Ajoute selon un pickerModel les données de categoriePicker -> pickerArray
+                    compteurVM.categoriePicker.forEach { libelle  in
                         PickerVM.pickerArray.append(PickerModel(id: UUID(), picker: libelle))
                     }
                     PickerVM.writeJSON()
@@ -79,7 +72,7 @@ struct AlertSuppressionCategorieView: View {
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
         .offset(x: alerteSuppression1 ? 0 : screenSize.width, y: alerteSuppression1 ? 0 : screenSize.height)
     }
-
+    
 }
 
 struct Alert2View_Previews: PreviewProvider {

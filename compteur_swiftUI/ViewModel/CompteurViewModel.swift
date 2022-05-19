@@ -104,14 +104,14 @@ class CompteurViewModel : ObservableObject {
     @Published var arrierePlan = Color.accentColor
     
     // Picker
-    @Published var intituleCompteur = ["Posts", "Articles", "Votes", "Tours"]
+    @Published var categoriePicker = ["Posts", "Articles", "Votes", "Tours"]
     @Published var indexSelectionne = 0
     
     // permet de retirer un élément du picker tout en mettant à jour l'index du tableau
     func removeElementOfPicker(indexSel: Int) {
         indexSelectionne = 0
-        if (intituleCompteur.count > 1) {
-            intituleCompteur.remove(at: indexSel)
+        if (categoriePicker.count > 1) {
+            categoriePicker.remove(at: indexSel)
         }
     }
 }
