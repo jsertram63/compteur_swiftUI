@@ -30,7 +30,7 @@ struct CompteurView: View {
                 }
                 .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.25)
                 .padding(15.0)
-                .background(.regularMaterial)
+                .background(.thinMaterial)
                 .cornerRadius(15)
                 .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
                 
@@ -60,7 +60,7 @@ extension CompteurView {
     private var counter: some View {
         Text(compteurVM.compteurEnCoursFormatte)
             .font(.system(size: 75, weight: .bold, design: .rounded))
-            .foregroundColor(compteurVM.arrierePlan)
+            .foregroundColor(compteurVM.arrierePlan == Color.white ? Color.black : compteurVM.arrierePlan)
     }
     
     // .foregroundColor(compteurVM.arrierePlan == Color.black ? Color.white : Color.black)
@@ -72,16 +72,14 @@ extension CompteurView {
             
             Text("\(compteurVM.intituleCompteur[compteurVM.indexSelectionne]) :")
                 .font(.title2)
-               .fontWeight(.bold)
-               .foregroundColor(compteurVM.arrierePlan)
+                .fontWeight(.bold)
             
             // Choix du pas d'incrémentation à afficher selon paramètres
             Text("\(compteurVM.pasDuCompteur)")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(compteurVM.arrierePlan)
         }
-        .foregroundColor(Color.accentColor)
+        .foregroundColor(compteurVM.arrierePlan)
     }
     
     // Users Actions
