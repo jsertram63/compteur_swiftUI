@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		372A04542802C339004F7EDF /* AlertSuppressionCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */; };
+		37382DC62838E87F000B88FE /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37382DC52838E87F000B88FE /* TimerViewModel.swift */; };
+		37382DCA2838E8E2000B88FE /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37382DC92838E8E2000B88FE /* TimerView.swift */; };
 		3765766628312DD8001EC92F /* PickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765766528312DD8001EC92F /* PickerModel.swift */; };
 		3765766828312F4F001EC92F /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765766728312F4F001EC92F /* PickerViewModel.swift */; };
 		3765766D283134B3001EC92F /* picker.json in Resources */ = {isa = PBXBuildFile; fileRef = 3765766C283134B3001EC92F /* picker.json */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		372A04532802C339004F7EDF /* AlertSuppressionCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSuppressionCategorieView.swift; sourceTree = "<group>"; };
+		37382DC52838E87F000B88FE /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		37382DC92838E8E2000B88FE /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		3765766528312DD8001EC92F /* PickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerModel.swift; sourceTree = "<group>"; };
 		3765766728312F4F001EC92F /* PickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
 		3765766C283134B3001EC92F /* picker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = picker.json; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				3766286027E1EC270095FBFD /* HistoriqueView.swift */,
 				3766285E27E1E9F80095FBFD /* PreferenceView.swift */,
 				37CD6432282405E500BB7FAD /* CreditsView.swift */,
+				37382DC92838E8E2000B88FE /* TimerView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				37BF4D2A28264C1800FAC830 /* SoundManager.swift */,
 				3765766728312F4F001EC92F /* PickerViewModel.swift */,
 				376D634B2835212B00B3B99C /* ColorViewModel.swift */,
+				37382DC52838E87F000B88FE /* TimerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				379B75142819904E0025EA31 /* historiqueModel.swift in Sources */,
 				376D634C2835212B00B3B99C /* ColorViewModel.swift in Sources */,
+				37382DCA2838E8E2000B88FE /* TimerView.swift in Sources */,
+				37382DC62838E87F000B88FE /* TimerViewModel.swift in Sources */,
 				37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */,
 				3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */,
 				37A08CD827FD7C7F0079F7AB /* AlertAjoutCategorieView.swift in Sources */,

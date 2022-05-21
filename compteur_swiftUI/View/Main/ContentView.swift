@@ -29,18 +29,28 @@ struct ContentView: View {
                     Image(systemName: "10.square.fill") // sfSympbol
                     Text("Compteur")
                 }
+            
             // onglet historique
             HistoriqueView()
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Historiques")
                 }
+            
+            // onglet historique
+            TimerView()
+                .tabItem{
+                    Image(systemName: "timer")
+                    Text("Timer")
+                }
+            
             // onglet preferences
             PreferenceView()
                 .tabItem {
                     Image(systemName: "filemenu.and.selection")
                     Text("Préférences")
                 }
+            
             // onglet crédits
             CreditsView()
                 .tabItem {
@@ -62,6 +72,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(CompteurViewModel())
+            .environmentObject(TimerViewModel())
             .environmentObject(PickerViewModel())
     }
 }
