@@ -29,7 +29,7 @@ struct CreditsView: View {
                     VStack(spacing: 5.0) {
                         Text("Édition originale:")
                             .fontWeight(.bold)
-                        Text("Compteur")
+                        Text("TouComptage")
                     }
                     // Editing by Text
                     VStack(spacing: 5.0) {

@@ -18,21 +18,25 @@ struct TimerView: View {
             
             VStack {
                 GeometryReader { proxy in
-                    // Anneau du timer
                     VStack(spacing: 15) {
+                        /** Minuteur */
                         ZStack {
+                            // Cercle prériphérique
                             Circle()
                                 .fill(.ultraThinMaterial)
                                 .blur(radius: 3)
                                 .padding(-25)
                             
+                            // Cercle central
                             Circle()
                                 .fill(.regularMaterial)
                             
+                            // Anneau de décompte
                             Circle()
                                 .trim(from: 0, to: timerVM.progression)
                                 .stroke(CompteurVM.arrierePlan, lineWidth: 10)
                             
+                            // Point de position du temps écoulé
                             GeometryReader { proxy in
                                 let size = proxy.size
                                 
@@ -49,6 +53,7 @@ struct TimerView: View {
                                     .rotationEffect(.init(degrees: timerVM.progression * 360))
                             }
                             
+                            // Affichage du temps
                             Text(timerVM.timerString)
                                 .font(.system(size: 45, weight: .heavy, design: .rounded))
                                 .foregroundColor(CompteurVM.arrierePlan)
@@ -60,6 +65,7 @@ struct TimerView: View {
                         .rotationEffect(.init(degrees: -90))
                         .animation(.easeInOut, value: timerVM.progression)
                         
+                        // Bouton qui affiche la modale et stop la minuterie
                         Button {
                             if timerVM.timerDemarre {
                                 timerVM.stopTimer()
@@ -77,9 +83,10 @@ struct TimerView: View {
                                     Circle()
                                         .fill(CompteurVM.arrierePlan)
                                 )
-                                .shadow(radius: 5)
+                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                         }
                         
+                        Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                     .shadow(radius: 5)
@@ -87,9 +94,11 @@ struct TimerView: View {
             }
             .padding()
             .overlay(content: {
+                /** Contient la modale des paramètres de réglages du temps*/
                 ZStack {
+                    // Couleur d'arrière plan de la modale
                     CompteurVM.arrierePlan
-                        .opacity(timerVM.ajoutTimer ? 0.25 : 0)
+                        .opacity(timerVM.ajoutTimer ? 0.50 : 0)
                         .onTapGesture {
                             timerVM.heures = 0
                             timerVM.minutes = 0
@@ -97,9 +106,10 @@ struct TimerView: View {
                             timerVM.ajoutTimer = false
                         }
                     
+                    // Vue de la modale
                     nouveauTimerView()
                         .frame(maxHeight: .infinity, alignment: .bottom)
-                        .offset(y: timerVM.ajoutTimer ? 0 : 300)
+                        .offset(y: timerVM.ajoutTimer ? 0 : 500)
                 }
             })
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
@@ -120,12 +130,14 @@ struct TimerView: View {
     }
     /* * Vue modale paramètres *************************************************************** */
     
-    // Vue Nouveau Timer
+    // Vue Nouveau Timer (modale)
     func nouveauTimerView() -> some View {
-        VStack(spacing: 15) {
-            Text("Ajouter un timer")
+        VStack(spacing: 25) {
+            // Title
+            Text("Ajouter une minuterie")
                 .font(.title2)
-                .bold()
+                .fontWeight(.bold)
+                .foregroundColor(CompteurVM.arrierePlan)
                 .padding(.top, 10)
             
             // Cellules de réglages
@@ -134,7 +146,7 @@ struct TimerView: View {
                 Text("\(timerVM.heures) hr")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(.black.opacity(0.5))
+                    .foregroundColor(.black.opacity(0.7))
                     .padding(.horizontal, 20.0)
                     .padding(.vertical, 12)
                     .background {
@@ -151,7 +163,7 @@ struct TimerView: View {
                 Text("\(timerVM.minutes) min")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(.black.opacity(0.5))
+                    .foregroundColor(.black.opacity(0.7))
                     .padding(.horizontal, 20.0)
                     .padding(.vertical, 12)
                     .background {
@@ -168,7 +180,7 @@ struct TimerView: View {
                 Text("\(timerVM.secondes) sec")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(.black.opacity(0.5))
+                    .foregroundColor(.black.opacity(0.7))
                     .padding(.horizontal, 20.0)
                     .padding(.vertical, 12)
                     .background {
@@ -186,7 +198,7 @@ struct TimerView: View {
             Button {
                 timerVM.startTimer()
             } label: {
-                Text("sauvegarder")
+                Text("Démarrer")
                     .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -196,9 +208,8 @@ struct TimerView: View {
                         Capsule()
                             .fill(CompteurVM.arrierePlan)
                     }
+                    .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
             }
-            .disabled(timerVM.secondes == 0)
-            .opacity(timerVM.secondes == 0 ? 0.5 : 1)
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -209,6 +220,7 @@ struct TimerView: View {
         }
     }
     
+    // Function pour générée une vue dans les boutons du choix du temps
     @ViewBuilder
     func ContextMenuOptions(valeurMax: Int, ref: String, onClick: @escaping (Int)->()) -> some View {
         ForEach(0...valeurMax, id: \.self) { valeur in

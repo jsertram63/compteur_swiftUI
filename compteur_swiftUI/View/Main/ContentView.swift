@@ -41,7 +41,7 @@ struct ContentView: View {
             TimerView()
                 .tabItem{
                     Image(systemName: "timer")
-                    Text("Timer")
+                    Text("Minuteur")
                 }
             
             // onglet preferences
