@@ -79,7 +79,7 @@ class CompteurViewModel : ObservableObject {
     // Ajout d'un historique
     func ajoutHistorique(compteur: String, categorie: String, pasCompteur: Int, date: String, note: String) {
         let nouvelHistorique = HistoriqueModel(categorie: categorie, compteur: compteur, pasCompteur: pasCompteur, date: date, note: note)
-        historique.append(nouvelHistorique)
+        historique.insert(nouvelHistorique, at: 0)
     }
     
     // Mise à jour historique
