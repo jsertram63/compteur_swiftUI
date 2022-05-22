@@ -18,18 +18,18 @@ struct TimerView: View {
             
             VStack {
                 GeometryReader { proxy in
-                    VStack(spacing: 15) {
+                    VStack(spacing: 25) {
                         /** Minuteur */
                         ZStack {
                             // Cercle prériphérique
                             Circle()
                                 .fill(.ultraThinMaterial)
-                                .blur(radius: 3)
-                                .padding(-30)
+                                .blur(radius: 2)
+                                .padding(-40)
                             
                             // Cercle central
                             Circle()
-                                .fill(.regularMaterial)
+                                .fill(.thinMaterial)
                             
                             // Anneau de décompte
                             Circle()
@@ -41,7 +41,7 @@ struct TimerView: View {
                                 let size = proxy.size
                                 
                                 Circle()
-                                    .fill(.regularMaterial)
+                                    .fill(.white)
                                     .frame(width: 30, height: 30)
                                     .overlay {
                                         Circle()
@@ -75,15 +75,15 @@ struct TimerView: View {
                                 }
                             }
                         } label: {
-                            Image(systemName: !timerVM.timerDemarre ? "play" :  "stop.fill")
+                            Image(systemName: !timerVM.timerDemarre ? "hourglass.badge.plus" :  "stop.fill")
                                 .font(.largeTitle.bold())
                                 .foregroundColor(.white)
                                 .frame(width: 75.0, height: 75.0)
                                 .background(
                                     Circle()
                                         .fill(CompteurVM.arrierePlan)
+                                        .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
                                 )
-                                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
                         }
                         
                         Spacer()
@@ -226,8 +226,9 @@ extension TimerView {
                             .fill(CompteurVM.arrierePlan)
                     }
                     .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
-                    .disabled(timerVM.minutes == 0)
             }
+            .disabled(timerVM.secondes == 0 && timerVM.minutes == 0 && timerVM.heures == 0)
+            .padding(.top)
         }
         .padding()
         .frame(maxWidth: .infinity)
