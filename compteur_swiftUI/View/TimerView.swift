@@ -109,7 +109,7 @@ struct TimerView: View {
                         }
                     
                     // Vue de la modale
-                    nouveauTimerView()
+                    nouveauTimer
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .offset(y: timerVM.ajoutTimer ? 0 : 400)
                 }
@@ -132,10 +132,23 @@ struct TimerView: View {
             }
         }
     }
-    /* * Vue modale paramètres *************************************************************** */
     
-    // Vue Nouveau Timer (modale)
-    func nouveauTimerView() -> some View {
+    // Function pour générée une vue dans les boutons du choix du temps
+    @ViewBuilder
+    func ContextMenuOptions(valeurMax: Int, ref: String, onClick: @escaping (Int)->()) -> some View {
+        ForEach(0...valeurMax, id: \.self) { valeur in
+            Button("\(valeur) \(ref)") {
+                onClick(valeur)
+            }
+        }
+    }
+}
+
+
+/* * Vue modale paramètres *************************************************************** */
+
+extension TimerView {
+    private var nouveauTimer: some View {
         VStack(spacing: 25) {
             // Title
             Text("Ajouter une minuterie")
@@ -222,16 +235,6 @@ struct TimerView: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(.regularMaterial)
                 .ignoresSafeArea()
-        }
-    }
-    
-    // Function pour générée une vue dans les boutons du choix du temps
-    @ViewBuilder
-    func ContextMenuOptions(valeurMax: Int, ref: String, onClick: @escaping (Int)->()) -> some View {
-        ForEach(0...valeurMax, id: \.self) { valeur in
-            Button("\(valeur) \(ref)") {
-                onClick(valeur)
-            }
         }
     }
 }
