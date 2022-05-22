@@ -35,6 +35,7 @@ struct TimerView: View {
                             Circle()
                                 .trim(from: 0, to: timerVM.progression)
                                 .stroke(CompteurVM.arrierePlan, lineWidth: 10)
+                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                             
                             // Point de position du temps écoulé
                             GeometryReader { proxy in
@@ -170,6 +171,7 @@ extension TimerView {
                         Capsule()
                             .fill(.white.opacity(0.5))
                     }
+                // défini la vue Text() en bouton sélecteur avec la fonction ContextMenuOptions décrite plus bas
                     .contextMenu {
                         ContextMenuOptions(valeurMax: 12, ref: "hr") { valeur in
                             timerVM.heures = valeur
@@ -187,6 +189,7 @@ extension TimerView {
                         Capsule()
                             .fill(.white.opacity(0.5))
                     }
+                // défini la vue Text() en bouton sélecteur avec la fonction ContextMenuOptions décrite plus bas
                     .contextMenu {
                         ContextMenuOptions(valeurMax: 60, ref: "min") { valeur in
                             timerVM.minutes = valeur
@@ -204,6 +207,7 @@ extension TimerView {
                         Capsule()
                             .fill(.white.opacity(0.5))
                     }
+                // défini la vue Text() en bouton sélecteur avec la fonction ContextMenuOptions décrite plus bas
                     .contextMenu {
                         ContextMenuOptions(valeurMax: 60, ref: "sec") { valeur in
                             timerVM.secondes = valeur
