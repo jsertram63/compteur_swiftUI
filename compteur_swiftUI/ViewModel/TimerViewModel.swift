@@ -55,6 +55,7 @@ class TimerViewModel: NSObject, ObservableObject {
         if heures == 0 && minutes == 0 && secondes == 0 {
             timerDemarre = false
             timerTermine = true
+            SoundManager.instance.jouerSon(son: "Alarm")
         }
         
         progression = CGFloat(totalSecondes) / CGFloat(TotalSecondesStatiques)

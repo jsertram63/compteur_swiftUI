@@ -25,7 +25,7 @@ struct TimerView: View {
                             Circle()
                                 .fill(.ultraThinMaterial)
                                 .blur(radius: 3)
-                                .padding(-25)
+                                .padding(-30)
                             
                             // Cercle central
                             Circle()
@@ -75,7 +75,7 @@ struct TimerView: View {
                                 }
                             }
                         } label: {
-                            Image(systemName: !timerVM.timerDemarre ? "timer" :  "stop.fill")
+                            Image(systemName: !timerVM.timerDemarre ? "play" :  "stop.fill")
                                 .font(.largeTitle.bold())
                                 .foregroundColor(.white)
                                 .frame(width: 75.0, height: 75.0)
@@ -83,7 +83,7 @@ struct TimerView: View {
                                     Circle()
                                         .fill(CompteurVM.arrierePlan)
                                 )
-                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
                         }
                         
                         Spacer()
@@ -103,13 +103,15 @@ struct TimerView: View {
                             timerVM.heures = 0
                             timerVM.minutes = 0
                             timerVM.secondes = 0
-                            timerVM.ajoutTimer = false
+                            withAnimation {
+                                timerVM.ajoutTimer = false
+                            }
                         }
                     
                     // Vue de la modale
                     nouveauTimerView()
                         .frame(maxHeight: .infinity, alignment: .bottom)
-                        .offset(y: timerVM.ajoutTimer ? 0 : 500)
+                        .offset(y: timerVM.ajoutTimer ? 0 : 400)
                 }
             })
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
@@ -121,9 +123,11 @@ struct TimerView: View {
                 Button("Démarrer un nouveau timer", role: .cancel) {
                     timerVM.stopTimer()
                     timerVM.ajoutTimer = true
+                    SoundManager.instance.arreterSon()
                 }
                 Button("Fermer", role: .destructive) {
                     timerVM.stopTimer()
+                    SoundManager.instance.arreterSon()
                 }
             }
         }
@@ -209,6 +213,7 @@ struct TimerView: View {
                             .fill(CompteurVM.arrierePlan)
                     }
                     .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
+                    .disabled(timerVM.minutes == 0)
             }
         }
         .padding()
