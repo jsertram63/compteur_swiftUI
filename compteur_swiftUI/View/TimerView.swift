@@ -120,7 +120,7 @@ struct TimerView: View {
                     timerVM.updateTimer()
                 }
             }
-            .alert("Timer terminé", isPresented: $timerVM.timerTermine) {
+            .alert("⏳ Minuterie terminée ⌛️", isPresented: $timerVM.timerTermine) {
                 Button("Démarrer un nouveau timer", role: .cancel) {
                     timerVM.stopTimer()
                     timerVM.ajoutTimer = true

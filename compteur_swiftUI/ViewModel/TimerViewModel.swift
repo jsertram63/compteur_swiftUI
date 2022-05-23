@@ -34,11 +34,11 @@ class TimerViewModel: NSObject, ObservableObject {
     func stopTimer() {
         withAnimation {
             timerDemarre = false
-            heures = 0
-            minutes = 0
-            secondes = 0
-            progression = 1
         }
+        heures = 0
+        minutes = 0
+        secondes = 0
+        progression = 1
         totalSecondes = 0
         TotalSecondesStatiques = 0
         timerString = "00:00"
