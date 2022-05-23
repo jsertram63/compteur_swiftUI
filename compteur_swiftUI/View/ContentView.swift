@@ -30,18 +30,18 @@ struct ContentView: View {
                     Text("Compteur")
                 }
             
+            // onglet minuterie
+            TimerView()
+                .tabItem{
+                    Image(systemName: "timer")
+                    Text("Minuteur")
+                }
+            
             // onglet historique
             HistoriqueView()
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Historiques")
-                }
-            
-            // onglet historique
-            TimerView()
-                .tabItem{
-                    Image(systemName: "timer")
-                    Text("Minuteur")
                 }
             
             // onglet preferences

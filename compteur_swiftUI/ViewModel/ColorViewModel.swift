@@ -27,7 +27,7 @@ class ColorData {
     
     func loadColor() -> Color{
         // Get the RGB array
-        guard let array = userDefaults.object(forKey: COLOR_KEY) as? [CGFloat] else { return Color.accentColor }
+        guard let array = userDefaults.object(forKey: COLOR_KEY) as? [CGFloat] else { return Color.cyan }
         
         // Create a color from the RGB array
         let color = Color(.sRGB,

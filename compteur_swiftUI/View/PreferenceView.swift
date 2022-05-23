@@ -12,7 +12,7 @@ struct PreferenceView: View {
     @EnvironmentObject var compteurVM: CompteurViewModel
     
     private var colorData = ColorData()
-    private var themes: [Color] = [.accentColor, .blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .mint, .gray]
+    private var themes: [Color] = [.cyan, .blue, .indigo, .yellow, .orange, .brown, .red, .purple, .green, .mint, .gray]
     
     @State var alerteAjout = false
     @State var alerteSuppression = false

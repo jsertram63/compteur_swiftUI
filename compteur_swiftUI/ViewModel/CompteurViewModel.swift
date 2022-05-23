@@ -101,7 +101,7 @@ class CompteurViewModel : ObservableObject {
     // Propriétés déclarée publiées au travers des vues
     
     // Arrière plan
-    @Published var arrierePlan = Color.accentColor
+    @Published var arrierePlan = Color.cyan
     
     // Picker
     @Published var categoriePicker = ["Posts", "Articles", "Votes", "Tours"]

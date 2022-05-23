@@ -40,7 +40,7 @@ struct listeHistoriqueView: View {
     struct listeHistoriqueView_Previews: PreviewProvider {
         static var previews: some View {
             ZStack {
-                Color.accentColor.ignoresSafeArea()
+                Color.cyan.ignoresSafeArea()
                 listeHistoriqueView(
                     historique:
                         HistoriqueModel(
