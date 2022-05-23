@@ -43,6 +43,7 @@ struct AlertSauvegardeNoteView: View {
                         note: note
                         )
                     note = ""
+                    compteurVM.compteur = 0
                 } label: {
                     Text("Valider")
                         .foregroundColor(.blue)

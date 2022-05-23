@@ -191,7 +191,7 @@ extension TimerView {
                     }
                 // défini la vue Text() en bouton sélecteur avec la fonction ContextMenuOptions décrite plus bas
                     .contextMenu {
-                        ContextMenuOptions(valeurMax: 60, ref: "min") { valeur in
+                        ContextMenuOptions(valeurMax: 59, ref: "min") { valeur in
                             timerVM.minutes = valeur
                         }
                     }
@@ -209,7 +209,7 @@ extension TimerView {
                     }
                 // défini la vue Text() en bouton sélecteur avec la fonction ContextMenuOptions décrite plus bas
                     .contextMenu {
-                        ContextMenuOptions(valeurMax: 60, ref: "sec") { valeur in
+                        ContextMenuOptions(valeurMax: 59, ref: "sec") { valeur in
                             timerVM.secondes = valeur
                         }
                     }
