@@ -18,7 +18,7 @@ struct TimerView: View {
             
             VStack {
                 GeometryReader { proxy in
-                    VStack(spacing: 25) {
+                    VStack {
                         /** Minuteur */
                         ZStack {
                             // Cercle prériphérique
@@ -35,7 +35,6 @@ struct TimerView: View {
                             Circle()
                                 .trim(from: 0, to: timerVM.progression)
                                 .stroke(CompteurVM.arrierePlan, lineWidth: 10)
-                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                             
                             // Point de position du temps écoulé
                             GeometryReader { proxy in
@@ -65,6 +64,8 @@ struct TimerView: View {
                         .frame(height: proxy.size.width)
                         .rotationEffect(.init(degrees: -90))
                         .animation(.easeInOut, value: timerVM.progression)
+                        
+                        Spacer()
                         
                         // Bouton qui affiche la modale et stop la minuterie
                         Button {
@@ -232,6 +233,9 @@ extension TimerView {
                     .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
             }
             .disabled(timerVM.secondes == 0 && timerVM.minutes == 0 && timerVM.heures == 0)
+            .opacity(
+                timerVM.secondes == 0 ? (timerVM.minutes == 0 ? (timerVM.heures == 0 ? 0.5 : 1) : 1) : 1
+            )
             .padding(.top)
         }
         .padding()
