@@ -123,14 +123,16 @@ extension ContentView {
                 .multilineTextAlignment(.center)
                 .padding()
             }
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
+            .padding()
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
             .padding()
             
             // Seconde page
-            VStack {
+            VStack(spacing: 25.0) {
+                // Titre
                 HStack {
                     Text("Le compteur")
                         .font(.title3)
@@ -141,7 +143,8 @@ extension ContentView {
                 
                 Divider().padding(.bottom)
                 
-                VStack(alignment: .center) {
+                // Images
+                VStack() {
                     HStack(alignment: .center) {
                         Image("Compteur")
                             .resizable()
@@ -154,13 +157,25 @@ extension ContentView {
                             .frame(width: 150, height: 125)
                     }
                 }
+                
+                // Commentaires
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 10.0) {
+                        Text("Une lecture claire des données et des fonctionnalités choisies.")
+                        
+                        Text("Les boutons ➕ et ➖ permettant facilement d'incrémenter et décrémenter selon le pas de choix et un bouton de remise à 0 votre compteur.")
+                        
+                        Text("Le comptage terminé, vous pouvez sauvegarder votre résultat en y ajoutant un commentaire.")
+                    }
+                }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
             .background(.regularMaterial)
-            .cornerRadius(25)
+            .cornerRadius(15)
+            .shadow(radius: 5)
         }
         .tabViewStyle(PageTabViewStyle())
-        .background(compteurVM.arrierePlan.ignoresSafeArea())
+        .background(Color.cyan.ignoresSafeArea())
     }
 }
