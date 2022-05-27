@@ -107,17 +107,18 @@ extension ContentView {
     private var accueilView: some View {
         TabView {
             // Première page
-            VStack(spacing: 25.0) {
+            VStack(spacing: 50.0) {
 
                 Image("counter")
+                    .padding(.top)
 
                 ScrollView {
-                    VStack(alignment: .center, spacing: 10.0) {
+                    VStack(alignment: .center, spacing: 15.0) {
                         Text("Bienvenue dans TouComptage.")
                             .font(.title3)
                             .fontWeight(.bold)
 
-                        Text("Découvrir comment utiliser au mieux les différences fonctionnalités de notre application.")
+                        Text("Découvrir comment utiliser au mieux les différentes fonctionnalités de notre application.")
                             .fontWeight(.medium)
 
                         Text("TouComptage va permettre de réaliser des comptages selon vos besoins, la possibilité d'avoir une minuterie et de paramétrer vos préférences selon vos goûts.")
@@ -163,32 +164,34 @@ extension ContentView {
                     Spacer()
                 }
 
-                Divider().padding(.bottom)
+                Divider()
 
                 // Images
-                VStack() {
+                VStack {
                     HStack(alignment: .center) {
                         Image("Compteur")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 150, height: 125)
+                            .frame(width: 155, height: 130)
 
                         Image("Compteur2")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 150, height: 125)
+                            .frame(width: 155, height: 130)
                     }
+                    .padding()
                 }
 
                 // Commentaires
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 10.0) {
+                    VStack(alignment: .leading, spacing: 20.0) {
                         Text("Une lecture claire des données et des fonctionnalités choisies.")
 
                         Text("Les boutons ➕ et ➖ permettant facilement d'incrémenter et décrémenter selon le pas de votre choix et un bouton de remise à 0 de votre compteur.")
 
                         Text("Le comptage terminé, sauvegarder votre résultat en y ajoutant un commentaire qui sera visible dans l'onglet historique.")
                     }
+                    .padding(.top)
                 }
             }
             .padding()
@@ -208,32 +211,34 @@ extension ContentView {
                     Spacer()
                 }
 
-                Divider().padding(.bottom)
+                Divider()
 
                 // Images
-                VStack() {
+                VStack {
                     HStack(alignment: .center, spacing: 50.0) {
                         Image("Minuteur")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 75, height: 150)
+                            .frame(width: 100, height: 175)
 
                         Image("Minuteur2")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 75, height: 150)
+                            .frame(width: 100, height: 175)
                     }
+                    .padding(.top)
                 }
 
                 // Commentaires
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 10.0) {
+                    VStack(alignment: .leading, spacing: 20.0) {
                         Text("Un minuteur minimaliste avec animation de progession du temps.")
 
                         Text("Appuyez sur le bouton +⏳, afin de choisir le temps désiré.")
 
                         Text("Pour sélectionner parmis les heures, minutes et secondes, maintenir enfoncer la cellule souhaitée. Lancer la minuterie avec le bouton démarrer.")
                     }
+                    .padding(.top)
                 }
             }
             .padding()
@@ -253,7 +258,7 @@ extension ContentView {
                     Spacer()
                 }
                 
-                Divider().padding(.bottom)
+                Divider()
                 
                 // Images
                 VStack() {
@@ -261,18 +266,18 @@ extension ContentView {
                         Image("Preferences")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 100, height: 175)
+                            .frame(width: 75, height: 150)
                     }
                 }
                 
                 // Commentaires
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 15.0) {
+                    VStack(alignment: .leading, spacing: 20.0) {
                         Text("Réglages du pas, du thème et de la catégorie.")
                         
                         Text("Choisir un pas d'incrémentation avec les boutons ➕ et ➖. A l'aide de la roulette choisir une catégorie à compter. Il est possible d'en ajouter ou spprimer à votre convenance.")
                         
-                        Text("Appyer sur une couleur dans la liste pour changer le thème.")
+                        Text("Appuyer sur une couleur dans la liste pour changer le thème.")
                         
                         HStack(alignment: .center) {
                             Spacer()
