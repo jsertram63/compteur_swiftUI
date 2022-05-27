@@ -42,7 +42,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-/* ******************************* Extension de View ************************************ */
+/* ******************************* Extension de View ***************************** */
 
 extension View {
     func cacherClavier() {
@@ -50,6 +50,8 @@ extension View {
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
+
+/* ******************************* Extension de ContentView ********************** */
 
 extension ContentView {
     // TabView
@@ -132,6 +134,7 @@ extension ContentView {
                                 Rectangle()
                                     .fill(.cyan.opacity(0.7))
                                     .cornerRadius(10)
+                                    .shadow(radius: 2)
                             }
                             .onTapGesture {
                                 premiereUtilisation = true
@@ -143,7 +146,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -189,7 +192,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -209,16 +212,16 @@ extension ContentView {
 
                 // Images
                 VStack() {
-                    HStack(alignment: .center, spacing: 25.0) {
+                    HStack(alignment: .center, spacing: 50.0) {
                         Image("Minuteur")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 100, height: 175)
+                            .frame(width: 75, height: 150)
 
                         Image("Minuteur2")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 100, height: 175)
+                            .frame(width: 75, height: 150)
                     }
                 }
 
@@ -234,7 +237,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -264,33 +267,39 @@ extension ContentView {
                 
                 // Commentaires
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 10.0) {
+                    VStack(alignment: .leading, spacing: 15.0) {
                         Text("Réglages du pas, du thème et de la catégorie.")
                         
                         Text("Choisir un pas d'incrémentation avec les boutons ➕ et ➖. A l'aide de la roulette choisir une catégorie à compter. Il est possible d'en ajouter ou spprimer à votre convenance.")
                         
                         Text("Appyer sur une couleur dans la liste pour changer le thème.")
                         
+                        HStack(alignment: .center) {
+                            Spacer()
+                            
+                            Text("Entrer")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(/*@START_MENU_TOKEN@*/.all, 8.0/*@END_MENU_TOKEN@*/)
+                                .background {
+                                    Rectangle()
+                                        .fill(.cyan.opacity(0.7))
+                                        .cornerRadius(10)
+                                        .shadow(radius: 2)
+                                }
+                                .onTapGesture {
+                                    premiereUtilisation = true
+                                    print(UserDefaults.standard.bool(forKey: "premiereUtilisation"))
+                                }
+                            
+                            Spacer()
+                        }
                     }
                 }
-                
-                Text("Entrer")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding(/*@START_MENU_TOKEN@*/.all, 8.0/*@END_MENU_TOKEN@*/)
-                    .background {
-                        Rectangle()
-                            .fill(.cyan.opacity(0.7))
-                            .cornerRadius(10)
-                    }
-                    .onTapGesture {
-                        premiereUtilisation = true
-                        print(UserDefaults.standard.bool(forKey: "premiereUtilisation"))
-                    }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.8)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
