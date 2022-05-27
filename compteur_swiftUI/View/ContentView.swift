@@ -146,7 +146,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -192,7 +192,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -237,7 +237,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
@@ -261,7 +261,7 @@ extension ContentView {
                         Image("Preferences")
                             .resizable()
                             .foregroundColor(.cyan)
-                            .frame(width: 125, height: 200)
+                            .frame(width: 100, height: 175)
                     }
                 }
                 
@@ -299,7 +299,7 @@ extension ContentView {
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.6)
+            .frame(width: screenSize.width * 0.9, height: screenSize.height * 0.7)
             .background(.regularMaterial)
             .cornerRadius(15)
             .shadow(radius: 5)
