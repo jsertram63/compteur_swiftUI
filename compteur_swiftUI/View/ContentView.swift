@@ -70,7 +70,7 @@ extension ContentView {
             // onglet minuterie
             HorlogeView()
                 .tabItem{
-                    Image(systemName: "clock")
+                    Image(systemName: "timer")
                     Text("Horloge")
                 }
             
