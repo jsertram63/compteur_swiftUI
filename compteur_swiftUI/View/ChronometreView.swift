@@ -76,28 +76,11 @@ struct ChronometreView: View {
                             }
                         }
                     }
-                    .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.45)
+                    .frame(width: screenSize.width * 0.75, height: screenSize.height * 0.30)
                     .padding(15.0)
                     .background(.thinMaterial)
                     .cornerRadius(10)
                     .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 0)
-//                    List {
-//                        Section(
-//                            header:
-//                                Text("Tours")
-//                                .font(.title3)
-//                                .foregroundColor(.black)
-//                                .fontWeight(.bold)
-//                                .padding(.leading, 10.0)
-//
-//                        ) {
-//                            ForEach(self.ChronometreVM.laps, id: \.uuid) { (TourItem) in
-//                                Text("\(TourItem.stringTime)")
-//                                    .padding(.leading, 10.0)
-//                            }
-//                        }
-//                    }
-//                    .listStyle(PlainListStyle())
                 }
             }
         }
