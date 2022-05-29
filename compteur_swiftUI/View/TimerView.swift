@@ -112,8 +112,8 @@ struct TimerView: View {
                     
                     // Vue de la modale
                     nouveauTimer
-                        .frame(maxHeight: .infinity, alignment: .bottom)
-                        .offset(y: timerVM.ajoutTimer ? 0 : 400)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .offset(y: timerVM.ajoutTimer ? 0 : -500)
                 }
             })
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in

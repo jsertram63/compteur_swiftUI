@@ -15,6 +15,7 @@ struct compteur_swiftUIApp: App {
             ContentView()
                 .environmentObject(CompteurViewModel())
                 .environmentObject(TimerViewModel())
+                .environmentObject(ChronometreViewModel())
                 .environmentObject(PickerViewModel())
         }
     }

@@ -18,6 +18,10 @@
 		3766285D27E1E75B0095FBFD /* CompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285C27E1E75B0095FBFD /* CompteurView.swift */; };
 		3766285F27E1E9F80095FBFD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766285E27E1E9F80095FBFD /* PreferenceView.swift */; };
 		3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3766286027E1EC270095FBFD /* HistoriqueView.swift */; };
+		376C6CF32843C3D800F012D3 /* TourItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6CF22843C3D800F012D3 /* TourItem.swift */; };
+		376C6CF52843C42E00F012D3 /* ChronometreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6CF42843C42E00F012D3 /* ChronometreViewModel.swift */; };
+		376C6CF72843C4E600F012D3 /* ChronometreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6CF62843C4E600F012D3 /* ChronometreView.swift */; };
+		376C6CF92843C7C500F012D3 /* HorlogeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6CF82843C7C500F012D3 /* HorlogeView.swift */; };
 		376D634C2835212B00B3B99C /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D634B2835212B00B3B99C /* ColorViewModel.swift */; };
 		376F46F72805C3B900D2036F /* AlertResetCompteurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */; };
 		378D8BFD282A986100D84780 /* Click1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378D8BFC282A986100D84780 /* Click1.mp3 */; };
@@ -46,6 +50,10 @@
 		3766285C27E1E75B0095FBFD /* CompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompteurView.swift; sourceTree = "<group>"; };
 		3766285E27E1E9F80095FBFD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		3766286027E1EC270095FBFD /* HistoriqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueView.swift; sourceTree = "<group>"; };
+		376C6CF22843C3D800F012D3 /* TourItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourItem.swift; sourceTree = "<group>"; };
+		376C6CF42843C42E00F012D3 /* ChronometreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometreViewModel.swift; sourceTree = "<group>"; };
+		376C6CF62843C4E600F012D3 /* ChronometreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometreView.swift; sourceTree = "<group>"; };
+		376C6CF82843C7C500F012D3 /* HorlogeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorlogeView.swift; sourceTree = "<group>"; };
 		376D634B2835212B00B3B99C /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 		376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResetCompteurView.swift; sourceTree = "<group>"; };
 		378D8BFC282A986100D84780 /* Click1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click1.mp3; sourceTree = "<group>"; };
@@ -97,6 +105,8 @@
 				376F46F62805C3B900D2036F /* AlertResetCompteurView.swift */,
 				37E58CD72822A9E00032FBB7 /* listeHistoriqueView.swift */,
 				37991D2C282AA6C000601DC9 /* AlertSauvegardeNoteView.swift */,
+				376C6CF62843C4E600F012D3 /* ChronometreView.swift */,
+				376C6CF82843C7C500F012D3 /* HorlogeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +119,7 @@
 				3765766728312F4F001EC92F /* PickerViewModel.swift */,
 				376D634B2835212B00B3B99C /* ColorViewModel.swift */,
 				37382DC52838E87F000B88FE /* TimerViewModel.swift */,
+				376C6CF42843C42E00F012D3 /* ChronometreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 			children = (
 				379B75132819904E0025EA31 /* historiqueModel.swift */,
 				3765766528312DD8001EC92F /* PickerModel.swift */,
+				376C6CF22843C3D800F012D3 /* TourItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +268,8 @@
 				89BFD76127D67D1700359EA0 /* compteur_swiftUIApp.swift in Sources */,
 				379B75142819904E0025EA31 /* historiqueModel.swift in Sources */,
 				376D634C2835212B00B3B99C /* ColorViewModel.swift in Sources */,
+				376C6CF52843C42E00F012D3 /* ChronometreViewModel.swift in Sources */,
+				376C6CF92843C7C500F012D3 /* HorlogeView.swift in Sources */,
 				37382DCA2838E8E2000B88FE /* TimerView.swift in Sources */,
 				37382DC62838E87F000B88FE /* TimerViewModel.swift in Sources */,
 				37E58CD82822A9E00032FBB7 /* listeHistoriqueView.swift in Sources */,
@@ -264,7 +278,9 @@
 				37991D2D282AA6C000601DC9 /* AlertSauvegardeNoteView.swift in Sources */,
 				89F4741A27E907BA00F15410 /* CompteurViewModel.swift in Sources */,
 				3765766628312DD8001EC92F /* PickerModel.swift in Sources */,
+				376C6CF32843C3D800F012D3 /* TourItem.swift in Sources */,
 				3766286127E1EC270095FBFD /* HistoriqueView.swift in Sources */,
+				376C6CF72843C4E600F012D3 /* ChronometreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

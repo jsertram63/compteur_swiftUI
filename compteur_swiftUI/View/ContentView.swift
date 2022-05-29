@@ -38,6 +38,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(CompteurViewModel())
             .environmentObject(TimerViewModel())
+            .environmentObject(ChronometreViewModel())
             .environmentObject(PickerViewModel())
     }
 }
@@ -67,10 +68,10 @@ extension ContentView {
                 }
             
             // onglet minuterie
-            TimerView()
+            HorlogeView()
                 .tabItem{
-                    Image(systemName: "timer")
-                    Text("Minuteur")
+                    Image(systemName: "clock")
+                    Text("Horloge")
                 }
             
             // onglet historique
